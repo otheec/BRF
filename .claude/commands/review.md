@@ -3,8 +3,9 @@
 Review changes with focus on:
 - Slice boundaries (no cross-feature coupling)
 - Contract stability and versioning
-- Error format consistency
-- Data access correctness/performance
+- Error format consistency (`docs/architecture/error-handling.md`)
+- Data access correctness/performance (`docs/architecture/data-access.md`)
+- EF entities not leaking into API contracts
 - Logging/security (no secrets/PII)
-- Test coverage and correctness
+- FastEndpoints conventions (Send.* API, CancellationToken)
 Return actionable findings.

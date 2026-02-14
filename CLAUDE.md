@@ -1,40 +1,63 @@
 # Repository instructions (Claude)
 
+## About this project
+**Brewfolio (BRF)** is a beer-focused CRM for managing beers, breweries, and venues (pubs, restaurants, bars).
+The goal is to track draft beers, beer styles, brewery information, and the places that serve them.
+
 ## Stack
 - .NET 10
 - FastEndpoints
+- EF Core with SQL Server
 - Vertical Slice Architecture (VSA)
 
 ## Non-negotiables
 - Follow the existing repo conventions first. Do not introduce new architectural patterns unless asked.
 - Keep changes minimal and scoped to the request.
 - Do not change routes/auth/contracts silently—call changes out explicitly.
-- Do not disable analyzers/tests, do not reduce code quality gates.
+- Do not disable analyzers, do not reduce code quality gates.
+- Always look at the reference feature (`src/BRF.Api/Features/Beers/GetAllBeers/`) before creating a new feature.
 
 ## Feature organization (Vertical Slices)
 Features are grouped by **Group** (business area) and then **Feature** name.
 
+### Feature groups
+| Group | Description |
+|-------|-------------|
+| Beers | Beer catalogue — CRUD, styles, attributes |
+| Breweries | Brewery profiles, locations, contacts |
+| Venues | Pubs, restaurants, bars — places that serve beers |
+
 Path pattern:
-- src/MyApp.API/Features/<Group>/<Feature>/
+- `src/BRF.Api/Features/<Group>/<Feature>/`
 
 Each feature folder contains (at minimum):
-- Endpoint.cs
-- Request.cs
-- Response.cs
+- `<FeatureName>Endpoint.cs`
+- `<FeatureName>Request.cs`
+- `<FeatureName>Response.cs`
 
 Optional (only if needed):
-- Validator.cs (FastEndpoints validator or FluentValidation as used in repo)
-- Mapper.cs
-- Models.cs (only feature-local models)
-- README.md (for complex behavior)
+- `<FeatureName>Validator.cs` (FastEndpoints validator or FluentValidation as used in repo)
+- `<FeatureName>Mapper.cs`
+- `Models.cs` (only feature-local models)
+- `README.md` (for complex behavior)
 - Anything else must be justified in the PR.
 
+### Naming convention
+Files are prefixed with the feature name in PascalCase:
+```
+src/BRF.Api/Features/Beers/GetAllBeers/
+├── GetAllBeersEndpoint.cs
+├── GetAllBeersRequest.cs
+└── GetAllBeersResponse.cs
+```
+
 ### Hard boundary rule
-A feature must NOT depend on another feature’s Request/Response/Endpoint types.
-No “calling” other features. Share only via stable shared services/contracts.
+A feature must NOT depend on another feature's Request/Response/Endpoint types.
+No "calling" other features. Share only via stable shared services/contracts.
 
 ## Endpoint style (FastEndpoints)
 - Endpoints must be thin: validation → call service/data access → map → return.
+- Use primary constructors for dependency injection.
 - Use explicit status codes.
 - Use CancellationToken for I/O and pass it through.
 - Do not leak persistence entities into API contracts.
@@ -44,16 +67,19 @@ No “calling” other features. Share only via stable shared services/contracts
 - Breaking contract changes require:
   - explicit mention in PR description
   - either a versioned endpoint OR a new route (follow repo pattern)
-- Stable shared contracts (e.g., events) may live in `src/MyApp.Contracts/` (if present).
+- Stable shared contracts (e.g., events) may live in `src/BRF.Contracts/` (if present).
 
 ## Error handling (standard)
-Use the repo’s standard error shape. If none exists yet, follow `docs/architecture/error-handling.md`.
+Use the repo's standard error shape. If none exists yet, follow `docs/architecture/error-handling.md`.
 Do not invent multiple error formats.
 
 ## Data access
-Follow the established data access pattern in this repository.
-If unknown, inspect nearby features and replicate.
-See `docs/architecture/data-access.md` for guidance.
+- ORM: Entity Framework Core with SQL Server (`Microsoft.EntityFrameworkCore.SqlServer`).
+- DbContext: `src/BRF.Api/Data/BrfDbContext.cs`.
+- Entities: `src/BRF.Api/Data/Entities/`.
+- Migrations: EF Core migrations (`dotnet ef migrations add <Name>`, `dotnet ef database update`).
+- Never leak EF entities into API contracts — always map to Request/Response DTOs.
+- See `docs/architecture/data-access.md` for full guidance.
 
 ## Logging and security
 - Structured logging via ILogger.
@@ -64,15 +90,13 @@ See `docs/architecture/data-access.md` for guidance.
 ## Quality gates
 - Nullable enabled; do not add warnings.
 - Prefer async for I/O.
-- Tests must pass (`dotnet test`).
 - Keep consistent formatting; do not reformat unrelated code.
 
 ## Workflow for implementing tasks
 1) Produce a short plan (steps + files).
 2) Implement changes.
-3) Add/adjust tests.
-4) Summarize what changed and how to verify locally.
+3) Summarize what changed and how to verify locally.
 
 ## Useful commands
 - Build: `dotnet build`
-- Test: `dotnet test`
+- Run: `dotnet run --project src/BRF.Api`
