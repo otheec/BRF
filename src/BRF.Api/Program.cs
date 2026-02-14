@@ -16,6 +16,13 @@ builder.Services.AddDbContext<BrfDbContext>(options =>
 
 var app = builder.Build();
 
+// Auto-apply pending EF Core migrations on startup
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<BrfDbContext>();
+    await db.Database.MigrateAsync();
+}
+
 app.UseHttpsRedirection();
 app.UseFastEndpoints();
 app.UseSwaggerGen();

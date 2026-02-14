@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BRF.Api.Features.Beers.GetAllBeers;
 
-public class GetAllBeersEndpoint(BrfDbContext db) : Endpoint<GetAllBeersRequest, List<GetAllBeersResponse>>
+public class GetAllBeersEndpoint(BrfDbContext db) : EndpointWithoutRequest<List<GetAllBeersResponse>>
 {
     public override void Configure()
     {
@@ -12,7 +12,7 @@ public class GetAllBeersEndpoint(BrfDbContext db) : Endpoint<GetAllBeersRequest,
         AllowAnonymous();
     }
 
-    public override async Task HandleAsync(GetAllBeersRequest req, CancellationToken ct)
+    public override async Task HandleAsync(CancellationToken ct)
     {
         var beers = await db.Beers
             .AsNoTracking()
