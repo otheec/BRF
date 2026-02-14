@@ -32,8 +32,8 @@ Path pattern:
 
 Each feature folder contains (at minimum):
 - `<FeatureName>Endpoint.cs`
-- `<FeatureName>Request.cs`
-- `<FeatureName>Response.cs`
+- `<FeatureName>Request.cs` — only when the endpoint accepts input parameters
+- `<FeatureName>Response.cs` — only when the endpoint returns a body
 
 Optional (only if needed):
 - `<FeatureName>Validator.cs` (FastEndpoints validator or FluentValidation as used in repo)
@@ -46,9 +46,14 @@ Optional (only if needed):
 Files are prefixed with the feature name in PascalCase:
 ```
 src/BRF.Api/Features/Beers/GetAllBeers/
-├── GetAllBeersEndpoint.cs
-├── GetAllBeersRequest.cs
+├── GetAllBeersEndpoint.cs          ← uses EndpointWithoutRequest<TResponse>
 └── GetAllBeersResponse.cs
+
+src/BRF.Api/Features/Breweries/CreateBrewery/
+├── CreateBreweryEndpoint.cs        ← uses Endpoint<TRequest, TResponse>
+├── CreateBreweryRequest.cs
+├── CreateBreweryResponse.cs
+└── CreateBreweryValidator.cs
 ```
 
 ### Hard boundary rule
@@ -61,6 +66,7 @@ No "calling" other features. Share only via stable shared services/contracts.
 - Use explicit status codes.
 - Use CancellationToken for I/O and pass it through.
 - Do not leak persistence entities into API contracts.
+- Endpoints without any request parameters must use `EndpointWithoutRequest<TResponse>` — do **not** create an empty Request DTO (breaks Swagger/NSwag).
 
 ## Contracts and versioning
 - Request/Response are part of the public API contract.

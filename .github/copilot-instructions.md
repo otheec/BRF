@@ -10,7 +10,7 @@ Beer-focused CRM: manage beers, breweries, and venues (pubs, restaurants, bars).
 ```
 src/BRF.Api/Features/<Group>/<Feature>/
 ├── <FeatureName>Endpoint.cs
-├── <FeatureName>Request.cs
+├── <FeatureName>Request.cs   ← only when the endpoint accepts input
 └── <FeatureName>Response.cs
 ```
 Groups: Beers, Breweries, Venues.
@@ -26,6 +26,7 @@ See `src/BRF.Api/Features/Beers/GetAllBeers/` for the pattern to follow.
 - Use the standard error shapes from `docs/architecture/error-handling.md`.
 - No cross-feature coupling (don't reference another feature's types).
 - Nullable enabled, no warnings.
+- Endpoints without any request parameters must use `EndpointWithoutRequest<TResponse>` (no Request DTO). Never create an empty Request class — Swagger will break.
 
 ## Data access
 - DbContext: `src/BRF.Api/Data/BrfDbContext.cs`
