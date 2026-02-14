@@ -1,6 +1,6 @@
 # /tests
 
-Add/adjust tests consistent with this repository.
+Note: No test project exists yet. When a test project is added:
 
 1) Identify behavior (happy path + key edge cases)
 2) Pick test type (unit/integration) matching repo style
