@@ -1,14 +1,14 @@
 namespace BRF.Api.Data.Entities;
 
-public class Beer
+public class Brewery
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
-    public string? Style { get; set; }
-    public decimal? Abv { get; set; }
+    public string? Country { get; set; }
+    public string? City { get; set; }
+    public string? Website { get; set; }
     public string? Description { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-    public int? BreweryId { get; set; }
-    public Brewery? Brewery { get; set; }
+    public ICollection<Beer> Beers { get; set; } = [];
 }
