@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBeerById, getBreweryForBeer, beers, venues } from "@/lib/mock-data";
+import Footer from "@/components/Footer";
 
 export function generateStaticParams() {
   return beers.map((b) => ({ id: b.id }));

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getVenueById, venues } from "@/lib/mock-data";
+import Footer from "@/components/Footer";
 
 export function generateStaticParams() {
   return venues.map((v) => ({ id: v.id }));

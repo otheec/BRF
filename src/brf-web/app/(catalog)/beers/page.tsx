@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { beers, breweries } from "@/lib/mock-data";
+import Footer from "@/components/Footer";
 
 const styleFilters = ["All", "IPA", "Stout", "Lager", "Sour", "Wheat", "Pilsner"];
 
@@ -116,18 +117,7 @@ export default function BeersPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-stone-100 border-t border-stone-200 py-8 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="text-orange-600 font-black italic text-xl tracking-tighter">Brewfolio</span>
-          <span className="text-stone-500 text-sm">© 2024 Brewfolio. All rights reserved.</span>
-          <div className="flex items-center gap-6 text-stone-500 text-sm">
-            <a href="#" className="hover:text-stone-700 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-stone-700 transition-colors">Terms</a>
-            <a href="#" className="hover:text-stone-700 transition-colors">Contact</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

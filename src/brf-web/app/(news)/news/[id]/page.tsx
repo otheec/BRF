@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getArticleById, articles } from "@/lib/mock-data";
+import Footer from "@/components/Footer";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ id: a.id }));
