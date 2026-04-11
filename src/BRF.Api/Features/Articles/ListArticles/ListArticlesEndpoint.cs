@@ -27,17 +27,22 @@ public class ListArticlesEndpoint : Endpoint<ListArticlesRequest, ListArticlesRe
             .OrderByDescending(a => a.PublishedAt)
             .Skip(skip)
             .Take(take)
-            .Select(a => new { a.Id, a.Title, a.AuthorId, a.Tag, a.Content, a.PublishedAt })
+            .Select(a => new { a.Id, a.Title, a.Tag, a.Content, a.PublishedAt })
             .ToListAsync(ct);
 
-        var items = raw.Select(a => new ArticleListItem
+        var items = raw.Select(a =>
         {
-            Id = a.Id,
-            Title = a.Title,
-            Author = a.AuthorId,
-            Tag = a.Tag,
-            Excerpt = a.Content.Length > 160 ? a.Content[..160] : a.Content,
-            PublishedAt = a.PublishedAt,
+            var words = a.Content.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
+            var minutes = Math.Max(1, (int)Math.Round(words / 200.0));
+            return new ArticleListItem
+            {
+                Id = a.Id,
+                Title = a.Title,
+                Tag = a.Tag,
+                Excerpt = a.Content.Length > 160 ? a.Content[..160] : a.Content,
+                ReadTime = $"{minutes} min read",
+                PublishedAt = a.PublishedAt,
+            };
         }).ToList();
 
         await SendOkAsync(new ListArticlesResponse { Items = items, Total = total }, ct);

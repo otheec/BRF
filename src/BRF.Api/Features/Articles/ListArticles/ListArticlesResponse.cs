@@ -10,8 +10,8 @@ public class ArticleListItem
 {
     public Guid Id { get; set; }
     public string Title { get; set; } = string.Empty;
-    public string Author { get; set; } = string.Empty;
     public string Tag { get; set; } = string.Empty;
     public string Excerpt { get; set; } = string.Empty;
+    public string ReadTime { get; set; } = string.Empty;
     public DateTime PublishedAt { get; set; }
 }
