@@ -1,0 +1,6 @@
+@BRF.Api_HostAddress = http://localhost:5277
+
+GET {{BRF.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
