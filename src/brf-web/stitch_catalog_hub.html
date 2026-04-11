@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Art of the Hop Harvest | Brewfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {},
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Public Sans"],
+                        "label": ["Public Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased selection:bg-orange-100 selection:text-orange-900">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 shadow-sm">
+<div class="flex justify-between items-center h-16 px-6 max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tight text-orange-600 dark:text-orange-500 cursor-pointer active:opacity-70">Brewfolio</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-sans text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-orange-500 transition-colors duration-200 cursor-pointer active:opacity-70" href="#">Catalog</a>
+<a class="font-sans text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-orange-500 transition-colors duration-200 cursor-pointer active:opacity-70" href="#">My Log</a>
+<a class="font-sans text-sm font-medium text-orange-600 dark:text-orange-500 border-b-2 border-orange-600 pb-1 cursor-pointer active:opacity-70" href="#">News</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center bg-gray-50 dark:bg-gray-800 rounded-full px-3 py-1.5">
+<span class="material-symbols-outlined text-gray-400 text-lg">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 lg:w-48" placeholder="Search brews..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400 hover:text-orange-600 transition-colors duration-200 cursor-pointer active:opacity-70" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400 hover:text-orange-600 transition-colors duration-200 cursor-pointer active:opacity-70" data-icon="person">person</span>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section -->
+<header class="relative w-full h-[614px] min-h-[400px] flex items-end">
+<img alt="Hop vines" class="absolute inset-0 w-full h-full object-cover" data-alt="Lush green hop vines climbing tall trellises in a sun-drenched field during the peak of harvest season with golden afternoon light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjipW3aybNi9uK_TAIYPJ5QaRthgjHht38BmxHarenK6-jCwzhgNe-C6Te6ckkGNLl2I31Rkfv8c-VZ0neCy5rapQNpTiAW8Stlqw1FXwN27SMUzzLeLoArqOGTOD69ubXaybYBViLS4jNahYsnLY2GGUfSHZYno2Sbz-0tJEpUFLFkW2TTBYcoOWwsciD4zK01nDxVdZ4zFXFomWQd1Ltnrff7vkYI_0wmzkJZKRlqfK9yygsk7hAykyZpSWmYLcPIJ4ZioYiLCI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="relative max-w-4xl mx-auto px-6 pb-12 w-full">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-orange-600 text-white text-[10px] uppercase tracking-widest font-bold px-2 py-1 rounded">Feature Article</span>
+<span class="text-white/80 text-sm font-medium">5 min read</span>
+</div>
+<h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
+                    The Art of the Hop Harvest: From Vine to Vessel
+                </h1>
+<div class="flex items-center gap-4">
+<img alt="Author" class="w-12 h-12 rounded-full border-2 border-white/20" data-alt="Close-up professional portrait of a smiling middle-aged male brewmaster with a neat beard in a modern brewery setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIM28QpM5nu86SlyrhDXcmbPoNTyEUPnWLzlW24jYmUmuNTM2ab3Tlpp1MGxDe5EbNO6D8gcv64DfXZB1qnku6PlgyJY6jjDCYavmgoo1tlNvfUuCFPIFqrSDcjiz9fJzDIsanUhQuozYXlPx1yDKiuzVvrlB1rb62ZZmO4x_Euh3keknOgSoPcj1NkONqRwCYiGMiW-Cl2xy7cz4Awecpq96gdN4Fg8Qw5BSnU9EfuN2m8NSoVeaVVW8qjHdbz3gnPY7UqY50_dM"/>
+<div class="text-white">
+<p class="font-bold text-sm">Marcus Thorne</p>
+<p class="text-xs text-white/70">Lead Cicerone • October 24, 2024</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Article Content -->
+<article class="max-w-4xl mx-auto px-6 py-16">
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Sidebar Socials (Desktop) -->
+<aside class="hidden lg:flex flex-col gap-6 sticky top-24 h-fit">
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-orange-600 hover:border-orange-600 transition-all">
+<span class="material-symbols-outlined text-lg">share</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-orange-600 hover:border-orange-600 transition-all">
+<span class="material-symbols-outlined text-lg">bookmark</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-orange-600 hover:border-orange-600 transition-all">
+<span class="material-symbols-outlined text-lg">thumb_up</span>
+</button>
+</aside>
+<div class="flex-1">
+<div class="prose prose-lg prose-orange max-w-none">
+<p class="text-xl text-gray-600 leading-relaxed font-light mb-8 italic border-l-4 border-orange-500 pl-6">
+                            Every autumn, the air in the Yakima Valley turns heavy with the scent of pine, citrus, and earth. It’s the annual ritual that defines the soul of every craft beer.
+                        </p>
+<h2 class="text-2xl font-black text-gray-900 mb-4 mt-8">The Critical Window</h2>
+<p class="mb-6 leading-relaxed text-gray-700">
+                            Timing isn't just everything; it's the only thing. The window for harvesting the perfect hop is fleeting. Too early, and the essential oils haven't fully matured, leading to a "grassy" flavor profile that can ruin a delicate Pilsner. Too late, and the lupulin glands oxidize, resulting in a cheesy, unpleasant aroma that no amount of dry-hopping can fix.
+                        </p>
+<div class="my-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+<figure>
+<img alt="Fresh hops" class="rounded-xl w-full h-64 object-cover" data-alt="Handful of vibrant green, fresh whole-cone hops held in cupped hands, showing the bright yellow lupulin powder inside." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgJbxzi56YwAoimbQGZtpdgsqMrbbFYjw7ejKMJLZosMYVIVpncmot5ufqvVdFbUO5XnwZD_foDOGiNSiQAn1grQDyUDQJSSkMCpJIDDIyxhAFUQAtUvt447X07w0oUD-CUElOfs1zPqk-rGikw-CKa-nzVM7fhLMPwRoQovIl8f1Qzdh3aNxKwFjNYyWA1M8R90MuxdxvjhNL2-xaGmxDg9VJrVxxgUIFOLGmeoLOMRnsKoWEiuF2b2F1zzmPJBCDjIxJIU5-xkM"/>
+<figcaption class="text-xs text-gray-400 mt-2 text-center">Peak maturity lupulin glands.</figcaption>
+</figure>
+<figure>
+<img alt="Processing" class="rounded-xl w-full h-64 object-cover" data-alt="Industrial machinery in a hop processing facility where fresh hops are being sorted on a conveyor belt." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5Ay2_wB3zodaXqKS4li2SZ4yk3GlI9y56ZZheTFBGQivEsPJBkXFRxNcE4DPmSH610XMHm4e8DZv_bhAOrXEMBzd66J_cdFP_a5hAW7ovVhhrcBOE9JEeCCJJgjHsypYiQAtfiCO7S96HHfHJ2pcLaYM-Pc91sgqBCb90xWDHAevB_myM0XBWGht4p0OFkjjnbLF0MbwE6MEZ3nh3yKWoGhST_bCZLimmLmepP4dMOwZr4WDgUM2KNwqFLtI6_3IgjFpfn9k0zYI"/>
+<figcaption class="text-xs text-gray-400 mt-2 text-center">Processing the day's yield.</figcaption>
+</figure>
+</div>
+<h2 class="text-2xl font-black text-gray-900 mb-4 mt-8">Tradition Meets Technology</h2>
+<p class="mb-6 leading-relaxed text-gray-700">
+                            Modern harvesting utilizes sophisticated kilns and balers, yet the tactile experience remains unchanged. Brewmasters still rub the cones between their palms, releasing the sticky yellow dust—lupulin—to inhale the aromatic potential of the crop.
+                        </p>
+<blockquote class="bg-orange-50 rounded-2xl p-8 my-10 border-none">
+<p class="text-2xl font-bold text-orange-900 leading-tight">
+                                "The hop harvest is the New Year's Eve of the brewing world. It marks the end of a cycle and the beginning of a billion potential flavors."
+                            </p>
+<cite class="text-orange-700 font-medium block mt-4 not-italic">— Sarah Jenkins, Master Brewer</cite>
+</blockquote>
+<h3 class="text-xl font-bold text-gray-900 mb-3">What This Means for the Glass</h3>
+<p class="mb-6 leading-relaxed text-gray-700">
+                            Fresh-hop or "wet-hop" ales are the ultimate celebration of this season. Unlike traditional beers that use dried pellets, these brews use hops harvested and added to the kettle within 24 hours. The result is a vibrant, floral, and intensely "green" flavor that is impossible to replicate at any other time of year.
+                        </p>
+</div>
+<!-- Article Tags & Share Mobile -->
+<div class="mt-12 pt-8 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4">
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600">Harvest</span>
+<span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600">Brewing Basics</span>
+<span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600">Ingredients</span>
+</div>
+<div class="flex lg:hidden items-center gap-3">
+<span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Share</span>
+<button class="text-gray-400 hover:text-orange-600 transition-colors"><span class="material-symbols-outlined">share</span></button>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Related Articles -->
+<section class="bg-gray-50 py-20">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex items-center justify-between mb-12">
+<h2 class="text-3xl font-black tracking-tight text-gray-900">Keep Reading</h2>
+<a class="text-orange-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                        View All News <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Related Card 1 -->
+<div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="h-48 overflow-hidden">
+<img alt="Glass of beer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A cold glass of hazy IPA with a thick white head sitting on a rustic wooden table in a dimly lit taproom." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkr2nm0Zh8AgtVUlKSjTEbsqi_XUOia9ZZkUGInrT_E0hB9tiI0V9FlT6yOsUHi4PAxe8GY3HqtFeTBYLg1o4MYjpJD_5UAxbCo2j77Tymwkz3AXKhw6kZ3vmp1td3rWWyfHC_yYUzKuiMkEKheYPtRJz0SLxXvsQ_aqlF_7jWwVaVcprYRZ6SboMArBeuIYL3JCbbUWrS_xUqXpUDLKOS-AsHweNyYy6t6A_07IS_eczHMWF-AiJW57UrYVkoodxvzHHjYSHriEc"/>
+</div>
+<div class="p-6">
+<span class="text-[10px] font-bold text-orange-600 uppercase tracking-widest mb-2 block">Technique</span>
+<h3 class="text-lg font-bold mb-3 group-hover:text-orange-600 transition-colors line-clamp-2">The Science of Carbonation: Why Bubbles Matter</h3>
+<p class="text-gray-500 text-sm line-clamp-2 mb-4">Explore the chemistry behind the fizz and how it impacts your palate.</p>
+<div class="flex items-center justify-between text-[11px] text-gray-400 font-bold uppercase tracking-tighter">
+<span>3 min read</span>
+<span>Oct 20, 2024</span>
+</div>
+</div>
+</div>
+<!-- Related Card 2 -->
+<div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="h-48 overflow-hidden">
+<img alt="Barrels" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Rows of oak barrels stacked in a cool, dark cellar used for aging sour beers and stouts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARTxp-5PKvex6ZHQT-bzEyKXGJoC-0jLIq7kmW96FmuCyEAkkwwKg_5hNt7YyBAbKJyGjRxWPHrUgjY3iC21_7g_lDGbmp-bO0nP7itg1pBtWtKOI8-JVIFNRXSamUHuX1m3DNnDmVDbSMhyVPmKhjGh1vPe7B0Cx8lxdvVMAnJQZbq71-3hbYJpcUcaRvQxTNVBXHvlodZUJrnt_nBUiHssL5cwhdWMbN9N0z0OJNS1BT-CZYx9sb9w-jDATkpf91T7KsaO1kz18"/>
+</div>
+<div class="p-6">
+<span class="text-[10px] font-bold text-orange-600 uppercase tracking-widest mb-2 block">Community</span>
+<h3 class="text-lg font-bold mb-3 group-hover:text-orange-600 transition-colors line-clamp-2">Barrel Aging: A Test of Ultimate Patience</h3>
+<p class="text-gray-500 text-sm line-clamp-2 mb-4">How wood and time transform a standard brew into a complex masterpiece.</p>
+<div class="flex items-center justify-between text-[11px] text-gray-400 font-bold uppercase tracking-tighter">
+<span>8 min read</span>
+<span>Oct 18, 2024</span>
+</div>
+</div>
+</div>
+<!-- Related Card 3 -->
+<div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="h-48 overflow-hidden">
+<img alt="Glassware" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Diverse collection of beer glassware including tulips, snifters, and pint glasses arranged neatly on a shelf." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr6_xezN2BVGeDqDzveoCVPZXQFxol8nCrUxd67xXooqkNFQGAQs4cyY08bk-2EXSe5mFNmkthfm-qHJoIrMrQMbOp_46G7UReek7JL6bCbEaIBCUw8Nfz3vVxWB0qdRrVpP-mrUYys0ymu28V2DyhlSxJA656xWINCWGt4vOLmsZ_arzlQkU7JBbs-WFj_bnwiHqkPmvDRjVJ5BH0DTHLfEEMJGp30LTQ0ndsewuyIJKUTtsGHg2J0qE3FWEy4k536L08snHn8TM"/>
+</div>
+<div class="p-6">
+<span class="text-[10px] font-bold text-orange-600 uppercase tracking-widest mb-2 block">Lifestyle</span>
+<h3 class="text-lg font-bold mb-3 group-hover:text-orange-600 transition-colors line-clamp-2">Choosing the Right Glass for Every Style</h3>
+<p class="text-gray-500 text-sm line-clamp-2 mb-4">Does shape really matter? We put common glassware to the sensory test.</p>
+<div class="flex items-center justify-between text-[11px] text-gray-400 font-bold uppercase tracking-tighter">
+<span>4 min read</span>
+<span>Oct 15, 2024</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 mt-auto bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
+<div class="flex flex-col md:flex-row justify-between items-center px-6 max-w-7xl mx-auto space-y-4 md:space-y-0">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-lg font-bold text-gray-900 dark:white">Brewfolio</span>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">© 2024 Brewfolio Craft Community</p>
+</div>
+<div class="flex gap-8">
+<a class="text-xs text-gray-500 dark:text-gray-400 hover:text-orange-500 hover:underline transition-all" href="#">Privacy</a>
+<a class="text-xs text-gray-500 dark:text-gray-400 hover:text-orange-500 hover:underline transition-all" href="#">Terms</a>
+<a class="text-xs text-gray-500 dark:text-gray-400 hover:text-orange-500 hover:underline transition-all" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-gray-400 hover:text-orange-600 cursor-pointer">public</span>
+<span class="material-symbols-outlined text-gray-400 hover:text-orange-600 cursor-pointer">rss_feed</span>
+</div>
+</div>
+</footer>
+</body></html>

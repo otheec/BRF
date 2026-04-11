@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brewfolio Catalog Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {},
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Public Sans"],
+                        "label": ["Public Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-900 min-h-screen flex flex-col">
+<!-- TopNavBar from COMPONENTS_10 -->
+<header class="bg-stone-50 dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800 sticky top-0 z-50">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto font-sans tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-orange-600 dark:text-orange-500">Brewfolio</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-orange-600 dark:text-orange-400 font-bold border-b-2 border-orange-600 dark:border-orange-400 pb-1 duration-200 ease-in-out" href="#">Catalog</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors duration-200 ease-in-out" href="#">My Log</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors duration-200 ease-in-out" href="#">News</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-sm">search</span>
+<input class="pl-10 pr-4 py-2 bg-stone-100 dark:bg-stone-900 border-none rounded-full text-sm focus:ring-2 focus:ring-orange-500 w-64" placeholder="Search brews..." type="text"/>
+</div>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined text-stone-600 dark:text-stone-400" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Search Section -->
+<section class="relative py-16 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto text-center relative z-10">
+<h1 class="text-4xl md:text-6xl font-black tracking-tighter text-stone-900 mb-6">Discover Your Next <span class="text-orange-600">Favorite Pour</span>.</h1>
+<p class="text-lg text-stone-600 max-w-2xl mx-auto mb-10">Browse through thousands of artisan breweries, rare ales, and local taprooms curated by our community of craft enthusiasts.</p>
+<div class="flex flex-wrap justify-center gap-3">
+<span class="px-4 py-2 bg-white border border-stone-200 rounded-full text-sm font-semibold shadow-sm hover:border-orange-200 transition-colors cursor-pointer">IPA</span>
+<span class="px-4 py-2 bg-white border border-stone-200 rounded-full text-sm font-semibold shadow-sm hover:border-orange-200 transition-colors cursor-pointer">Stouts</span>
+<span class="px-4 py-2 bg-white border border-stone-200 rounded-full text-sm font-semibold shadow-sm hover:border-orange-200 transition-colors cursor-pointer">Sours</span>
+<span class="px-4 py-2 bg-white border border-stone-200 rounded-full text-sm font-semibold shadow-sm hover:border-orange-200 transition-colors cursor-pointer">Local Taprooms</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-b from-orange-50/50 to-transparent -z-10"></div>
+</section>
+<!-- Featured Breweries (Bento-style) -->
+<section class="py-12 px-6 max-w-7xl mx-auto">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="text-3xl font-black tracking-tight text-stone-900">Featured Breweries</h2>
+<p class="text-stone-500">The masters of craft currently trending in the community.</p>
+</div>
+<a class="text-orange-600 font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                View all <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Large Feature -->
+<div class="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-xl bg-stone-100 aspect-square md:aspect-auto">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern minimalist brewery interior with copper vats and warm wooden furniture, soft natural lighting through large windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpYzT7k3SLdciwFQTJfYRKsyeRqTm5rwV1KSl6XhKK3bqwQXEghzPykxDUqlHIgNBksqhRfxsXSatdv02XC85G9vVveHsohIYjXrBzBovPbF1tNn2ZFQXYVuKB3FxgZV_LpDxAz_L6Uc6JtxuLrFeZulrARCN2I4DXhxFb2KhMY40kLxsSd4O57yAyZdwCCrHrw8otnOHbJN1TRFtxxkzGGTqAXMj9AqCQAHIJXOUdf3P2B-bCOMcdttCDqMjROaW1IfIMq74HhL8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+<span class="inline-block px-3 py-1 bg-orange-600 text-white text-xs font-bold rounded-full w-fit mb-3">Brewery of the Month</span>
+<h3 class="text-3xl font-bold text-white mb-2">Northbound Craft</h3>
+<p class="text-stone-200 text-sm mb-4">Vancouver, Canada • Pioneers of Pacific Northwest organic ales.</p>
+<button class="bg-white text-stone-900 px-6 py-2 rounded-full font-bold text-sm w-fit hover:bg-orange-50 transition-colors">Explore Collection</button>
+</div>
+</div>
+<!-- Secondary Feature -->
+<div class="md:col-span-2 group relative overflow-hidden rounded-xl bg-stone-200 h-64">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Industrial style taproom with exposed brick walls and neon signage, focused on beer flight glasses on a dark wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC88OJvb4OLwhxXc4u29g5plNCRw03GKqkSLCQTkOR9cqxC7JpJr3jGvape9K-6nzsa6IgnbJE6gpKCoabkJhsgfaD6Rk7ycooJcBRMqbwtXKab8Ely3_QZgijP1yQ3isDYEYAsk25obbpRtgIM0KFF-FCyXfdSQDKf91ajh6_QCfjphEejX-FWqKSRAXAreL-9OwclwSonP2OLWwbhq33BsnPtKVfwwublNnMZPmib-e91ugLOEijCUwvZvuiwCxcePPF2fYhVu0Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+<h3 class="text-xl font-bold text-white">Midnight Hops</h3>
+<p class="text-stone-300 text-xs">Berlin, Germany • Experimental dark malts.</p>
+</div>
+</div>
+<!-- Small Features -->
+<div class="group relative overflow-hidden rounded-xl bg-stone-100 h-64">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A rustic barn converted into a brewery, golden sunset light hitting the timber frame" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdKEb839yRyR9CCZvbOhuPV_bDn_NE6DNQiocUmbEWkxG87mTq-r4uOY_dpU-8BjubT2vl9CDiwKnrawy1zQjcX1l44sDR57ALkJo5RP28JdX8ByBVwcCD3RLzaULkZoWK5g1GVwc9hDa0cxiGbP6uWp8CnKHWVaCId4IwynaO2J-Xq_xaoTqBBVWXx_MbpoxlZAa_p9n1IyKcJ37y7QhTc5ptyf1FhF9q7Vzw4hV4udaaHbZ-LX5AP1ZYpN3Aea7VL5aoMRXUwWY"/>
+<div class="absolute inset-0 bg-black/40 p-6 flex flex-col justify-end">
+<h3 class="text-lg font-bold text-white">Rustic Barrel</h3>
+<p class="text-stone-300 text-xs">Austin, USA</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-stone-100 h-64">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close up of a beer can with vibrant artistic label design, minimalist studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDawLTyqAQ-yRIrGLRHc-d8QT-b1xpcpAz1wrmBZoAJVAikNCG_bCXEztWxF85_1ONc6KALqk5-lP1b49tjlX-3QYQnczhV1JwGr05B5FW7aNmLEhockXilOSPp-nchahEOOJZtQqk8mK-YyyXeplMVvWjsGlmLTUVavYFUIUGVPTHdJXtW3uhVnT8AhD8fcayv3wobRG3DLLV65nwWvUJzCkUDcUNpRV_Fchksef1QQvKZsQnoqhg2ltY-KF2cfw_jAF-2jeA45_A"/>
+<div class="absolute inset-0 bg-black/40 p-6 flex flex-col justify-end">
+<h3 class="text-lg font-bold text-white">Neon Logic</h3>
+<p class="text-stone-300 text-xs">Tokyo, Japan</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Top-Rated Beers (Horizontal Scrolling/Grid) -->
+<section class="py-16 bg-white">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex items-end justify-between mb-10">
+<div>
+<h2 class="text-3xl font-black tracking-tight text-stone-900">Top-Rated Beers</h2>
+<p class="text-stone-500">Highest rated by the Brewfolio community this week.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Beer Card 1 -->
+<div class="flex flex-col group">
+<div class="aspect-[4/5] bg-stone-100 rounded-2xl mb-4 overflow-hidden relative">
+<img alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A tall glass of hazy pale ale with thick foam head on a coastal background, bright natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS6XarVM3C1d536IXKyIe_hU_C90GHAd1VT8ghBL7RGhLU82Y-xeByQ2z6Nb41qeetYDA0cFr7fm3tEzyQf7FSsaipIYhggbvejQ4GkhGYZ5jI_eyUjYfzK4FVHYyD5Hf3gr6YSL6GrrEXBj-o3WMm5Nj8AWUONjQHqgIjwvB55tgtOPIaow15HF3HXM5IIQiTwkrnNZSGcWU7xDfbJIioEvwcZEQH7vD3DAPNTgW2FJyMAr6hvHVcI3I6WZiTze-Oxui-7CzmWQk"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-orange-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.9</span>
+</div>
+</div>
+<h3 class="font-bold text-lg leading-tight group-hover:text-orange-600 transition-colors">Coastal Haze IPA</h3>
+<p class="text-stone-500 text-sm mb-2">New England IPA • 6.8% ABV</p>
+<div class="flex items-center gap-2 mt-auto">
+<div class="w-6 h-6 rounded-full bg-stone-200 overflow-hidden">
+<img alt="" class="w-full h-full object-cover" data-alt="Brewery circular logo icon with anchor motif" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv5dtMUBUWpADphvnMP7zmvDDgI-usxwzdQnvaPkh558Eiid_lZnwMye8eKUq6xEsS2FAPfOAmogSPF_RekRni-YwRaT3D6YQkGcYmzp7MyftD9dtrAos2Rby0TZhmSqKh1Cdi-gi-LYtoDAedX9whLEknnVvitcNOZhlzEqnow50kBei4k0GHiGZhEKTWUL25KmCmsE1wUzT1vvf-rEJ5KYprTcmwzjtpFgUdt2nrkd9LA0-Dt23TYbhsQccRvRMPe54n4qO8hfo"/>
+</div>
+<span class="text-xs font-medium text-stone-700">Shoreline Brewing</span>
+</div>
+</div>
+<!-- Beer Card 2 -->
+<div class="flex flex-col group">
+<div class="aspect-[4/5] bg-stone-100 rounded-2xl mb-4 overflow-hidden relative">
+<img alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Dark stout beer in a tulip glass with chocolate and coffee beans scattered around, moody low key lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbwGVIaMSHyLvwszWxgsrzIyuiUCr8ls4-XQ3ghjWdSs1L9WAUip0YCmytun6SHJI_wx9rxGdsAGrIKwdwSjQhtTEE8wLXwDqg9CvERs0hHuURyYCgNsR7tYTjeOnhxBKe_YDHGxioRtGSoooaPkyBL4KubwrTD1qs-Da7F-PEObt94U2GL4SdWKmLOhDXMqXfl0Vz1RdvLe4mg2hDy9gt8xzl7uexd6TGRVffDCPV-oLdeMdYqWihSsa41LG4je8EH8-QDesVEGE"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-orange-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.8</span>
+</div>
+</div>
+<h3 class="font-bold text-lg leading-tight group-hover:text-orange-600 transition-colors">Obsidian Stout</h3>
+<p class="text-stone-500 text-sm mb-2">Imperial Stout • 10.2% ABV</p>
+<div class="flex items-center gap-2 mt-auto">
+<div class="w-6 h-6 rounded-full bg-stone-200 overflow-hidden">
+<div class="w-full h-full bg-stone-800 flex items-center justify-center text-[10px] text-white font-black">M</div>
+</div>
+<span class="text-xs font-medium text-stone-700">Mountain Forge</span>
+</div>
+</div>
+<!-- Beer Card 3 -->
+<div class="flex flex-col group">
+<div class="aspect-[4/5] bg-stone-100 rounded-2xl mb-4 overflow-hidden relative">
+<img alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A light golden pilsner glass on a checkered tablecloth in an outdoor beer garden, dappled sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhC8F4yYlDpfgo5Ar6cqRmVcA8TW_GvXKbWvsykOCa6hwEGtgHEKXmxQSk9drBTv-UzGjIMVJW429z5mlGjC5VZrLhWg4Yr1na1Icp6J80jD1PZsfXpi0YRU1HagTDFAptJqf8mbyI5eG9ZXOBfognR9dT9KaeNXqXkxighZ6E7lggHW6qkq9lmZxc0fMUhu3qzZGmbghuoKJek56qisLv4Y_10FT21UEq2bJHNqxF114Oa78vKq5FRBYCq0M5xv2rxhRNHG2-9DE"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-orange-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.7</span>
+</div>
+</div>
+<h3 class="font-bold text-lg leading-tight group-hover:text-orange-600 transition-colors">Alpine Lager</h3>
+<p class="text-stone-500 text-sm mb-2">Helles Lager • 4.5% ABV</p>
+<div class="flex items-center gap-2 mt-auto">
+<div class="w-6 h-6 rounded-full bg-stone-200 overflow-hidden">
+<div class="w-full h-full bg-blue-600 flex items-center justify-center text-[10px] text-white font-black">A</div>
+</div>
+<span class="text-xs font-medium text-stone-700">Apex Brew Co.</span>
+</div>
+</div>
+<!-- Beer Card 4 -->
+<div class="flex flex-col group">
+<div class="aspect-[4/5] bg-stone-100 rounded-2xl mb-4 overflow-hidden relative">
+<img alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Vibrant red fruit lambic beer in a stem glass with raspberries on the side, clean studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3nmEcgssd4-GnJUYrNGmDeQbih521GrIjoFApYspQdUKASGuFisD-dDPLJJA2CcR4ffvYqZ19nVEu3let6JshqjIbzZi8i39o25-js4AGntq7QlRL7KwycIRoAb0r2Mc-M1-K9P0BorUU61Yk9SHOyuhfhyhc4e0vlvEQkdxDufg2dt7RVfnWix2IFk40nYSrg7q0n2lI8IgSni-GXSxhRPNrE7AORFhZl0OV7N5zWNSHxl-RlB00uK1dke7b92tnUCVD2L4JdsQ"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-orange-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.9</span>
+</div>
+</div>
+<h3 class="font-bold text-lg leading-tight group-hover:text-orange-600 transition-colors">Velvet Sour</h3>
+<p class="text-stone-500 text-sm mb-2">Raspberry Lambic • 5.4% ABV</p>
+<div class="flex items-center gap-2 mt-auto">
+<div class="w-6 h-6 rounded-full bg-stone-200 overflow-hidden">
+<div class="w-full h-full bg-red-500 flex items-center justify-center text-[10px] text-white font-black">F</div>
+</div>
+<span class="text-xs font-medium text-stone-700">Flora Wild Ales</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Venues -->
+<section class="py-16 px-6 max-w-7xl mx-auto">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="text-3xl font-black tracking-tight text-stone-900">Popular Venues</h2>
+<p class="text-stone-500">The best places to enjoy a fresh pour near you.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Venue Card 1 -->
+<div class="bg-white p-2 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+<div class="h-48 bg-stone-200 rounded-xl mb-4 relative overflow-hidden">
+<img alt="" class="w-full h-full object-cover" data-alt="Interior of a busy modern taproom with warm yellow lighting, people sitting at the bar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAiiBORZYiKswM5vBbtwGebxpn4Gkk4f0I5KV7fck6ZrTcpxKrQK3tRC3aw3heE7JJShkygTiwivYdL4CxCi91y2w4XNPy1OoUMOqmRd3hf4j9pohAL1E__msNXuRIcMtU27CXhER8RfgnM7uPRDwpaIuL9AO4QzlYE9FgZMeKGEVeXSF3F4nVZ-QnhogKuztB7llREET7hWHXLsu8qqdocRYRWjpK4dJaQ09Hcs7CvfcqVRzoXi4lZax1AoBHaCKdduYd0myANdM"/>
+<div class="absolute top-3 left-3">
+<span class="px-3 py-1 bg-orange-600 text-white text-[10px] font-bold rounded-full uppercase tracking-wider">Taproom</span>
+</div>
+</div>
+<div class="px-3 pb-4">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg">The Copper Tap</h3>
+<div class="flex items-center gap-1 text-orange-600">
+<span class="material-symbols-outlined text-xs">location_on</span>
+<span class="text-xs font-semibold">Portland</span>
+</div>
+</div>
+<p class="text-stone-500 text-sm mb-4">42 Rotating Taps • Local Kitchen • Patio</p>
+<button class="w-full py-2 border border-stone-200 rounded-lg text-sm font-bold text-stone-700 hover:bg-stone-50 transition-colors">View Menu</button>
+</div>
+</div>
+<!-- Venue Card 2 -->
+<div class="bg-white p-2 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+<div class="h-48 bg-stone-200 rounded-xl mb-4 relative overflow-hidden">
+<img alt="" class="w-full h-full object-cover" data-alt="Rows of curated craft beer cans in a bright modern bottle shop refrigerator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD37rGNNp338vDMzEbuvgCWnLEUhP0ZEtJwQZbTLctc1-AczifLrvRwUdh805IqL_j6ierz7pmSQnAGhLhPmFcfBHBSV-9hdD7JUwIPy9AAAxhCFbmSE9r1WmIaWGOskkcAJYj1SW-RUvIB7zybjaBNxjeXUjso1U8LvAoC0JEiirKLzIpLbJRjvm_yG-sfLGLbuaz4hwkchkHnjLdcFNIntCNSSavRakwwr-TkqFCrt85J0wR86q7AzC7sPf_qDv_PHCzCIcpRXyk"/>
+<div class="absolute top-3 left-3">
+<span class="px-3 py-1 bg-stone-800 text-white text-[10px] font-bold rounded-full uppercase tracking-wider">Bottle Shop</span>
+</div>
+</div>
+<div class="px-3 pb-4">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg">Hops &amp; Cellar</h3>
+<div class="flex items-center gap-1 text-orange-600">
+<span class="material-symbols-outlined text-xs">location_on</span>
+<span class="text-xs font-semibold">London</span>
+</div>
+</div>
+<p class="text-stone-500 text-sm mb-4">500+ Rare Cans • International Shipments</p>
+<button class="w-full py-2 border border-stone-200 rounded-lg text-sm font-bold text-stone-700 hover:bg-stone-50 transition-colors">Shop Now</button>
+</div>
+</div>
+<!-- Venue Card 3 -->
+<div class="bg-white p-2 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+<div class="h-48 bg-stone-200 rounded-xl mb-4 relative overflow-hidden">
+<img alt="" class="w-full h-full object-cover" data-alt="Upscale craft beer bar with marble counter and elegant glassware, evening lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAGrhagwYfheWu_b50B2z11r_2WD-93-AHvaVq-DbR58d6Oz8emQGyiQpN_TtJKwgCTbeowUtZg4ELAhy8rO1bzTFYJRcZks9nc-HEbnDE9Ix6-ibjwlKuYGgyTT17lrQVmmqDcV6BqHuN0YZxZKaU-rI2xxVTzoiK9KCydtrfokMntiJDPaGPZ0aVMv_YjILkJMtyBi3LfFZfZf5dX1CR_IqqU93Yok1bIGp5bhIPNBJh3k2vFZf5HEwnsB2rkTbB4U-Vfgnu0Uc"/>
+<div class="absolute top-3 left-3">
+<span class="px-3 py-1 bg-orange-600 text-white text-[10px] font-bold rounded-full uppercase tracking-wider">Taproom</span>
+</div>
+</div>
+<div class="px-3 pb-4">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg">Amber Lounge</h3>
+<div class="flex items-center gap-1 text-orange-600">
+<span class="material-symbols-outlined text-xs">location_on</span>
+<span class="text-xs font-semibold">Melbourne</span>
+</div>
+</div>
+<p class="text-stone-500 text-sm mb-4">Craft Cocktails &amp; Ale • Live Jazz • Rooftop</p>
+<button class="w-full py-2 border border-stone-200 rounded-lg text-sm font-bold text-stone-700 hover:bg-stone-50 transition-colors">Book Table</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter CTA -->
+<section class="py-20 px-6 bg-stone-900 text-white text-center">
+<div class="max-w-3xl mx-auto">
+<span class="material-symbols-outlined text-5xl text-orange-500 mb-6" data-icon="sports_bar">sports_bar</span>
+<h2 class="text-3xl font-black mb-4">Stay in the Loop</h2>
+<p class="text-stone-400 mb-8">Get the latest beer releases, brewery openings, and exclusive craft news delivered to your inbox every Friday.</p>
+<form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+<input class="flex-grow px-6 py-3 bg-stone-800 border-stone-700 rounded-full focus:ring-2 focus:ring-orange-500 outline-none" placeholder="Enter your email" type="email"/>
+<button class="px-8 py-3 bg-orange-600 hover:bg-orange-700 transition-colors rounded-full font-bold" type="submit">Subscribe</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer from COMPONENTS_10 -->
+<footer class="bg-stone-100 dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 full-width py-8 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 w-full max-w-7xl mx-auto">
+<div class="mb-4 md:mb-0">
+<span class="text-lg font-bold text-stone-900 dark:text-stone-100">Brewfolio</span>
+<p class="text-xs text-stone-500 mt-1 font-medium">© 2024 Brewfolio Craft Beer Journal</p>
+</div>
+<div class="flex gap-8 text-sm font-medium">
+<a class="text-stone-500 dark:text-stone-400 hover:underline decoration-orange-500 transition-all" href="#">Privacy</a>
+<a class="text-stone-500 dark:text-stone-400 hover:underline decoration-orange-500 transition-all" href="#">Terms</a>
+<a class="text-stone-500 dark:text-stone-400 hover:underline decoration-orange-500 transition-all" href="#">Contact</a>
+</div>
+<div class="mt-4 md:mt-0 flex gap-4">
+<a class="text-stone-400 hover:text-orange-600 transition-colors" href="#"><span class="material-symbols-outlined text-lg">public</span></a>
+<a class="text-stone-400 hover:text-orange-600 transition-colors" href="#"><span class="material-symbols-outlined text-lg">alternate_email</span></a>
+</div>
+</div>
+</footer>
+</body></html>
