@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {},
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Public Sans"],
+                        "label": ["Public Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-gray-900 min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 shadow-sm fixed top-0 w-full z-50">
+<div class="flex justify-between items-center h-16 px-6 max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tight text-orange-600 dark:text-orange-500 cursor-pointer active:opacity-70">Brewfolio</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="font-sans text-sm font-medium text-orange-600 dark:text-orange-500 border-b-2 border-orange-600 pb-1 cursor-pointer active:opacity-70" href="#">Catalog</a>
+<a class="font-sans text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-orange-500 transition-colors duration-200 cursor-pointer active:opacity-70" href="#">My Log</a>
+<a class="font-sans text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-orange-500 transition-colors duration-200 cursor-pointer active:opacity-70" href="#">News</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-gray-600 dark:text-gray-400 hover:text-orange-600 transition-colors duration-200 cursor-pointer active:opacity-70">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-gray-600 dark:text-gray-400 hover:text-orange-600 transition-colors duration-200 cursor-pointer active:opacity-70">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-16">
+<!-- Hero Section -->
+<section class="relative h-[400px] w-full overflow-hidden">
+<img alt="Venue Interior" class="w-full h-full object-cover" data-alt="Modern industrial craft brewery interior with copper vats, warm ambient lighting, and wooden communal tables in a spacious setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVEDQPJbQGdvGQSrCPPM9tRwr6sHddb-cCZ-L0r9XIjqYX8vimVLT1wxq5RueKFA9BUxjvBG14Ezkji0GPRYW9F1wlZFKiK7OtYj0ag3YPeg8P7ZKQeuQybWmbZvpeWMc_GtGCIFSor54KxAwSpa_1NueNUeD-sI2jtMjB2yUJOhv1FBHx2f2SQprb2w1zvrtnLMqo9ifl-S2ac3_4cISrITAnWmQ3CDIhiQ9NXiAQYY-gm-QKoE52JTInJpex2X9H7ZdiWp9Ae28"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-8 md:p-12">
+<div class="max-w-7xl mx-auto">
+<span class="inline-block px-3 py-1 bg-orange-600 text-white text-xs font-bold tracking-widest uppercase rounded mb-4">Taproom</span>
+<h1 class="text-4xl md:text-6xl font-black text-white mb-2 leading-tight">Copper &amp; Grain Public House</h1>
+<div class="flex flex-col md:flex-row md:items-center text-gray-200 space-y-2 md:space-y-0 md:space-x-6">
+<div class="flex items-center">
+<span class="material-symbols-outlined mr-2" data-icon="location_on">location_on</span>
+<span class="text-sm font-medium">1282 Artisans Way, Industrial District, Portland, OR</span>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined mr-2" data-icon="schedule">schedule</span>
+<span class="text-sm font-medium">Open until 11:00 PM</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Action Buttons -->
+<div class="max-w-7xl mx-auto px-6 -mt-8 relative z-10">
+<div class="flex flex-wrap gap-4">
+<button class="flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined mr-2" data-icon="directions">directions</span>
+                    Get Directions
+                </button>
+<button class="flex items-center justify-center bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 font-bold py-4 px-8 rounded-xl shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined mr-2" data-icon="language">language</span>
+                    Visit Website
+                </button>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Tap Feed -->
+<div class="lg:col-span-8">
+<div class="mb-10">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-black text-gray-900 flex items-center">
+<span class="material-symbols-outlined mr-3 text-orange-600" data-icon="ink_highlighter">ink_highlighter</span>
+                            What's on Tap
+                        </h2>
+<span class="flex items-center text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">
+<span class="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"></span>
+                            LIVE UPDATED
+                        </span>
+</div>
+<div class="space-y-4">
+<!-- Tap Item 1 -->
+<div class="group flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl hover:border-orange-200 hover:shadow-md transition-all">
+<div class="flex items-center">
+<div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 font-bold text-xl mr-4">01</div>
+<div>
+<h3 class="font-bold text-lg text-gray-900">Obsidian Stout</h3>
+<p class="text-sm text-gray-500">Dry Stout • 6.2% ABV • 45 IBU</p>
+</div>
+</div>
+<div class="text-right">
+<div class="font-black text-xl text-gray-900">$7.00</div>
+<div class="text-[10px] font-bold text-orange-600 uppercase tracking-tighter">16oz Pour</div>
+</div>
+</div>
+<!-- Tap Item 2 -->
+<div class="group flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl hover:border-orange-200 hover:shadow-md transition-all">
+<div class="flex items-center">
+<div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 font-bold text-xl mr-4">02</div>
+<div>
+<h3 class="font-bold text-lg text-gray-900">Pacific Haze IPA</h3>
+<p class="text-sm text-gray-500">Hazy IPA • 7.5% ABV • 60 IBU</p>
+</div>
+</div>
+<div class="text-right">
+<div class="font-black text-xl text-gray-900">$8.50</div>
+<div class="text-[10px] font-bold text-orange-600 uppercase tracking-tighter">16oz Pour</div>
+</div>
+</div>
+<!-- Tap Item 3 -->
+<div class="group flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl hover:border-orange-200 hover:shadow-md transition-all">
+<div class="flex items-center">
+<div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 font-bold text-xl mr-4">03</div>
+<div>
+<h3 class="font-bold text-lg text-gray-900">Golden Harvest Lager</h3>
+<p class="text-sm text-gray-500">Pilsner • 4.8% ABV • 20 IBU</p>
+</div>
+</div>
+<div class="text-right">
+<div class="font-black text-xl text-gray-900">$6.50</div>
+<div class="text-[10px] font-bold text-orange-600 uppercase tracking-tighter">16oz Pour</div>
+</div>
+</div>
+<!-- Tap Item 4 -->
+<div class="group flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl hover:border-orange-200 hover:shadow-md transition-all">
+<div class="flex items-center">
+<div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 font-bold text-xl mr-4">04</div>
+<div>
+<h3 class="font-bold text-lg text-gray-900">Ruby Slipper Sour</h3>
+<p class="text-sm text-gray-500">Raspberry Gose • 4.2% ABV • 10 IBU</p>
+</div>
+</div>
+<div class="text-right">
+<div class="font-black text-xl text-gray-900">$9.00</div>
+<div class="text-[10px] font-bold text-orange-600 uppercase tracking-tighter">12oz Pour</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Gallery Section -->
+<div>
+<h2 class="text-2xl font-black text-gray-900 mb-6 flex items-center">
+<span class="material-symbols-outlined mr-3 text-orange-600" data-icon="imagesmode">imagesmode</span>
+                        Venue Gallery
+                    </h2>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="col-span-2 row-span-2 overflow-hidden rounded-xl">
+<img alt="Main Lounge" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Wide shot of the main lounge area with plush leather seating, a massive chalkboard menu, and exposed brick walls." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEGaDGqxRJkkZuquzWHquAcDSoV5Fifnd9FQ5C6JE8LXty5L0OtYW7dUDV24rGpfx8YeKlJxxusjYZ14wv6tbLHFlCWXMA0jDwCLtDyWhGTs76uM5fovaz5JvcJNRWPztk0tVoUSETzVVA3VaRG73Cr2g3PxpEuUN4wyteX69vBV7FAvlJu9wPZS13UQHuTkn8KGtSeIAswnh4LH47zGZhgYR4wASalHyKN-oAgK4_GN5964zCd5pZCuoo1IbxEiCQdMYZbYWIxJQ"/>
+</div>
+<div class="overflow-hidden rounded-xl h-48">
+<img alt="Beer Detail" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Macro shot of a frosty pint of amber beer with a thick white head and condensation on the glass." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVeDFQeLJuxzfFIVBo_JmJBRMNVFjpzlrWz4rgmBTiyatClheekYdlFWAolPeiD6W4n32V7XbV4Kndh30VDQ4gwipV4Csbu-4znyo49D_lJ7NKce018kZftCi4_gOtaeD2cJlQCvdTkYAZ2sg--FKyMPC9wJ0xLOjfi3EzQoXHg-ftarJplK8rL3bHIKVHr6heRenfvp_WtPqC-CU8v3c2zyvry88hcypREY_7gn6-_BLiWaw_ro4dJyX22482es91oSWlvsQASdY"/>
+</div>
+<div class="overflow-hidden rounded-xl h-48">
+<img alt="Outdoor Deck" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Sunny outdoor patio deck with string lights, picnic tables, and people enjoying drinks." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLw4UPFZypFSEnHqvI_Ch88m1CPfaZXYjJjIyoObPUeSVzCv68DMjlS3OukTvk0zgryqrD1KW28ascnJyvMy7heXBDfBGhidU0mLwPN3mEBYxgWLYb5hCzlvRm6ZJz-35TbqVXtgpTfJw4sPK881KtEpcdq7aIrrJ62Of7x0BWTM2XVx-LRmXL1V35A82VfCbYejT0t46GZIz0FKng6cDBfFZd6TjXyp4nzH6ORp6GM8rkXxwl4cv7e-ou54KDOU0PrdaiKz4J8wc"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Amenities -->
+<div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+<h3 class="text-lg font-black text-gray-900 mb-6">Amenities</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-100">
+<span class="material-symbols-outlined text-orange-600 mb-2" data-icon="potted_plant">potted_plant</span>
+<span class="text-xs font-bold text-gray-700">Outdoor Seating</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-100">
+<span class="material-symbols-outlined text-orange-600 mb-2" data-icon="pets">pets</span>
+<span class="text-xs font-bold text-gray-700">Dog Friendly</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-100">
+<span class="material-symbols-outlined text-orange-600 mb-2" data-icon="restaurant">restaurant</span>
+<span class="text-xs font-bold text-gray-700">Food Menu</span>
+</div>
+<div class="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-100">
+<span class="material-symbols-outlined text-orange-600 mb-2" data-icon="wifi">wifi</span>
+<span class="text-xs font-bold text-gray-700">Free WiFi</span>
+</div>
+</div>
+</div>
+<!-- Location Map -->
+<div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+<div class="p-6">
+<h3 class="text-lg font-black text-gray-900 mb-2">Location</h3>
+<p class="text-sm text-gray-500">Industrial District, Portland, OR</p>
+</div>
+<div class="h-64 bg-gray-200">
+<img alt="Map Location" class="w-full h-full object-cover" data-alt="Stylized map showing city streets and a marker for the brewery location in an urban district." data-location="Portland" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEqT-Nf8SzL3rMkPbaLpp1hWCSQ43JXPlXP2sioKzfrpOn43Gj20AOM06TxxoCo2pd584fomZ4iVzCyxNvdCr4m0vCbJxJRcvdaaeoqriWQ_xc0JQZlmXdK26-Wwj6_HAbU5iOlIL5VkrLjoJo9zJXSlmYMacqGWTewRVfgg4Y2pc0U0civf6a72pD64BuZqkySzve_svd4wdxSMFHdBHtWduUq0TzC8_tJMLR5xSjhktm3UNJdU3RFjRN3XH3tSNR9qKhXruzooQ"/>
+</div>
+</div>
+<!-- Hours Card -->
+<div class="bg-gray-900 text-white rounded-2xl p-6">
+<h3 class="text-lg font-black mb-4">Opening Hours</h3>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-gray-400">Mon - Thu</span>
+<span class="font-medium">12:00 PM - 10:00 PM</span>
+</div>
+<div class="flex justify-between text-sm font-bold text-orange-500">
+<span>Fri - Sat</span>
+<span>12:00 PM - 12:00 AM</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-gray-400">Sunday</span>
+<span class="font-medium">11:00 AM - 09:00 PM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 w-full py-8 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-6 max-w-7xl mx-auto space-y-4 md:space-y-0">
+<div class="text-lg font-bold text-gray-900 dark:text-white">Brewfolio</div>
+<div class="flex space-x-6">
+<a class="text-xs text-gray-500 dark:text-gray-400 hover:text-orange-500 hover:underline transition-all" href="#">Privacy</a>
+<a class="text-xs text-gray-500 dark:text-gray-400 hover:text-orange-500 hover:underline transition-all" href="#">Terms</a>
+<a class="text-xs text-gray-500 dark:text-gray-400 hover:text-orange-500 hover:underline transition-all" href="#">Contact</a>
+</div>
+<div class="text-xs text-gray-500 dark:text-gray-400">
+                © 2024 Brewfolio Craft Community
+            </div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brewfolio | My Log</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {},
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Public Sans"],
+                        "label": ["Public Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-900 min-h-screen flex flex-col">
+<!-- TopNavBar from COMPONENTS_10 -->
+<header class="bg-stone-50 dark:bg-stone-950 border-stone-200 dark:border-stone-800 border-b sticky top-0 z-50">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto font-sans tracking-tight">
+<div class="text-2xl font-black text-orange-600 dark:text-orange-500">Brewfolio</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors duration-200 ease-in-out" href="#">Catalog</a>
+<a class="text-orange-600 dark:text-orange-400 font-bold border-b-2 border-orange-600 dark:border-orange-400 pb-1 hover:text-orange-500 dark:hover:text-orange-300 transition-colors duration-200 ease-in-out" href="#">My Log</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors duration-200 ease-in-out" href="#">News</a>
+</nav>
+<div class="flex items-center space-x-4">
+<div class="hidden sm:block relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-sm">search</span>
+<input class="pl-10 pr-4 py-2 bg-stone-100 dark:bg-stone-900 border-none rounded-full text-sm focus:ring-2 focus:ring-orange-500 w-48 lg:w-64" placeholder="Search logs..." type="text"/>
+</div>
+<button class="text-stone-600 dark:text-stone-400 hover:text-orange-500 transition-colors duration-200 ease-in-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-7xl mx-auto px-6 py-8">
+<!-- User Stats Dashboard (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+<div class="md:col-span-2 bg-white dark:bg-stone-900 p-6 rounded-xl shadow-sm border border-stone-100 dark:border-stone-800 flex flex-col justify-between">
+<div>
+<h2 class="text-stone-400 text-xs font-bold uppercase tracking-widest mb-1">Lifetime Progress</h2>
+<p class="text-3xl font-black text-stone-900 dark:text-stone-50">142 Check-ins</p>
+</div>
+<div class="mt-4 bg-stone-100 dark:bg-stone-800 h-2 rounded-full overflow-hidden">
+<div class="bg-orange-500 h-full w-2/3"></div>
+</div>
+<p class="text-xs text-stone-500 mt-2">12 check-ins away from 'Master Brewer' badge</p>
+</div>
+<div class="bg-orange-50 dark:bg-orange-950/20 p-6 rounded-xl border border-orange-100 dark:border-orange-900/50 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-orange-600 mb-2" style="font-variation-settings: 'FILL' 1;">category</span>
+<p class="text-2xl font-extrabold text-orange-900 dark:text-orange-100">48</p>
+<p class="text-xs font-semibold text-orange-700 dark:text-orange-400 uppercase">Unique Styles</p>
+</div>
+<div class="bg-stone-900 dark:bg-stone-800 p-6 rounded-xl flex flex-col justify-between text-white">
+<div>
+<p class="text-stone-400 text-xs font-bold uppercase tracking-widest">Favorite Venue</p>
+<p class="text-lg font-bold mt-1 leading-tight text-white">The Rusty Barrel Taproom</p>
+</div>
+<div class="flex items-center mt-2 text-orange-400">
+<span class="material-symbols-outlined text-sm mr-1" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="text-xs font-medium">Portland, OR</span>
+</div>
+</div>
+</section>
+<!-- Log Feed Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-4xl font-black tracking-tight text-stone-900 dark:text-stone-50">My Log</h1>
+<p class="text-stone-500 mt-1">Your personal craft beer journey, chronological.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-2 rounded-lg bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined">sort</span>
+</button>
+</div>
+</div>
+<!-- Reverse Chronological Feed -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Feed Content -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Log Entry 1 -->
+<article class="bg-white dark:bg-stone-900 rounded-xl border border-stone-100 dark:border-stone-800 shadow-sm overflow-hidden flex flex-col md:flex-row hover:border-orange-200 dark:hover:border-orange-900 transition-colors group">
+<div class="md:w-48 h-48 md:h-auto overflow-hidden relative">
+<img alt="Hazy IPA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close-up of a condensation-covered glass of hazy IPA beer on a rustic wooden table with soft warm tavern lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnQnCBdVjYdte8hjgGFPQB6sdHzZdc2C1vrTMKJ7dB1YHQmwRBxdSo39xoQX68XWN0Jo826R9I_IOoMqLWLd6MhM4a8V8gHacxXaL5BHoRKT9R9XKn7Ah-0_oid16uXtuZboWXrMG8pCf9zJLetSfuu1rrZKw7JdBLYCrnvaz7NuSCLfPIXp_L_V5bRCz84XiEX3TD2ycO_5pTXZsMefQCiV_raIPoXTSyYeJGxiZfZB6eDk2yWD5W_4ooNF2gzw9Fm1pBOypZzmM"/>
+<div class="absolute top-3 left-3 bg-white/90 dark:bg-stone-900/90 backdrop-blur px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-stone-800 dark:text-stone-200">Today</div>
+</div>
+<div class="flex-grow p-6 flex flex-col">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold text-stone-900 dark:text-stone-50 leading-tight">Neon Cloud Hazy IPA</h3>
+<p class="text-orange-600 dark:text-orange-400 font-semibold text-sm">Sunstreak Brewing Co.</p>
+</div>
+<div class="flex text-amber-500">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg">star_half</span>
+</div>
+</div>
+<div class="mt-4 text-stone-600 dark:text-stone-400 text-sm leading-relaxed italic">
+                            "Super juicy with heavy notes of mango and pineapple. Smooth mouthfeel, very low bitterness. Perfect for a sunny afternoon on the patio."
+                        </div>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-stone-50 dark:border-stone-800">
+<div class="flex items-center text-stone-500 dark:text-stone-500 text-xs font-medium">
+<span class="material-symbols-outlined text-sm mr-1">location_on</span>
+                                The Rusty Barrel Taproom
+                            </div>
+<button class="text-stone-400 hover:text-stone-600 transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Log Entry 2 -->
+<article class="bg-white dark:bg-stone-900 rounded-xl border border-stone-100 dark:border-stone-800 shadow-sm overflow-hidden flex flex-col md:flex-row hover:border-orange-200 dark:hover:border-orange-900 transition-colors group">
+<div class="md:w-48 h-48 md:h-auto overflow-hidden relative">
+<img alt="Oatmeal Stout" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dark stout beer in a tulip glass with a thick creamy tan head of foam on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiVx9kQyYrHsqvP9-LvKEKupyOoKZK21ORjCswBwQIhxhBKLDUfHYfZe-eL9c8BcCQkoocH1-7fbTAlDGKiEkW-A4Z6pP1ohWpyzWuLjO79hx6_PwIVNeUrXKYjgF9REwS0mXwvNNuQKK5Htf1NlkG1pD3waPs_7C3f4CbFAu5iTYTAGlNka922EJf69lawIerwoQe9c5fXAnkIRlqBorZ_e5UQXO_PC_UzpppuhXfeWtuEGB3w2OGXz9hTRs96zaLGQYpzkiqztA"/>
+<div class="absolute top-3 left-3 bg-white/90 dark:bg-stone-900/90 backdrop-blur px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-stone-800 dark:text-stone-200">Oct 24</div>
+</div>
+<div class="flex-grow p-6 flex flex-col">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold text-stone-900 dark:text-stone-50 leading-tight">Midnight Velvet</h3>
+<p class="text-orange-600 dark:text-orange-400 font-semibold text-sm">Iron Oak Ales</p>
+</div>
+<div class="flex text-amber-500">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="mt-4 text-stone-600 dark:text-stone-400 text-sm leading-relaxed italic">
+                            "Exceptional oatmeal stout. Deep roasted coffee and dark chocolate notes. Creamy as silk. One of the best stouts I've had this year."
+                        </div>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-stone-50 dark:border-stone-800">
+<div class="flex items-center text-stone-500 dark:text-stone-500 text-xs font-medium">
+<span class="material-symbols-outlined text-sm mr-1">home</span>
+                                At Home
+                            </div>
+<button class="text-stone-400 hover:text-stone-600 transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Log Entry 3 -->
+<article class="bg-white dark:bg-stone-900 rounded-xl border border-stone-100 dark:border-stone-800 shadow-sm overflow-hidden flex flex-col md:flex-row hover:border-orange-200 dark:hover:border-orange-900 transition-colors group">
+<div class="md:w-48 h-48 md:h-auto overflow-hidden relative">
+<img alt="German Pilsner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Clear gold pilsner beer in a tall glass with rising bubbles and white foam against a bright sunny outdoor background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGcuSoBF358sA8ykBc75XTDIeBlJrTKWF1JpFMIVf6qY-Q1Bzd00_WG7-qovURvMEP9F-HsPSifz8gwzzLwFX10ZH7J9hg_joW0_dQ_qP3bTmoZhiFGcq6AAxxaBeAv3pEK7mKFAZSWDQ1ckDP9fVzJXauNdRPI_gHRX2dELlkbCSEKxmb2AvFdWng28pdbKl2rC58IrlUE7laG-qV2sK5LnAPXOE07oQcZdcGbPCezgyD1jVpfXmRX-ifxPWBmqTFbU_CRLQxHpQ"/>
+<div class="absolute top-3 left-3 bg-white/90 dark:bg-stone-900/90 backdrop-blur px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-stone-800 dark:text-stone-200">Oct 21</div>
+</div>
+<div class="flex-grow p-6 flex flex-col">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold text-stone-900 dark:text-stone-50 leading-tight">Noble Crisp</h3>
+<p class="text-orange-600 dark:text-orange-400 font-semibold text-sm">Alps &amp; Valley Brewery</p>
+</div>
+<div class="flex text-amber-500">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="mt-4 text-stone-600 dark:text-stone-400 text-sm leading-relaxed italic">
+                            "Clean, refreshing, and very balanced. Classic bready malt profile with a sharp, grassy hop finish. Authentic German pilsner style."
+                        </div>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-stone-50 dark:border-stone-800">
+<div class="flex items-center text-stone-500 dark:text-stone-500 text-xs font-medium">
+<span class="material-symbols-outlined text-sm mr-1">location_on</span>
+                                The Hop Garden
+                            </div>
+<button class="text-stone-400 hover:text-stone-600 transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Sidebar Info -->
+<aside class="lg:col-span-4 space-y-6">
+<!-- Achievement Card -->
+<div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-6 text-white shadow-md">
+<div class="flex items-start justify-between">
+<div>
+<h4 class="text-white/80 text-xs font-bold uppercase tracking-widest">Next Badge</h4>
+<p class="text-xl font-bold mt-1">Master Brewer</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-white/40">emoji_events</span>
+</div>
+<div class="mt-6 flex items-center gap-4">
+<div class="flex-grow bg-white/20 h-2 rounded-full overflow-hidden">
+<div class="bg-white h-full w-4/5"></div>
+</div>
+<span class="text-xs font-bold">142/154</span>
+</div>
+<p class="mt-4 text-sm text-orange-50 leading-snug">Keep logging those unique craft brews to level up your status!</p>
+</div>
+<!-- Recent Venues -->
+<div class="bg-white dark:bg-stone-900 rounded-xl border border-stone-100 dark:border-stone-800 shadow-sm p-6">
+<h4 class="text-stone-900 dark:text-stone-50 font-bold mb-4">Recent Venues</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-500 dark:text-stone-400">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<p class="text-sm font-bold dark:text-stone-200">Rusty Barrel</p>
+<p class="text-[10px] text-stone-500 font-medium uppercase">3 visits this week</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-500 dark:text-stone-400">
+<span class="material-symbols-outlined">sports_bar</span>
+</div>
+<div>
+<p class="text-sm font-bold dark:text-stone-200">The Hop Garden</p>
+<p class="text-[10px] text-stone-500 font-medium uppercase">1 visit this week</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-500 dark:text-stone-400">
+<span class="material-symbols-outlined">deck</span>
+</div>
+<div>
+<p class="text-sm font-bold dark:text-stone-200">Dockside Pub</p>
+<p class="text-[10px] text-stone-500 font-medium uppercase">Last visited Oct 15</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Ad/Banner -->
+<div class="rounded-xl overflow-hidden relative h-48 group cursor-pointer shadow-sm">
+<img alt="Explore Breweries" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Modern minimalist brewery interior with wood accents and beer taps, blurry depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9oM32KCND6z9jFMuXH9SZMF9zjCaTdZf-vGtzDg63xpt4Dl3n6yvdVPJJRXJjvElmMa2zVo3XBqOUqAK-Kr3ibCVqHaYBZHBjzLy9VWoq18FE9tPUhQOY7x5wthM5BjGtTOkUS0IamJH6wlGTGHze0G37YpQSafaePkqjZqjjl0b7lBoY_eMdDrs_DEy5BVU2yF2gidlKwP9CpzPT5R7J7z0PGaJmjNUgeFivUoZqgfa_ZYQ3X-w7sj5OUHOidwcN40JrR_sMm_E"/>
+<div class="absolute inset-0 bg-stone-900/40 group-hover:bg-stone-900/30 transition-colors flex flex-col justify-end p-6 text-white">
+<h4 class="font-bold text-lg leading-tight">Explore Local Breweries</h4>
+<p class="text-xs text-stone-200 mt-1">Discover what's near you</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- FAB: Log a New Beer -->
+<button class="fixed bottom-8 right-8 bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-6 rounded-full shadow-2xl flex items-center gap-2 transition-all hover:scale-105 active:scale-95 z-50">
+<span class="material-symbols-outlined text-2xl">add_circle</span>
+<span class="hidden md:inline">Log a New Beer</span>
+</button>
+<!-- Footer from COMPONENTS_10 -->
+<footer class="bg-stone-100 dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 py-8 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 w-full max-w-7xl mx-auto">
+<div class="text-lg font-bold text-stone-900 dark:text-stone-100 mb-4 md:mb-0">Brewfolio</div>
+<div class="flex gap-8 mb-4 md:mb-0">
+<a class="text-stone-50 dark:text-stone-400 text-sm font-medium hover:underline decoration-orange-500 transition-all" href="#">Privacy</a>
+<a class="text-stone-50 dark:text-stone-400 text-sm font-medium hover:underline decoration-orange-500 transition-all" href="#">Terms</a>
+<a class="text-stone-50 dark:text-stone-400 text-sm font-medium hover:underline decoration-orange-500 transition-all" href="#">Contact</a>
+</div>
+<div class="text-stone-500 dark:text-stone-400 text-sm font-medium">
+                © 2024 Brewfolio Craft Beer Journal
+            </div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Find a Venue - Brewfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {},
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Public Sans"],
+                        "body": ["Public Sans"],
+                        "label": ["Public Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-900 antialiased">
+<!-- TopNavBar from COMPONENTS_10 -->
+<header class="bg-stone-50 dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800 docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto font-sans tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-orange-600 dark:text-orange-500">Brewfolio</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors duration-200 ease-in-out" href="#">Catalog</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors duration-200 ease-in-out" href="#">My Log</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors duration-200 ease-in-out" href="#">News</a>
+<a class="text-orange-600 dark:text-orange-400 font-bold border-b-2 border-orange-600 dark:border-orange-400 pb-1" href="#">Venues</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-lg">search</span>
+<input class="bg-stone-100 border-none rounded-full pl-10 pr-4 py-1.5 text-sm w-64 focus:ring-2 focus:ring-orange-500 transition-all" placeholder="Search venues..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors active:opacity-80">
+<span class="material-symbols-outlined text-stone-600 dark:text-stone-400" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex h-[calc(100vh-73px)] overflow-hidden">
+<!-- SideNavBar Removed as per request -->
+<!-- Content Area -->
+<section class="flex flex-1 flex-col md:flex-row overflow-hidden">
+<!-- List Side -->
+<div class="w-full md:w-[450px] lg:w-[500px] flex flex-col bg-white border-r border-stone-200 overflow-y-auto z-10">
+<div class="p-6 sticky top-0 bg-white/80 backdrop-blur-md z-20">
+<h1 class="text-2xl font-black text-stone-900 mb-4 font-headline">Find a Venue</h1>
+<div class="flex flex-col gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all text-sm" placeholder="Search cities or venue names..." type="text"/>
+</div>
+<div class="flex flex-col gap-3">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-2">Venue Type</p>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-full bg-orange-600 text-white text-xs font-medium">All Types</button>
+<button class="px-3 py-1.5 rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 text-xs font-medium">Taproom</button>
+<button class="px-3 py-1.5 rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 text-xs font-medium">Bottle Shop</button>
+<button class="px-3 py-1.5 rounded-full bg-stone-100 text-stone-600 hover:bg-stone-200 text-xs font-medium">Brewpub</button>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-2">Amenities</p>
+<div class="flex flex-wrap gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-stone-200 text-stone-600 hover:border-orange-500 hover:text-orange-700 text-xs transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="pets">pets</span>
+                                        Dog Friendly
+                                    </button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-stone-200 text-stone-600 hover:border-orange-500 hover:text-orange-700 text-xs transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="wb_sunny">wb_sunny</span>
+                                        Outdoor Seating
+                                    </button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-stone-200 text-stone-600 hover:border-orange-500 hover:text-orange-700 text-xs transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="restaurant">restaurant</span>
+                                        Food
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Venue Cards -->
+<div class="px-6 pb-20 space-y-4">
+<!-- Venue Card 1 -->
+<div class="group relative bg-white border border-stone-200 rounded-2xl p-4 hover:shadow-xl hover:shadow-stone-200/50 transition-all cursor-pointer overflow-hidden">
+<div class="flex gap-4">
+<div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="The Rusty Anchor Taproom" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="interior of a cozy rustic brewery with wooden barrels and warm Edison bulb lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB50s_oifOuYdoNfLTdP1bdFhC-bdnrKSgOxk4cV_ykwSdjkxw8Wr8rhIxpHJ_tv_6dnInzMAxzoMyVs7QZWd5yr9xhD3v9KzpPySmR15ERvsSqe1Mok_j6oNI0ttScVOnv1zs5UjCcG7u22Fv4m5C6VoSUvrIl0pt9e4hMU_5cQ5sQmr94JzDiYGqJqDEEY4Gil0MH-r0lGsRmwfy4ZHtq-Ilc1WEkVN2EZTOtm5drNIeUF6nrmyt2Y4-aDTU7aYVGdhnxj5JX7_o"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded uppercase tracking-wide">Taproom</span>
+<div class="flex items-center gap-1 text-emerald-600 text-[10px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                        OPEN NOW
+                                    </div>
+</div>
+<h3 class="font-bold text-stone-900 mt-1 truncate">The Rusty Anchor</h3>
+<p class="text-xs text-stone-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    0.8 miles • Portland, OR
+                                </p>
+<div class="flex gap-2 mt-3">
+<span class="material-symbols-outlined text-stone-400 text-sm" data-icon="pets">pets</span>
+<span class="material-symbols-outlined text-stone-400 text-sm" data-icon="restaurant">restaurant</span>
+<span class="material-symbols-outlined text-stone-400 text-sm" data-icon="wifi">wifi</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Venue Card 2 -->
+<div class="group relative bg-white border border-stone-200 rounded-2xl p-4 hover:shadow-xl hover:shadow-stone-200/50 transition-all cursor-pointer overflow-hidden">
+<div class="flex gap-4">
+<div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Iron Forge Brewpub" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="modern industrial brewpub with high ceilings and metallic decor reflecting warm yellow light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCButaa4XOJkUVxrwiclokgXk_LBeczQjootEyyvnOI1DJT-WVfIDHqykhEB2_jEMj13XH6vVuSuAJOc_R2SK9MUnQZpPhMYTfBPCSB5hGDDLr8aj0xBK8lQvDp47NM92JkBOkltj9Uiuqy8VGNaPydNwoO1aZOjTXhu9eOH0fQceHvEhDAl_GaqiKxI11pDdCMORp_PvMHlI2Juuz1wNLjD6iAFmJx_a8ycdHRmNYr-yPVnI-7zDgKwlQRhtKD6kI25pHZKE_JOqs"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded uppercase tracking-wide">Brewpub</span>
+<div class="flex items-center gap-1 text-emerald-600 text-[10px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                        OPEN NOW
+                                    </div>
+</div>
+<h3 class="font-bold text-stone-900 mt-1 truncate">Iron Forge Brewery</h3>
+<p class="text-xs text-stone-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    1.2 miles • Portland, OR
+                                </p>
+<div class="flex gap-2 mt-3">
+<span class="material-symbols-outlined text-stone-400 text-sm" data-icon="wb_sunny">wb_sunny</span>
+<span class="material-symbols-outlined text-stone-400 text-sm" data-icon="restaurant">restaurant</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Venue Card 3 -->
+<div class="group relative bg-white border border-stone-200 rounded-2xl p-4 hover:shadow-xl hover:shadow-stone-200/50 transition-all cursor-pointer overflow-hidden opacity-80">
+<div class="flex gap-4">
+<div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0 grayscale">
+<img alt="Hops &amp; Vines Shop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="shelves full of craft beer bottles in a bright contemporary bottle shop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ0gc4MyRnza3J40Fvz52_6HeaY-K8BOdGuQ_tLadPG3IhPbowP_80UIPB6hHioKBFFaRYaB6UAkoqDjB6RZpSLglDG-CFSOLcUY_YYm8RtjPpI4p15RuvftFObMVgyT_KYQaV471GpvA4iK2iWIboTuTXQ24OgtPBnZzvHcEj2ozOnFm7qtD2BJPB5rIEWTSGTTqaB_kEl5ABZd0Hu-iGg-oD2YNxOkBL3EEWLGxDciBgG8lfhpY9Q0iVbcUGJi1AoAuU7C62uuo"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded uppercase tracking-wide">Bottle Shop</span>
+<div class="flex items-center gap-1 text-stone-400 text-[10px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-stone-300"></span>
+                                        CLOSED
+                                    </div>
+</div>
+<h3 class="font-bold text-stone-900 mt-1 truncate">Hops &amp; Vines</h3>
+<p class="text-xs text-stone-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    2.5 miles • Portland, OR
+                                </p>
+<div class="flex gap-2 mt-3">
+<span class="material-symbols-outlined text-stone-400 text-sm" data-icon="pets">pets</span>
+<span class="material-symbols-outlined text-stone-400 text-sm" data-icon="wb_sunny">wb_sunny</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Venue Card 4 -->
+<div class="group relative bg-white border border-stone-200 rounded-2xl p-4 hover:shadow-xl hover:shadow-stone-200/50 transition-all cursor-pointer overflow-hidden">
+<div class="flex gap-4">
+<div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="The Yeast Lab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="clean minimal brewery tasting room with light wood furniture and floor to ceiling windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXpUf3aE0299VSiPYCRRezSYL6KiVVaSFMST0imYKTndHG14ONOOj2hc02NTCGbviaXyWi9lZXZ0esFss-dxyk5Mc30ckhxcdUYyxRju9URAXYUcPhUsVR0Q_dEvJdkDP7cBHwxRu925e7fl6Gu1bbTjA5F1aznl-xAWPFvi6dC1XeaFppbcub5MP9vH09rr6p2avOIgmnUyVCtwM8fEuNO5UeyJJrH1wYlEjz-klrcJpeXiIyFPMV7-rklno8keATZJx-eTg6m9o"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded uppercase tracking-wide">Taproom</span>
+<div class="flex items-center gap-1 text-emerald-600 text-[10px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                        OPEN NOW
+                                    </div>
+</div>
+<h3 class="font-bold text-stone-900 mt-1 truncate">The Yeast Lab</h3>
+<p class="text-xs text-stone-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    3.1 miles • Vancouver, WA
+                                </p>
+<div class="flex gap-2 mt-3">
+<span class="material-symbols-outlined text-stone-400 text-sm" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-stone-400 text-sm" data-icon="restaurant">restaurant</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Side -->
+<div class="flex-1 relative bg-stone-200 hidden md:block">
+<div class="absolute inset-0 grayscale opacity-40 mix-blend-multiply" data-alt="stylized architectural city map of Portland with clean lines and geometric shapes" data-location="Portland, Oregon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAQeVvaJ9-IaEmPbaEDSni7j7XqUBxZ4bPtMGQk_NQVyPMmuA8Mgu-lpOraVoMTp_md6rN4tZUeE9Z-inTkkhdB8uA0mREs-NDw52JowQMpziYb9xwXH1gb50T8RcMajc_Y9fTQ-ptJ6grLQ2WzF5Du6SGeA3A4SvKQNbbnMvabOsWOGo00RWasci8B4MWWVkT1yAgzL_ALYXrf9hU17nsX3yqlkX_q35zU05DXo5WooWiGy1c1UuqGBacUkgu_iLe1ZYHFeNJCG4I'); background-size: cover; background-position: center;"></div>
+<!-- Map UI Elements -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<!-- Marker 1 -->
+<div class="absolute top-[30%] left-[40%] pointer-events-auto">
+<div class="relative group">
+<div class="bg-orange-700 text-white p-2 rounded-full shadow-lg cursor-pointer transform group-hover:scale-125 transition-transform">
+<span class="material-symbols-outlined text-lg" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sports_bar</span>
+</div>
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-white px-3 py-1.5 rounded-lg shadow-xl border border-stone-200 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+<p class="text-xs font-bold text-stone-900">The Rusty Anchor</p>
+</div>
+</div>
+</div>
+<!-- Marker 2 -->
+<div class="absolute top-[55%] left-[25%] pointer-events-auto">
+<div class="relative group">
+<div class="bg-orange-700 text-white p-2 rounded-full shadow-lg cursor-pointer transform group-hover:scale-125 transition-transform">
+<span class="material-symbols-outlined text-lg" data-weight="fill" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-white px-3 py-1.5 rounded-lg shadow-xl border border-stone-200 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+<p class="text-xs font-bold text-stone-900">Iron Forge Brewery</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute bottom-8 right-8 flex flex-col gap-2">
+<button class="w-10 h-10 bg-white rounded-lg shadow-lg flex items-center justify-center text-stone-600 hover:text-orange-700 transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="w-10 h-10 bg-white rounded-lg shadow-lg flex items-center justify-center text-stone-600 hover:text-orange-700 transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<button class="w-10 h-10 bg-white rounded-lg shadow-lg flex items-center justify-center text-stone-600 hover:text-orange-700 transition-colors mt-2">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-stone-200 flex justify-around items-center h-16 px-4 z-50">
+<a class="flex flex-col items-center gap-1 text-stone-500" href="#">
+<span class="material-symbols-outlined text-xl">sports_bar</span>
+<span class="text-[10px] font-medium">Catalog</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-500" href="#">
+<span class="material-symbols-outlined text-xl">factory</span>
+<span class="text-[10px] font-medium">Breweries</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-orange-700" href="#">
+<span class="material-symbols-outlined text-xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="text-[10px] font-bold">Venues</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-500" href="#">
+<span class="material-symbols-outlined text-xl">book</span>
+<span class="text-[10px] font-medium">Journal</span>
+</a>
+</nav>
+</body></html>

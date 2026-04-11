@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {},
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Public Sans"],
+                        "label": ["Public Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 font-body text-stone-900 antialiased min-h-screen flex flex-col">
+<!-- TopNavBar from COMPONENTS_10 -->
+<header class="bg-stone-50 dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800 docked full-width top-0 z-50 sticky shadow-none">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto font-sans tracking-tight duration-200 ease-in-out">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-orange-600 dark:text-orange-500 italic tracking-tighter">Brewfolio</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors" href="#">Catalog</a>
+<a class="text-orange-600 dark:text-orange-400 font-bold border-b-2 border-orange-600 dark:border-orange-400 pb-1 transition-colors" href="#">Breweries</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors" href="#">Venues</a>
+<a class="text-stone-600 dark:text-stone-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors" href="#">Journal</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-lg">search</span>
+<input class="pl-10 pr-4 py-2 bg-stone-100 dark:bg-stone-900 border-none rounded-full text-sm focus:ring-2 focus:ring-orange-500 w-64" placeholder="Search breweries..." type="text"/>
+</div>
+<button class="p-2 text-stone-600 dark:text-stone-400 hover:text-orange-500 dark:hover:text-orange-300 transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content (SideNavBar Removed) -->
+<main class="flex-1 p-4 md:p-8">
+<div class="max-w-7xl mx-auto">
+<div class="mb-8">
+<h1 class="text-3xl font-black tracking-tight text-stone-900 mb-2">All Breweries</h1>
+<p class="text-stone-500">Explore the world's finest craft beer producers</p>
+</div>
+<!-- Filters & Search Section (Integrated into Main Layout) -->
+<div class="bg-white rounded-xl p-4 mb-8 shadow-sm border border-stone-100">
+<div class="flex flex-col lg:flex-row gap-4">
+<div class="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Region Filter -->
+<div class="space-y-1.5">
+<label class="text-xs font-bold uppercase tracking-wider text-stone-400 px-1">Region</label>
+<select class="w-full bg-stone-50 border-stone-200 rounded-lg text-sm focus:ring-orange-500 focus:border-orange-500">
+<option>All Regions</option>
+<option>Pacific NW</option>
+<option>Midwest</option>
+<option>Northeast</option>
+<option>Mountain West</option>
+<option>Europe</option>
+</select>
+</div>
+<!-- Style Filter -->
+<div class="space-y-1.5">
+<label class="text-xs font-bold uppercase tracking-wider text-stone-400 px-1">Style Focus</label>
+<select class="w-full bg-stone-50 border-stone-200 rounded-lg text-sm focus:ring-orange-500 focus:border-orange-500">
+<option>All Styles</option>
+<option>IPA Specialists</option>
+<option>Stout-focused</option>
+<option>Sour Specialists</option>
+<option>Traditional Lagers</option>
+</select>
+</div>
+<!-- Rating Filter -->
+<div class="space-y-1.5">
+<label class="text-xs font-bold uppercase tracking-wider text-stone-400 px-1">Min. Rating</label>
+<select class="w-full bg-stone-50 border-stone-200 rounded-lg text-sm focus:ring-orange-500 focus:border-orange-500">
+<option>Any Rating</option>
+<option>4.5+ ★</option>
+<option>4.0+ ★</option>
+<option>3.5+ ★</option>
+</select>
+</div>
+<!-- Search Bar (Integrated) -->
+<div class="space-y-1.5 lg:hidden">
+<label class="text-xs font-bold uppercase tracking-wider text-stone-400 px-1">Search</label>
+<input class="w-full bg-stone-50 border-stone-200 rounded-lg text-sm focus:ring-orange-500 focus:border-orange-500" placeholder="Search by name..." type="text"/>
+</div>
+<div class="hidden lg:flex items-end">
+<button class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">filter_alt</span>
+                            Apply Filters
+                        </button>
+</div>
+</div>
+</div>
+<!-- Active Filter Chips -->
+<div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-stone-100">
+<span class="inline-flex items-center gap-1 bg-orange-50 text-orange-700 text-xs font-semibold px-2.5 py-1 rounded-full border border-orange-100">
+                    Pacific NW
+                    <button class="material-symbols-outlined text-xs">close</button>
+</span>
+<span class="inline-flex items-center gap-1 bg-orange-50 text-orange-700 text-xs font-semibold px-2.5 py-1 rounded-full border border-orange-100">
+                    IPA Specialists
+                    <button class="material-symbols-outlined text-xs">close</button>
+</span>
+<button class="text-stone-400 hover:text-orange-600 text-xs font-medium px-2 py-1">Clear all</button>
+</div>
+</div>
+<!-- Brewery Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Brewery Card 1 -->
+<div class="bg-white rounded-xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden group">
+<div class="h-32 bg-stone-200 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern craft brewery interior with stainless steel fermentation tanks and warm industrial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0qLCjEkY-Vbzp8vm6PjjpidJxa_SROE-qWuEGS-Ckn8uM3EUz-VIRtwUV6zIBWqobV1LkUj-BfOWGJWLk3zli-hi_y1iKNM1xFrTRD0A3mnlkm6H1HvtFBeBE8teeXM_NMX5szxePwpL3t2Efd_GtS_WR2tUCqqrzIN4y6ylKvnn7LEq7DEeiKeyPiyZyUPDA7fXa6FXU2x65PpfRh8g07r0RnFIcP6nDapVTHsbMwmijS4Ma-zs18GA5Gz7zhnglsi6k7LbLLiI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<div class="w-10 h-10 bg-white rounded-lg p-1 shadow-sm border border-stone-100">
+<img class="w-full h-full object-contain" data-alt="Minimalist geometric brewery logo icon featuring a stylized hop leaf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqBw8IJQFHmdAJ0jkM_WDVkF3TIimMBYmpH6fFGGXzrJ2Mtk8Hhqq082-THnx4-DpoOOK5SD8rg2hCyHza6Alo38dAFkYSZtTbtLcWQ5MfrUOJrncCSUDwk6lKN6qu0BwsAd5lyo8u3Nq-qOWdnQ_p3DOS1e-9fN2c2HBUGVFh_u55npkpL2PvL-J6HwGvwWXYpm8fVtVAP9U8MMI4QDGLH8JKOYaDPs0nmj1YVwJHCbh6EKRa8PHEkch6LHJoj-a82YoIu7B-LQQ"/>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-bold text-stone-900 group-hover:text-orange-700 transition-colors">North Fork Brewing</h3>
+<p class="text-xs text-stone-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                                Bellingham, WA
+                            </p>
+</div>
+<div class="flex items-center gap-0.5 text-orange-500">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.8</span>
+</div>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">IPA Specialist</span>
+<span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Organic</span>
+</div>
+<button class="w-full py-2 bg-stone-50 hover:bg-orange-600 hover:text-white text-stone-900 font-bold text-xs rounded-lg border border-stone-200 hover:border-orange-600 transition-all active:scale-95">
+                        Follow Brewery
+                    </button>
+</div>
+</div>
+<!-- Brewery Card 2 -->
+<div class="bg-white rounded-xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden group">
+<div class="h-32 bg-stone-200 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cozy wooden tavern interior with beer taps and rustic decor at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCujPcP1nImx6y8WXNqyFOix6UvgWYhGsonhr_54Qx4VxXhsKilAVx9aOBTBmGhGsiirl7Ca5h85dPxUiMKn4XkQNipKdaq0pCCX8BZeaPmN7EJ0g2gN5HuyqPXkkaMSzSv0WlXfBTBEftM_-dXig3kLUvXdKt11na8V6TWLw1nu7QdQEdelQ6STlWBhN3OhpIx3P_t5-YSZbFwpyzTfAcepV4eIj_TBaKxx333h0zekXeUgbzsNxNtKfFOPvdmdN5YmUfUz3az0oc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<div class="w-10 h-10 bg-white rounded-lg p-1 shadow-sm border border-stone-100">
+<img class="w-full h-full object-contain" data-alt="Vintage style circular brewery crest logo with mountain silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRvzWqoLFkxtguAPFQ-U0gGtB7IndRMKNU27Mcbwwb8Fv3-Uo4gMywxdHpxGu2h4nOS_SmTXYYLSnnQMkJh0T8Ar7cfkLPJVc9ftB5Hfh5jwLn5w-SS0FltzNt8spKIJ4bmOwNP-8mLA1tAuRfmpt4VAkB1XiAxN7veSIs26NG9QAO8xwUWKlPclTXmZ2BEF5T9eyAZjv_9cF-T4W7BPw-wz5BSHmHQx-Xk6NvWKdj8rOnKD5BPmL3_F-PX0PaBj5AAjBIJI4WXig"/>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-bold text-stone-900 group-hover:text-orange-700 transition-colors">Iron Range Ales</h3>
+<p class="text-xs text-stone-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                                Duluth, MN
+                            </p>
+</div>
+<div class="flex items-center gap-0.5 text-orange-500">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.6</span>
+</div>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Stout Focus</span>
+<span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Barrel Aged</span>
+</div>
+<button class="w-full py-2 bg-stone-50 hover:bg-orange-600 hover:text-white text-stone-900 font-bold text-xs rounded-lg border border-stone-200 hover:border-orange-600 transition-all active:scale-95">
+                        Follow Brewery
+                    </button>
+</div>
+</div>
+<!-- Brewery Card 3 -->
+<div class="bg-white rounded-xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden group">
+<div class="h-32 bg-stone-200 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Sunlit urban outdoor patio of a brewery with people sitting at long wooden tables" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9nOgix8j9OV-p5dwcqlfbF9Csj229L-MbJMTNmxh1Bxfbq1KZs7OrCM318L_qz1iQZD_sQC4iHBSX4rWCYWHktpcKs0u5UJ5L8p4a0cq-l1GdEtypcTXOfnH_YOOEtecveRJ8P4iNHD3Cnp8KH7sb17kMpUCkGqnV6yhboyk_mS5WeCwNbft3-WN_v8MyXb215osT-8ufWiLNR3KC3EMUXAz14aePWwj7XTCXWlvWy5ZaJnqvKcNtmqW77rUzUGC6s6r6uVtm18o"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<div class="w-10 h-10 bg-white rounded-lg p-1 shadow-sm border border-stone-100">
+<img class="w-full h-full object-contain" data-alt="Minimalist line art brewery logo of a beer mug with bubbles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbdYMC0hEkQkLFP0p63Yk4X9dHgoyzqS_ZGKJRqnfJzEmUY14R18gV6X02pzcTcbRKKfnEZ7yLIgMaL0xl9ElXC7KfCjU6qIx_PxqbIrN9-Cb33QUrlRYwj3CUvkNbPobtSp5LGkngkoZrNqykGtIhteBwLY8kdJplBDEsTNVEc5PQlvOQtZvIiuiaxeEOx8agTN_pewB0gllyjhd6ws7zD48mWD-4nYyD--Vz2ZkLCLncEbmkA10jKodWLQ8_0hUjF7MS9ak2anQ"/>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-bold text-stone-900 group-hover:text-orange-700 transition-colors">Coastal Mist Brewing</h3>
+<p class="text-xs text-stone-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                                Astoria, OR
+                            </p>
+</div>
+<div class="flex items-center gap-0.5 text-orange-500">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.9</span>
+</div>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Sours</span>
+<span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Wild Ferment</span>
+</div>
+<button class="w-full py-2 bg-stone-50 hover:bg-orange-600 hover:text-white text-stone-900 font-bold text-xs rounded-lg border border-stone-200 hover:border-orange-600 transition-all active:scale-95">
+                        Follow Brewery
+                    </button>
+</div>
+</div>
+<!-- Brewery Card 4 -->
+<div class="bg-white rounded-xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden group">
+<div class="h-32 bg-stone-200 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Interior of a large modern brewery with copper tanks and elegant glass pendant lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr4baj8-rD_mdir5USpIjr5zF8Eu6M2k3rPIiYp3-Pwq8jNgmT_3PaeimozV1RONGuD-KhOUAj_77IRwi2ZmjpNt19sur3LWjfr1HCF8UE3X1TQab0GychiPLTpISQMGoRINg8kd2z-PvFvxkKvmJ081BoSzqR85kexXj6uXME5AwvC2vNsv6UqNfC8MGS6GSIiDg-lBZizmH5gbmNU8Msicb2hFNHS-JzAyHO-3WCmhmdNhaN42WdLJOkFk2u5k88qOA3FjPybrM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<div class="w-10 h-10 bg-white rounded-lg p-1 shadow-sm border border-stone-100">
+<img class="w-full h-full object-contain" data-alt="Corporate professional brewery logo with bold typography and shield emblem" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD5DHz2-N1aD4OCNkteg0kOdj91C9Ulgg9rXNn9Vr9aulX0Qbhb08ealu4Yt0Tz30xTrbNW7PDANRDErtHslg1qy6AVKDlLbHJ7wxQEcTEXFAr6H-C7SaUIQ4KslPFEZAQJawSFxMeObqDtY2K2n7e8cgfuAfOHFno_N_XUYAz7RJtfvoS24ta2M-JN6czw0pDvY3qbZSowzmw_MuueiEIAtHYtDJGBGybxPS751sG4lrkp-aylOK8NhVch5rOdDq_Ze9jZE-liQE"/>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-bold text-stone-900 group-hover:text-orange-700 transition-colors">Summit Peak Co.</h3>
+<p class="text-xs text-stone-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                                Denver, CO
+                            </p>
+</div>
+<div class="flex items-center gap-0.5 text-orange-500">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.5</span>
+</div>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Traditional</span>
+<span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Lager</span>
+</div>
+<button class="w-full py-2 bg-orange-600 text-white font-bold text-xs rounded-lg border border-orange-600 shadow-sm flex items-center justify-center gap-2 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Following
+                    </button>
+</div>
+</div>
+<!-- Additional placeholder cards -->
+<div class="bg-stone-100/50 rounded-xl border border-dashed border-stone-200 h-[320px] flex flex-col items-center justify-center p-8 text-center">
+<span class="material-symbols-outlined text-stone-300 text-4xl mb-2">add_location_alt</span>
+<p class="text-stone-400 text-sm font-medium">New Brewery opening soon in your area</p>
+</div>
+<div class="bg-white rounded-xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden group">
+<div class="h-32 bg-stone-200 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close-up of golden beer pouring into a glass from a tap in a sunlit brewery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaXY8vvjlG8w70IL0ojXs1xQeOuI9HFTr2GC9E3927cEMKATMordEIPjFtwP7qQDceqqdPc56h-1eNsjTeQkcLq-nZic7amed5nB7pPgwL1tHbfF-uy_aolrTlzWaIOs1mnrjFGAlQ9vv8ydSdSjJY5W6-CkgzB7uK-5euBo5WueIjtop8vBbNa0Wa9pB_Ke6_mwaQiCrsrdiUuH1t7uCdW19SFcsqCvlDRd8beVPsjDsJREjYKbjpQAEYouRBfWp4s0cVaZEBbP8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<div class="w-10 h-10 bg-white rounded-lg p-1 shadow-sm border border-stone-100">
+<img class="w-full h-full object-contain" data-alt="Creative brewery logo featuring a stylized sun and wave motif" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj2fdf6FvqY-6bvlzZEX-mSpDCbMcOOa1wHMh0GLx7hv_wePDssPy4lcOChvjOIy6UHjZaFhzKl1PkqsfJr97hMlYEumJ5wSuk9RRW4wQh9akbYw-N9f7j9inLSRjotlZ3D9CSnRA7Y8DtI7y-KP0ibqs0BVkDUtsPBCwoaYnWcGxO1oR6cegqmIHA3JG1t2XOrH8UnlXHKdTOXN5yHF1eDeQwOb2I9YGIR71OwxfHgP8SeJ-NH-ddAWTA1nfKNpvX17N1ZzSaPwY"/>
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-bold text-stone-900 group-hover:text-orange-700 transition-colors">Sun-Drenched Brews</h3>
+<p class="text-xs text-stone-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span>
+                                San Diego, CA
+                            </p>
+</div>
+<div class="flex items-center gap-0.5 text-orange-500">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.7</span>
+</div>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">West Coast</span>
+<span class="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Citrus IPA</span>
+</div>
+<button class="w-full py-2 bg-stone-50 hover:bg-orange-600 hover:text-white text-stone-900 font-bold text-xs rounded-lg border border-stone-200 hover:border-orange-600 transition-all active:scale-95">
+                        Follow Brewery
+                    </button>
+</div>
+</div>
+</div>
+<!-- Pagination Section -->
+<div class="mt-12 mb-12 flex flex-col items-center gap-6">
+<button class="px-8 py-3 bg-white border border-stone-200 rounded-full text-stone-900 font-bold hover:bg-stone-50 hover:border-orange-500 transition-all active:scale-95 shadow-sm">
+                Load More Breweries
+            </button>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-stone-200 text-stone-400 hover:text-orange-600 hover:border-orange-600 transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-orange-600 text-white font-bold text-xs">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-stone-200 text-stone-600 hover:text-orange-600 hover:border-orange-600 transition-colors text-xs font-medium">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-stone-200 text-stone-600 hover:text-orange-600 hover:border-orange-600 transition-colors text-xs font-medium">3</button>
+<span class="text-stone-400 px-1">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-stone-200 text-stone-600 hover:text-orange-600 hover:border-orange-600 transition-colors text-xs font-medium">12</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-stone-200 text-stone-400 hover:text-orange-600 hover:border-orange-600 transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer from COMPONENTS_10 -->
+<footer class="bg-stone-100 dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 full-width py-8 mt-auto flat">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 w-full max-w-7xl mx-auto">
+<div class="mb-4 md:mb-0">
+<span class="text-lg font-bold text-stone-900 dark:text-stone-100">Brewfolio</span>
+<p class="text-stone-500 dark:text-stone-400 text-sm font-medium mt-1">© 2024 Brewfolio Craft Beer Journal</p>
+</div>
+<div class="flex gap-6 text-sm font-medium">
+<a class="text-stone-500 dark:text-stone-400 hover:underline decoration-orange-500 transition-all" href="#">Privacy</a>
+<a class="text-stone-500 dark:text-stone-400 hover:underline decoration-orange-500 transition-all" href="#">Terms</a>
+<a class="text-stone-500 dark:text-stone-400 hover:underline decoration-orange-500 transition-all" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<!-- Mobile Bottom NavBar (Visible on small screens) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-stone-200 px-6 py-2 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-stone-400" href="#">
+<span class="material-symbols-outlined">sports_bar</span>
+<span class="text-[10px] font-medium">Catalog</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-orange-700" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">factory</span>
+<span class="text-[10px] font-bold">Breweries</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-400" href="#">
+<span class="material-symbols-outlined">location_on</span>
+<span class="text-[10px] font-medium">Venues</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-400" href="#">
+<span class="material-symbols-outlined">book</span>
+<span class="text-[10px] font-medium">Journal</span>
+</a>
+</nav>
+</body></html>
