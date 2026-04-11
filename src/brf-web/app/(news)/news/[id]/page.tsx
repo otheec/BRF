@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { getArticleById, articles } from "@/lib/mock-data";
-import Footer from "@/components/Footer";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ id: a.id }));
@@ -233,24 +232,6 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="w-full py-8 mt-auto bg-gray-50 border-t border-gray-200">
-        <div className="flex flex-col md:flex-row justify-between items-center px-6 max-w-7xl mx-auto space-y-4 md:space-y-0">
-          <div className="flex flex-col items-center md:items-start">
-            <span className="text-lg font-bold text-gray-900">Brewfolio</span>
-            <p className="text-xs text-gray-500 mt-1">© 2024 Brewfolio Craft Community</p>
-          </div>
-          <div className="flex gap-8">
-            <a className="text-xs text-gray-500 hover:text-orange-500 hover:underline transition-all" href="#">Privacy</a>
-            <a className="text-xs text-gray-500 hover:text-orange-500 hover:underline transition-all" href="#">Terms</a>
-            <a className="text-xs text-gray-500 hover:text-orange-500 hover:underline transition-all" href="#">Contact</a>
-          </div>
-          <div className="flex gap-4">
-            <span className="material-symbols-outlined text-gray-400 hover:text-orange-600 cursor-pointer">public</span>
-            <span className="material-symbols-outlined text-gray-400 hover:text-orange-600 cursor-pointer">rss_feed</span>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

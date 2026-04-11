@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import TopNav from "@/components/TopNav";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Brewfolio",
@@ -22,9 +23,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="bg-stone-50 text-stone-900 min-h-screen">
+      <body className="bg-stone-50 text-stone-900 min-h-screen flex flex-col">
         <TopNav />
-        {children}
+        <div className="flex-1">{children}</div>
+        <Footer />
       </body>
     </html>
   );

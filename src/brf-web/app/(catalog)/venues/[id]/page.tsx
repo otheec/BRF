@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { getVenueById, venues } from "@/lib/mock-data";
-import Footer from "@/components/Footer";
 
 export function generateStaticParams() {
   return venues.map((v) => ({ id: v.id }));
@@ -229,18 +228,6 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-50 border-t border-gray-200 w-full py-8 mt-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center px-6 max-w-7xl mx-auto space-y-4 md:space-y-0">
-          <div className="text-lg font-bold text-gray-900">Brewfolio</div>
-          <div className="flex space-x-6">
-            <a className="text-xs text-gray-500 hover:text-orange-500 hover:underline transition-all" href="#">Privacy</a>
-            <a className="text-xs text-gray-500 hover:text-orange-500 hover:underline transition-all" href="#">Terms</a>
-            <a className="text-xs text-gray-500 hover:text-orange-500 hover:underline transition-all" href="#">Contact</a>
-          </div>
-          <div className="text-xs text-gray-500">© 2024 Brewfolio Craft Community</div>
-        </div>
-      </footer>
     </div>
   );
 }

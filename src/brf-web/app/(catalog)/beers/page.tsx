@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { beers, breweries } from "@/lib/mock-data";
-import Footer from "@/components/Footer";
 
 const styleFilters = ["All", "IPA", "Stout", "Lager", "Sour", "Wheat", "Pilsner"];
 
@@ -116,8 +115,6 @@ export default function BeersPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

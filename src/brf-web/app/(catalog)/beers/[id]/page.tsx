@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBeerById, getBreweryForBeer, beers, venues } from "@/lib/mock-data";
-import Footer from "@/components/Footer";
 
 export function generateStaticParams() {
   return beers.map((b) => ({ id: b.id }));
@@ -271,20 +270,6 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="w-full py-8 mt-auto bg-gray-50 border-t border-gray-200">
-        <div className="flex flex-col md:flex-row justify-between items-center px-6 max-w-7xl mx-auto space-y-4 md:space-y-0">
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <span className="text-lg font-bold text-gray-900">Brewfolio</span>
-            <span className="text-xs text-gray-500">© 2024 Brewfolio Craft Community</span>
-          </div>
-          <div className="flex space-x-6">
-            <a className="text-xs text-gray-500 hover:text-orange-500 transition-all hover:underline" href="#">Privacy</a>
-            <a className="text-xs text-gray-500 hover:text-orange-500 transition-all hover:underline" href="#">Terms</a>
-            <a className="text-xs text-gray-500 hover:text-orange-500 transition-all hover:underline" href="#">Contact</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

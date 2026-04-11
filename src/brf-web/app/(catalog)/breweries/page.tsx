@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 
 export default function BreweriesPage() {
@@ -243,7 +242,6 @@ export default function BreweriesPage() {
           </div>
         </div>
       </main>
-      <Footer />
       <BottomNav />
     </div>
   );

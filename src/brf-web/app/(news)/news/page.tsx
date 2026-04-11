@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { articles } from "@/lib/mock-data";
-import Footer from "@/components/Footer";
 
 const articleImages: Record<string, string> = {
   "hop-harvest":
@@ -72,8 +71,6 @@ export default function NewsPage() {
           })}
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }
