@@ -49,9 +49,16 @@ export interface Article {
   content: ArticleSection[];
 }
 
+export interface ArticleImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface ArticleSection {
-  type: "paragraph" | "heading" | "quote";
-  text: string;
+  type: "paragraph" | "heading" | "quote" | "images";
+  text?: string;
+  images?: ArticleImage[];
 }
 
 export const breweries: Brewery[] = [
@@ -313,6 +320,21 @@ export const articles: Article[] = [
       {
         type: "paragraph",
         text: "Harvest timing is everything. Pick too early and the hops yield grassy, underripe flavors that can overwhelm a delicate beer. Wait too long and the precious lupulin glands — the resinous yellow powder inside the hop cone that carries all that aroma and bitterness — begin to oxidize, resulting in cheesy, dull profiles that no brewer wants.",
+      },
+      {
+        type: "images",
+        images: [
+          {
+            src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBgJbxzi56YwAoimbQGZtpdgsqMrbbFYjw7ejKMJLZosMYVIVpncmot5ufqvVdFbUO5XnwZD_foDOGiNSiQAn1grQDyUDQJSSkMCpJIDDIyxhAFUQAtUvt447X07w0oUD-CUElOfs1zPqk-rGikw-CKa-nzVM7fhLMPwRoQovIl8f1Qzdh3aNxKwFjNYyWA1M8R90MuxdxvjhNL2-xaGmxDg9VJrVxxgUIFOLGmeoLOMRnsKoWEiuF2b2F1zzmPJBCDjIxJIU5-xkM",
+            alt: "Fresh hops",
+            caption: "Peak maturity lupulin glands.",
+          },
+          {
+            src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD5Ay2_wB3zodaXqKS4li2SZ4yk3GlI9y56ZZheTFBGQivEsPJBkXFRxNcE4DPmSH610XMHm4e8DZv_bhAOrXEMBzd66J_cdFP_a5hAW7ovVhhrcBOE9JEeCCJJgjHsypYiQAtfiCO7S96HHfHJ2pcLaYM-Pc91sgqBCb90xWDHAevB_myM0XBWGht4p0OFkjjnbLF0MbwE6MEZ3nh3yKWoGhST_bCZLimmLmepP4dMOwZr4WDgUM2KNwqFLtI6_3IgjFpfn9k0zYI",
+            alt: "Processing",
+            caption: "Processing the day's yield.",
+          },
+        ],
       },
       {
         type: "heading",

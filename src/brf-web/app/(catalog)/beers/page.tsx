@@ -1,68 +1,133 @@
 import Link from "next/link";
 import { beers, breweries } from "@/lib/mock-data";
-import Badge from "@/components/Badge";
 
-const filterChips = ["All", "IPA", "Stout", "Lager", "Sour"];
+const styleFilters = ["All", "IPA", "Stout", "Lager", "Sour", "Wheat", "Pilsner"];
+
+const beerImages: Record<string, string> = {
+  "sun-drenched-haze":
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuDr8Ix8X6OWPSBemE9gu_dthZlYO3gB6WNn8bhHHVYx-ejjCeuxq7eteuqT9otMNuT5dt-fgQlpSa9FQ-n_lJqOnAinS9P6FyIuJHAd_p2fubP2-mI-nQlCs_MBN3Fz8SADQbrfB_EFTG-sMe7ZCul1VMw_yieElBhnUPnU6C8TTHfuz-FOiSMIgeoectTW8pwVpuVCgdZQtp5ycJIAqVhdIe2xGuD8ez3_0-HoUNQx-lHx0zhHuEqG7c3El2ADb4uWvGx-tT9_Iwo",
+  "coastal-haze":
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuDS6XarVM3C1d536IXKyIe_hU_C90GHAd1VT8ghBL7RGhLU82Y-xeByQ2z6Nb41qeetYDA0cFr7fm3tEzyQf7FSsaipIYhggbvejQ4GkhGYZ5jI_eyUjYfzK4FVHYyD5Hf3gr6YSL6GrrEXBj-o3WMm5Nj8AWUONjQHqgIjwvB55tgtOPIaow15HF3HXM5IIQiTwkrnNZSGcWU7xDfbJIioEvwcZEQH7vD3DAPNTgW2FJyMAr6hvHVcI3I6WZiTze-Oxui-7CzmWQk",
+  "obsidian-stout":
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuDbwGVIaMSHyLvwszWxgsrzIyuiUCr8ls4-XQ3ghjWdSs1L9WAUip0YCmytun6SHJI_wx9rxGdsAGrIKwdwSjQhtTEE8wLXwDqg9CvERs0hHuURyYCgNsR7tYTjeOnhxBKe_YDHGxioRtGSoooaPkyBL4KubwrTD1qs-Da7F-PEObt94U2GL4SdWKmLOhDXMqXfl0Vz1RdvLe4mg2hDy9gt8xzl7uexd6TGRVffDCPV-oLdeMdYqWihSsa41LG4je8EH8-QDesVEGE",
+  "alpine-lager":
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuDhC8F4yYlDpfgo5Ar6cqRmVcA8TW_GvXKbWvsykOCa6hwEGtgHEKXmxQSk9drBTv-UzGjIMVJW429z5mlGjC5VZrLhWg4Yr1na1Icp6J80jD1PZsfXpi0YRU1HagTDFAptJqf8mbyI5eG9ZXOBfognR9dT9KaeNXqXkxighZ6E7lggHW6qkq9lmZxc0fMUhu3qzZGmbghuoKJek56qisLv4Y_10FT21UEq2bJHNqxF114Oa78vKq5FRBYCq0M5xv2rxhRNHG2-9DE",
+  "velvet-sour":
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuB3nmEcgssd4-GnJUYrNGmDeQbih521GrIjoFApYspQdUKASGuFisD-dDPLJJA2CcR4ffvYqZ19nVEu3let6JshqjIbzZi8i39o25-js4AGntq7QlRL7KwycIRoAb0r2Mc-M1-K9P0BorUU61Yk9SHOyuhfhyhc4e0vlvEQkdxDufg2dt7RVfnWix2IFk40nYSrg7q0n2lI8IgSni-GXSxhRPNrE7AORFhZl0OV7N5zWNSHxl-RlB00uK1dke7b92tnUCVD2L4JdsQ",
+};
+
+const defaultBeerImage =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuDS6XarVM3C1d536IXKyIe_hU_C90GHAd1VT8ghBL7RGhLU82Y-xeByQ2z6Nb41qeetYDA0cFr7fm3tEzyQf7FSsaipIYhggbvejQ4GkhGYZ5jI_eyUjYfzK4FVHYyD5Hf3gr6YSL6GrrEXBj-o3WMm5Nj8AWUONjQHqgIjwvB55tgtOPIaow15HF3HXM5IIQiTwkrnNZSGcWU7xDfbJIioEvwcZEQH7vD3DAPNTgW2FJyMAr6hvHVcI3I6WZiTze-Oxui-7CzmWQk";
+
+// Static ratings for display
+const beerRatings: Record<string, string> = {
+  "sun-drenched-haze": "4.8",
+  "coastal-haze": "4.6",
+  "obsidian-stout": "4.9",
+  "alpine-lager": "4.5",
+  "velvet-sour": "4.7",
+  "cloud-runner": "4.8",
+  "midnight-roast": "4.6",
+  "lawnmower-gold": "4.3",
+};
 
 export default function BeersPage() {
   return (
-    <div className="min-h-screen">
-      <div className="max-w-6xl mx-auto px-4 py-10">
-        <div className="mb-8">
-          <h1
-            className="text-3xl md:text-4xl font-extrabold text-[#e5e2e1] mb-2"
-            style={{ fontFamily: "Epilogue, sans-serif" }}
-          >
-            Beers
-          </h1>
-          <p className="text-[#9e8e7a]">{beers.length} beers in the catalog</p>
-        </div>
-
-        <div className="flex flex-wrap gap-2 mb-8">
-          {filterChips.map((chip) => (
+    <div className="bg-stone-50 min-h-screen">
+      {/* Hero */}
+      <section className="py-16 px-6 text-center">
+        <h1 className="text-5xl font-black text-stone-900 mb-4 tracking-tight">
+          Discover Every Pour
+        </h1>
+        <p className="text-stone-500 text-lg max-w-xl mx-auto mb-10">
+          Explore our curated catalog of craft beers — from hoppy IPAs to rich stouts and everything in between.
+        </p>
+        {/* Style filter pills */}
+        <div className="flex flex-wrap justify-center gap-3">
+          {styleFilters.map((filter) => (
             <button
-              key={chip}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                chip === "All"
-                  ? "bg-[#ffbe5b]/15 text-[#ffbe5b] border border-[#ffbe5b]/30"
-                  : "bg-[#2a2a2a] text-[#d6c4ae] hover:bg-[#353535] hover:text-[#e5e2e1]"
+              key={filter}
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
+                filter === "All"
+                  ? "bg-orange-600 text-white shadow-sm"
+                  : "bg-white text-stone-600 border border-stone-200 hover:border-orange-300 hover:text-orange-600"
               }`}
             >
-              {chip}
+              {filter}
             </button>
           ))}
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {beers.map((beer) => {
-            const brewery = breweries.find((b) => b.id === beer.breweryId);
-            return (
-              <Link
-                key={beer.id}
-                href={`/beers/${beer.id}`}
-                className="bg-[#1c1b1b] rounded-xl p-5 hover:bg-[#20201f] transition-colors group"
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <Badge label={beer.style} variant="style" />
-                  <span className="text-xs font-medium text-[#9e8e7a]">
-                    {beer.abv}%
-                  </span>
-                </div>
-                <h2
-                  className="font-bold text-[#e5e2e1] group-hover:text-[#ffbe5b] transition-colors mb-1"
-                  style={{ fontFamily: "Epilogue, sans-serif" }}
+      {/* Beers Grid */}
+      <section className="bg-white py-16 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {beers.map((beer) => {
+              const brewery = breweries.find((b) => b.id === beer.breweryId);
+              const imgSrc = beerImages[beer.id] ?? defaultBeerImage;
+              const rating = beerRatings[beer.id] ?? "4.5";
+              const initial = brewery?.name?.[0]?.toUpperCase() ?? "B";
+
+              return (
+                <Link
+                  key={beer.id}
+                  href={`/beers/${beer.id}`}
+                  className="group cursor-pointer"
                 >
-                  {beer.name}
-                </h2>
-                <p className="text-xs text-[#9e8e7a] mb-3">{brewery?.name}</p>
-                <p className="text-sm text-[#d6c4ae] line-clamp-2 leading-relaxed">
-                  {beer.description}
-                </p>
-              </Link>
-            );
-          })}
+                  {/* Image container */}
+                  <div className="aspect-[4/5] bg-stone-100 rounded-2xl overflow-hidden relative mb-4">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={imgSrc}
+                      alt={beer.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    {/* Rating badge */}
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                      <span
+                        className="material-symbols-outlined text-amber-400 text-sm"
+                        style={{ fontVariationSettings: "'FILL' 1" }}
+                      >
+                        star
+                      </span>
+                      <span className="text-xs font-bold text-stone-800">{rating}</span>
+                    </div>
+                  </div>
+
+                  {/* Card content */}
+                  <h2 className="font-bold text-lg text-stone-900 group-hover:text-orange-600 transition-colors leading-snug mb-1">
+                    {beer.name}
+                  </h2>
+                  <p className="text-stone-500 text-sm mb-2">
+                    {beer.style} &middot; {beer.abv}% ABV
+                  </p>
+                  {/* Brewery row */}
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-stone-800 flex items-center justify-center">
+                      <span className="text-[10px] text-white font-black">{initial}</span>
+                    </div>
+                    <span className="text-stone-500 text-sm truncate">{brewery?.name}</span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-stone-100 border-t border-stone-200 py-8 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <span className="text-orange-600 font-black italic text-xl tracking-tighter">Brewfolio</span>
+          <span className="text-stone-500 text-sm">© 2024 Brewfolio. All rights reserved.</span>
+          <div className="flex items-center gap-6 text-stone-500 text-sm">
+            <a href="#" className="hover:text-stone-700 transition-colors">Privacy</a>
+            <a href="#" className="hover:text-stone-700 transition-colors">Terms</a>
+            <a href="#" className="hover:text-stone-700 transition-colors">Contact</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
