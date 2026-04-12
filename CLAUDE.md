@@ -203,6 +203,38 @@ npm run dev
 - Do not generate custom UI from scratch — wait for Stitch components or ask the user
 - Tailwind CSS is the styling foundation
 
+### Color & palette rules
+- Background: `bg-white` / `bg-stone-50`
+- Accent: `orange-600` (hover: `orange-700`)
+- **Only `stone-*` palette** — never use `gray-*`, `slate-*`, `zinc-*`, or `neutral-*`
+- No inline hex colors (e.g. `#ffbe5b`, `#1c1b1b`)
+- No dark mode classes
+
+### Typography standards
+- **List page h1 (hero/centered):** `text-4xl md:text-5xl font-black tracking-tight text-stone-900`
+- **List page h1 (compact/sidebar):** `text-3xl font-black tracking-tight text-stone-900`
+- **Detail page h1:** `text-4xl md:text-5xl font-black tracking-tight text-stone-900` (or `text-white` on dark overlays)
+- **Section h2:** `text-2xl font-black tracking-tight text-stone-900`
+- **Subtitle under h1:** `text-stone-500 text-lg`
+- **Small label text:** `text-xs text-stone-400 uppercase tracking-widest font-bold`
+- Always use `font-black` for headings — never `font-bold` or `font-extrabold` on h1/h2
+- Font: **Public Sans** only — no Epilogue, no Work Sans, no system-ui
+
+### Shared components (must use, don't inline alternatives)
+- `<PageHeader>` from `components/PageHeader.tsx` — for every list page h1. Centered hero by default, `compact` prop for sidebar/narrow contexts. Never inline raw `<h1>` on list pages.
+- `<Badge>` from `components/Badge.tsx` — for style/type/tag labels
+- `<StarRating>` from `components/StarRating.tsx` — for ratings
+- `<ErrorState>` from `components/ErrorState.tsx` — for error boundaries
+- TopNav, BottomNav, Footer — always wrapped by `layout.tsx`, never added per page
+
+### Standard patterns
+- Cards: `bg-white rounded-xl border border-stone-100 shadow-sm hover:border-orange-200 hover:shadow-md transition-all`
+- Buttons primary: `bg-orange-600 text-white hover:bg-orange-700 rounded-xl font-bold`
+- Buttons secondary: `bg-white border border-stone-200 text-stone-900 hover:border-orange-600 hover:text-orange-600 rounded-xl font-bold`
+- Back-links on detail pages: `text-sm text-stone-500 hover:text-orange-600`
+- Filter pills active: `bg-orange-600 text-white rounded-full`
+- Filter pills inactive: `bg-white text-stone-600 border border-stone-200 hover:border-orange-300 rounded-full`
+
 ---
 
 ## What To Ask The User Before Building New Features

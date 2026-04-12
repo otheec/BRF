@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listBeers } from "@/lib/api";
+import PageHeader from "@/components/PageHeader";
 
 const styleFilters = ["Vše", "IPA", "Stout", "Lager", "Sour", "Wheat", "Pilsner"];
 
@@ -35,14 +36,10 @@ export default async function BeersPage() {
   const { items: allBeers } = await listBeers(0, 50);
   return (
     <div className="bg-stone-50 min-h-screen">
-      {/* Hero */}
-      <section className="py-16 px-6 text-center">
-        <h1 className="text-5xl font-black text-stone-900 mb-4 tracking-tight">
-          Objevte každý doušek
-        </h1>
-        <p className="text-stone-500 text-lg max-w-xl mx-auto mb-10">
-          Prozkoumejte náš katalog řemeslných piv — od chmelových IPA přes bohaté stouty až po vše mezi tím.
-        </p>
+      <PageHeader
+        title="Objevte každý doušek"
+        subtitle="Prozkoumejte náš katalog řemeslných piv — od chmelových IPA přes bohaté stouty až po vše mezi tím."
+      >
         {/* Style filter pills */}
         <div className="flex flex-wrap justify-center gap-3">
           {styleFilters.map((filter) => (
@@ -58,7 +55,7 @@ export default async function BeersPage() {
             </button>
           ))}
         </div>
-      </section>
+      </PageHeader>
 
       {/* Beers Grid */}
       <section className="bg-white py-16 px-6">

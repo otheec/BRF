@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listBreweries } from "@/lib/api";
+import PageHeader from "@/components/PageHeader";
 
 const breweryImages: Record<string, string> = {
   "a1b2c3d4-1111-4000-8000-000000000001": "https://lh3.googleusercontent.com/aida-public/AB6AXuBpYzT7k3SLdciwFQTJfYRKsyeRqTm5rwV1KSl6XhKK3bqwQXEghzPykxDUqlHIgNBksqhRfxsXSatdv02XC85G9vVveHsohIYjXrBzBovPbF1tNn2ZFQXYVuKB3FxgZV_LpDxAz_L6Uc6JtxuLrFeZulrARCN2I4DXhxFb2KhMY40kLxsSd4O57yAyZdwCCrHrw8otnOHbJN1TRFtxxkzGGTqAXMj9AqCQAHIJXOUdf3P2B-bCOMcdttCDqMjROaW1IfIMq74HhL8",
@@ -16,15 +17,15 @@ export default async function BreweriesPage() {
   const { items: allBreweries } = await listBreweries(0, 50);
 
   return (
-    <div className="bg-stone-50 text-stone-900 antialiased min-h-screen flex flex-col">
-      <main className="flex-1 p-4 md:p-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-8">
-            <h1 className="text-3xl font-black tracking-tight text-stone-900 mb-2">Všechny pivovary</h1>
-            <p className="text-stone-500">Prozkoumejte nejlepší světové producenty řemeslného piva</p>
-          </div>
+    <div className="bg-stone-50 min-h-screen">
+      <PageHeader
+        title="Všechny pivovary"
+        subtitle="Prozkoumejte nejlepší světové producenty řemeslného piva"
+      />
 
-          {/* Brewery Grid */}
+      {/* Brewery Grid */}
+      <section className="bg-white py-16 px-6">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {allBreweries.map((brewery) => (
               <Link
@@ -63,7 +64,7 @@ export default async function BreweriesPage() {
             ))}
           </div>
         </div>
-      </main>
+      </section>
     </div>
   );
 }

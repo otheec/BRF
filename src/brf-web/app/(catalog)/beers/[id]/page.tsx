@@ -98,14 +98,14 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
   const { items: nearbyVenues } = await listVenues(0, 3);
 
   return (
-    <div className="bg-white text-gray-900 antialiased min-h-screen">
+    <div className="bg-white text-stone-900 antialiased min-h-screen">
       <main className="pt-16 flex-grow">
         {/* Hero Section */}
-        <section className="relative w-full bg-gray-50 border-b border-gray-100">
+        <section className="relative w-full bg-stone-50 border-b border-stone-100">
           <div className="max-w-7xl mx-auto px-6 py-12 md:py-20 flex flex-col md:flex-row gap-12 items-center">
             {/* Beer Image */}
             <div className="w-full md:w-1/2">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-100">
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl bg-white border border-stone-100">
                 <img
                   alt={beer.name}
                   className="w-full h-full object-cover"
@@ -120,11 +120,11 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
                 <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold tracking-widest uppercase rounded-full">
                   {beer.style}
                 </span>
-                <h1 className="text-5xl font-black tracking-tight text-gray-900 leading-tight">
+                <h1 className="text-5xl font-black tracking-tight text-stone-900 leading-tight">
                   {beer.name}
                 </h1>
                 {beer.breweryName && (
-                  <p className="text-xl text-gray-600">
+                  <p className="text-xl text-stone-600">
                     od{" "}
                     <Link
                       href={`/breweries/${beer.breweryId}`}
@@ -137,21 +137,21 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
               </div>
 
               {/* Stats */}
-              <div className="flex gap-8 border-y border-gray-200 py-6">
+              <div className="flex gap-8 border-y border-stone-200 py-6">
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 font-bold">ABV</p>
-                  <p className="text-2xl font-black text-gray-900">{beer.abv}%</p>
+                  <p className="text-xs uppercase tracking-widest text-stone-400 font-bold">ABV</p>
+                  <p className="text-2xl font-black text-stone-900">{beer.abv}%</p>
                 </div>
                 {beer.ibu && (
-                  <div className="border-l border-gray-200 pl-8">
-                    <p className="text-xs uppercase tracking-widest text-gray-400 font-bold">IBU</p>
-                    <p className="text-2xl font-black text-gray-900">{beer.ibu}</p>
+                  <div className="border-l border-stone-200 pl-8">
+                    <p className="text-xs uppercase tracking-widest text-stone-400 font-bold">IBU</p>
+                    <p className="text-2xl font-black text-stone-900">{beer.ibu}</p>
                   </div>
                 )}
-                <div className={beer.ibu ? "border-l border-gray-200 pl-8" : ""}>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 font-bold">Hodnocení</p>
+                <div className={beer.ibu ? "border-l border-stone-200 pl-8" : ""}>
+                  <p className="text-xs uppercase tracking-widest text-stone-400 font-bold">Hodnocení</p>
                   <div className="flex items-center gap-1">
-                    <span className="text-2xl font-black text-gray-900">4.8</span>
+                    <span className="text-2xl font-black text-stone-900">4.8</span>
                     <span
                       className="material-symbols-outlined text-orange-500"
                       style={{ fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}
@@ -168,7 +168,7 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
                   <span className="material-symbols-outlined">edit_note</span>
                   Přidat do deníku
                 </button>
-                <button className="bg-white border-2 border-gray-200 text-gray-900 px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:border-orange-600 hover:text-orange-600 transition-all active:scale-95">
+                <button className="bg-white border-2 border-stone-200 text-stone-900 px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:border-orange-600 hover:text-orange-600 transition-all active:scale-95">
                   <span className="material-symbols-outlined">favorite</span>
                   Přidat do oblíbených
                 </button>
@@ -184,12 +184,12 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
             <div className="lg:col-span-8 space-y-12">
               <div className="space-y-4">
                 <h2 className="text-2xl font-black tracking-tight">Chuťový profil</h2>
-                <p className="text-lg text-gray-600 leading-relaxed">{beer.description}</p>
+                <p className="text-lg text-stone-600 leading-relaxed">{beer.description}</p>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {flavorTags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-4 py-2 bg-gray-100 rounded-lg text-sm font-semibold text-gray-700"
+                      className="px-4 py-2 bg-stone-100 rounded-lg text-sm font-semibold text-stone-700"
                     >
                       {tag}
                     </span>
@@ -197,7 +197,7 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+              <div className="bg-stone-50 rounded-2xl p-8 border border-stone-100">
                 <h2 className="text-2xl font-black tracking-tight mb-8">Degustační poznámky</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="space-y-3">
@@ -205,21 +205,21 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
                       <span className="material-symbols-outlined">air</span>
                       <h3 className="font-bold uppercase tracking-widest text-xs">Vůně</h3>
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">{tasting.aroma}</p>
+                    <p className="text-sm text-stone-600 leading-relaxed">{tasting.aroma}</p>
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 text-orange-600">
                       <span className="material-symbols-outlined">visibility</span>
                       <h3 className="font-bold uppercase tracking-widest text-xs">Vzhled</h3>
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">{tasting.appearance}</p>
+                    <p className="text-sm text-stone-600 leading-relaxed">{tasting.appearance}</p>
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 text-orange-600">
                       <span className="material-symbols-outlined">texture</span>
                       <h3 className="font-bold uppercase tracking-widest text-xs">Pocit v ústech</h3>
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">{tasting.mouthfeel}</p>
+                    <p className="text-sm text-stone-600 leading-relaxed">{tasting.mouthfeel}</p>
                   </div>
                 </div>
               </div>
@@ -227,35 +227,35 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
 
             {/* Right Column: On Tap Nearby */}
             <div className="lg:col-span-4 space-y-8">
-              <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-                <div className="p-6 border-b border-gray-100">
+              <div className="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm">
+                <div className="p-6 border-b border-stone-100">
                   <h2 className="text-xl font-black tracking-tight flex items-center gap-2">
                     <span className="material-symbols-outlined text-orange-600">location_on</span>
                     Na čepu v okolí
                   </h2>
                 </div>
-                <div className="divide-y divide-gray-100">
+                <div className="divide-y divide-stone-100">
                   {nearbyVenues.map((v) => (
                     <Link
                       key={v.id}
                       href={`/venues/${v.id}`}
-                      className="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors cursor-pointer group"
+                      className="p-6 flex justify-between items-center hover:bg-stone-50 transition-colors cursor-pointer group"
                     >
                       <div>
-                        <p className="font-bold text-gray-900 group-hover:text-orange-600 transition-colors">
+                        <p className="font-bold text-stone-900 group-hover:text-orange-600 transition-colors">
                           {v.name}
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-stone-500">
                           {v.city}, {v.country}
                         </p>
                       </div>
-                      <span className="material-symbols-outlined text-gray-300 group-hover:text-orange-600">
+                      <span className="material-symbols-outlined text-stone-300 group-hover:text-orange-600">
                         chevron_right
                       </span>
                     </Link>
                   ))}
                 </div>
-                <div className="h-48 bg-gray-200 relative">
+                <div className="h-48 bg-stone-200 relative">
                   <img
                     alt="Location Map"
                     className="w-full h-full object-cover grayscale opacity-50"
