@@ -33,7 +33,7 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
   const relatedArticles = allArticles.filter((a) => a.id !== article.id).slice(0, 3);
   const heroImage = article.coverImageUrl ?? DEFAULT_HERO;
   const authorDisplayName = getAuthorDisplayName(article.authorId);
-  const authorAvatar = AUTHOR_AVATARS[authorDisplayName] ?? AUTHOR_AVATARS[article.authorId];
+  const authorAvatar = AUTHOR_AVATARS[authorDisplayName];
 
   return (
     <div className="bg-white text-gray-900 antialiased">
