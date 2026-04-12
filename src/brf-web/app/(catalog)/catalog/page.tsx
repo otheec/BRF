@@ -8,16 +8,16 @@ export default function CatalogPage() {
         <section className="relative py-16 px-6 overflow-hidden">
           <div className="max-w-7xl mx-auto text-center relative z-10">
             <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-stone-900 mb-6">
-              Discover Your Next <span className="text-orange-600">Favorite Pour</span>.
+              Objevte svůj příští <span className="text-orange-600">oblíbený doušek</span>.
             </h1>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto mb-10">
-              Browse through thousands of artisan breweries, rare ales, and local taprooms curated by our community of craft enthusiasts.
+              Prohlédněte si řemeslné pivovary, vzácné ležáky a místní výčepy vybrané naší komunitou pivovarů.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <span className="px-4 py-2 bg-white border border-stone-200 rounded-full text-sm font-semibold shadow-sm hover:border-orange-200 transition-colors cursor-pointer">IPA</span>
               <span className="px-4 py-2 bg-white border border-stone-200 rounded-full text-sm font-semibold shadow-sm hover:border-orange-200 transition-colors cursor-pointer">Stouts</span>
               <span className="px-4 py-2 bg-white border border-stone-200 rounded-full text-sm font-semibold shadow-sm hover:border-orange-200 transition-colors cursor-pointer">Sours</span>
-              <span className="px-4 py-2 bg-white border border-stone-200 rounded-full text-sm font-semibold shadow-sm hover:border-orange-200 transition-colors cursor-pointer">Local Taprooms</span>
+              <span className="px-4 py-2 bg-white border border-stone-200 rounded-full text-sm font-semibold shadow-sm hover:border-orange-200 transition-colors cursor-pointer">Místní výčepy</span>
             </div>
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-orange-50/50 to-transparent -z-10"></div>
@@ -27,11 +27,11 @@ export default function CatalogPage() {
         <section className="py-12 px-6 max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-black tracking-tight text-stone-900">Featured Breweries</h2>
-              <p className="text-stone-500">The masters of craft currently trending in the community.</p>
+              <h2 className="text-3xl font-black tracking-tight text-stone-900">Doporučené pivovary</h2>
+              <p className="text-stone-500">Mistři řemesla, kteří teď letí v komunitě.</p>
             </div>
             <Link className="text-orange-600 font-bold flex items-center gap-1 hover:gap-2 transition-all" href="/breweries">
-              View all <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              Zobrazit vše <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -43,10 +43,10 @@ export default function CatalogPage() {
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpYzT7k3SLdciwFQTJfYRKsyeRqTm5rwV1KSl6XhKK3bqwQXEghzPykxDUqlHIgNBksqhRfxsXSatdv02XC85G9vVveHsohIYjXrBzBovPbF1tNn2ZFQXYVuKB3FxgZV_LpDxAz_L6Uc6JtxuLrFeZulrARCN2I4DXhxFb2KhMY40kLxsSd4O57yAyZdwCCrHrw8otnOHbJN1TRFtxxkzGGTqAXMj9AqCQAHIJXOUdf3P2B-bCOMcdttCDqMjROaW1IfIMq74HhL8"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
-                <span className="inline-block px-3 py-1 bg-orange-600 text-white text-xs font-bold rounded-full w-fit mb-3">Brewery of the Month</span>
+                <span className="inline-block px-3 py-1 bg-orange-600 text-white text-xs font-bold rounded-full w-fit mb-3">Pivovar měsíce</span>
                 <h3 className="text-3xl font-bold text-white mb-2">Northbound Craft</h3>
-                <p className="text-stone-200 text-sm mb-4">Vancouver, Canada • Pioneers of Pacific Northwest organic ales.</p>
-                <button className="bg-white text-stone-900 px-6 py-2 rounded-full font-bold text-sm w-fit hover:bg-orange-50 transition-colors">Explore Collection</button>
+                <p className="text-stone-200 text-sm mb-4">Vancouver, Kanada • Průkopníci organických ale z Pacifiku.</p>
+                <button className="bg-white text-stone-900 px-6 py-2 rounded-full font-bold text-sm w-fit hover:bg-orange-50 transition-colors">Prozkoumat kolekci</button>
               </div>
             </div>
             {/* Secondary Feature */}
@@ -58,7 +58,7 @@ export default function CatalogPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
                 <h3 className="text-xl font-bold text-white">Midnight Hops</h3>
-                <p className="text-stone-300 text-xs">Berlin, Germany • Experimental dark malts.</p>
+                <p className="text-stone-300 text-xs">Berlín, Německo • Experimentální tmavé slady.</p>
               </div>
             </div>
             {/* Small Feature 1 */}
@@ -82,7 +82,7 @@ export default function CatalogPage() {
               />
               <div className="absolute inset-0 bg-black/40 p-6 flex flex-col justify-end">
                 <h3 className="text-lg font-bold text-white">Neon Logic</h3>
-                <p className="text-stone-300 text-xs">Tokyo, Japan</p>
+                <p className="text-stone-300 text-xs">Tokio, Japonsko</p>
               </div>
             </div>
           </div>
@@ -93,8 +93,8 @@ export default function CatalogPage() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-end justify-between mb-10">
               <div>
-                <h2 className="text-3xl font-black tracking-tight text-stone-900">Top-Rated Beers</h2>
-                <p className="text-stone-500">Highest rated by the Brewfolio community this week.</p>
+                <h2 className="text-3xl font-black tracking-tight text-stone-900">Nejlépe hodnocená piva</h2>
+                <p className="text-stone-500">Nejvyšší hodnocení od komunity Brewfolio tento týden.</p>
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -194,8 +194,8 @@ export default function CatalogPage() {
         <section className="py-16 px-6 max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-black tracking-tight text-stone-900">Popular Venues</h2>
-              <p className="text-stone-500">The best places to enjoy a fresh pour near you.</p>
+              <h2 className="text-3xl font-black tracking-tight text-stone-900">Oblíbená místa</h2>
+              <p className="text-stone-500">Nejlepší místa, kde si vychutnat čerstvé pivo ve vašem okolí.</p>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -215,8 +215,8 @@ export default function CatalogPage() {
                     <span className="text-xs font-semibold">Portland</span>
                   </div>
                 </div>
-                <p className="text-stone-500 text-sm mb-4">42 Rotating Taps • Local Kitchen • Patio</p>
-                <Link href="/venues/copper-tap" className="block w-full py-2 border border-stone-200 rounded-lg text-sm font-bold text-stone-700 hover:bg-stone-50 transition-colors text-center">View Menu</Link>
+                <p className="text-stone-500 text-sm mb-4">42 rotujících čepů • Místní kuchyně • Zahrádka</p>
+                <Link href="/venues/copper-tap" className="block w-full py-2 border border-stone-200 rounded-lg text-sm font-bold text-stone-700 hover:bg-stone-50 transition-colors text-center">Zobrazit menu</Link>
               </div>
             </div>
             {/* Venue Card 2 */}
@@ -235,8 +235,8 @@ export default function CatalogPage() {
                     <span className="text-xs font-semibold">London</span>
                   </div>
                 </div>
-                <p className="text-stone-500 text-sm mb-4">500+ Rare Cans • International Shipments</p>
-                <Link href="/venues/hops-cellar" className="block w-full py-2 border border-stone-200 rounded-lg text-sm font-bold text-stone-700 hover:bg-stone-50 transition-colors text-center">Shop Now</Link>
+                <p className="text-stone-500 text-sm mb-4">500+ vzácných plechovek • Mezinárodní zásilky</p>
+                <Link href="/venues/hops-cellar" className="block w-full py-2 border border-stone-200 rounded-lg text-sm font-bold text-stone-700 hover:bg-stone-50 transition-colors text-center">Nakoupit</Link>
               </div>
             </div>
             {/* Venue Card 3 */}
@@ -255,8 +255,8 @@ export default function CatalogPage() {
                     <span className="text-xs font-semibold">Melbourne</span>
                   </div>
                 </div>
-                <p className="text-stone-500 text-sm mb-4">Craft Cocktails &amp; Ale • Live Jazz • Rooftop</p>
-                <Link href="/venues/amber-lounge" className="block w-full py-2 border border-stone-200 rounded-lg text-sm font-bold text-stone-700 hover:bg-stone-50 transition-colors text-center">Book Table</Link>
+                <p className="text-stone-500 text-sm mb-4">Řemeslné koktejly a pivo • Živý jazz • Střešní terasa</p>
+                <Link href="/venues/amber-lounge" className="block w-full py-2 border border-stone-200 rounded-lg text-sm font-bold text-stone-700 hover:bg-stone-50 transition-colors text-center">Rezervovat stůl</Link>
               </div>
             </div>
           </div>
@@ -266,11 +266,11 @@ export default function CatalogPage() {
         <section className="py-20 px-6 bg-stone-900 text-white text-center">
           <div className="max-w-3xl mx-auto">
             <span className="material-symbols-outlined text-5xl text-orange-500 mb-6 block">sports_bar</span>
-            <h2 className="text-3xl font-black mb-4">Stay in the Loop</h2>
-            <p className="text-stone-400 mb-8">Get the latest beer releases, brewery openings, and exclusive craft news delivered to your inbox every Friday.</p>
+            <h2 className="text-3xl font-black mb-4">Zůstaňte v obraze</h2>
+            <p className="text-stone-400 mb-8">Každý pátek vám pošleme novinky o čerstvých pivech, nových pivovarech a exkluzivních událostech.</p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
-              <input className="flex-grow px-6 py-3 bg-stone-800 border-stone-700 rounded-full focus:ring-2 focus:ring-orange-500 outline-none" placeholder="Enter your email" type="email" />
-              <button className="px-8 py-3 bg-orange-600 hover:bg-orange-700 transition-colors rounded-full font-bold" type="submit">Subscribe</button>
+              <input className="flex-grow px-6 py-3 bg-stone-800 border-stone-700 rounded-full focus:ring-2 focus:ring-orange-500 outline-none" placeholder="Zadejte váš e-mail" type="email" />
+              <button className="px-8 py-3 bg-orange-600 hover:bg-orange-700 transition-colors rounded-full font-bold" type="submit">Přihlásit se k odběru</button>
             </form>
           </div>
         </section>

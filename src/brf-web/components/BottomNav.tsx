@@ -4,10 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const bottomLinks = [
-  { href: "/catalog", label: "Catalog", icon: "sports_bar" },
-  { href: "/breweries", label: "Breweries", icon: "factory" },
-  { href: "/venues", label: "Venues", icon: "location_on" },
-  { href: "/log", label: "Journal", icon: "book" },
+  { href: "/catalog", label: "Katalog", icon: "sports_bar" },
+  { href: "/breweries", label: "Pivovary", icon: "factory" },
+  { href: "/venues", label: "Místa", icon: "location_on" },
+  { href: "/log", label: "Deník", icon: "book" },
 ];
 
 export default function BottomNav() {

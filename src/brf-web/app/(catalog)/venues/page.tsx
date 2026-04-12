@@ -27,10 +27,10 @@ const amenityIconMap: Record<string, string> = {
 
 // Venue type display labels
 const typeLabel: Record<string, string> = {
-  Taproom: "Taproom",
-  Brewpub: "Brewpub",
-  BottleShop: "Bottle Shop",
-  Other: "Other",
+  Taproom: "Výčep",
+  Brewpub: "Pivnice",
+  BottleShop: "Lahvový obchod",
+  Other: "Ostatní",
 };
 
 // Open/closed by index: 0,1,3 open; 2 closed
@@ -44,7 +44,7 @@ export default function VenuesPage() {
         <div className="w-full md:w-[450px] lg:w-[500px] flex flex-col bg-white border-r border-stone-200 overflow-y-auto z-10">
           {/* Sticky filter header */}
           <div className="p-6 sticky top-0 bg-white/80 backdrop-blur-md z-20 border-b border-stone-100">
-            <h1 className="text-2xl font-black text-stone-900 mb-4">Find a Venue</h1>
+            <h1 className="text-2xl font-black text-stone-900 mb-4">Najděte místo</h1>
 
             {/* Search */}
             <div className="relative mb-4">
@@ -53,18 +53,18 @@ export default function VenuesPage() {
               </span>
               <input
                 type="text"
-                placeholder="Search venues..."
+                placeholder="Hledat místa..."
                 className="w-full pl-10 pr-4 py-2.5 bg-stone-100 rounded-xl text-sm text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
             {/* Venue type filter pills */}
             <div className="flex flex-wrap gap-2 mb-3">
-              {["All Types", "Taproom", "Bottle Shop", "Brewpub"].map((t) => (
+              {["Všechny typy", "Výčep", "Lahvový obchod", "Pivnice"].map((t) => (
                 <button
                   key={t}
                   className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
-                    t === "All Types"
+                    t === "Všechny typy"
                       ? "bg-orange-600 text-white"
                       : "bg-stone-100 text-stone-600 hover:bg-stone-200"
                   }`}
@@ -77,9 +77,9 @@ export default function VenuesPage() {
             {/* Amenity filters */}
             <div className="flex flex-wrap gap-2">
               {[
-                { icon: "pets", label: "Dog Friendly" },
-                { icon: "wb_sunny", label: "Outdoor Seating" },
-                { icon: "restaurant", label: "Food" },
+                { icon: "pets", label: "Přátelské psům" },
+                { icon: "wb_sunny", label: "Venkovní sezení" },
+                { icon: "restaurant", label: "Jídlo" },
               ].map((a) => (
                 <button
                   key={a.label}
@@ -132,7 +132,7 @@ export default function VenuesPage() {
                             open ? "text-emerald-600" : "text-stone-400"
                           }`}
                         >
-                          {open ? "OPEN NOW" : "CLOSED"}
+                          {open ? "OTEVŘENO" : "ZAVŘENO"}
                         </span>
                       </div>
 

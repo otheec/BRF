@@ -17,9 +17,9 @@ export default async function NewsPage() {
         >
           sports_bar
         </span>
-        <h1 className="text-4xl font-black tracking-tight mb-3">News &amp; Articles</h1>
+        <h1 className="text-4xl font-black tracking-tight mb-3">Novinky a články</h1>
         <p className="text-stone-400 text-lg max-w-xl mx-auto">
-          Stories, guides, and deep dives from the world of craft beer
+          Příběhy, průvodci a hloubkové ponory ze světa řemeslného piva
         </p>
       </header>
 

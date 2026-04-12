@@ -30,7 +30,7 @@ export default async function BreweryDetailPage(
           href="/breweries"
           className="inline-flex items-center gap-1 text-sm text-[#9e8e7a] hover:text-[#ffbe5b] transition-colors mb-8"
         >
-          ← Back to Breweries
+          ← Zpět na pivovary
         </Link>
 
         {/* Header */}
@@ -64,7 +64,7 @@ export default async function BreweryDetailPage(
           </div>
           <div className="bg-[#1c1b1b] rounded-xl p-5">
             <p className="text-xs text-[#9e8e7a] uppercase tracking-wide mb-1">
-              Beers in Catalog
+              Piva v katalogu
             </p>
             <p className="text-2xl font-bold text-[#ffbe5b]" style={{ fontFamily: "Epilogue, sans-serif" }}>
               {breweryBeers.length}
@@ -72,7 +72,7 @@ export default async function BreweryDetailPage(
           </div>
           <div className="bg-[#1c1b1b] rounded-xl p-5">
             <p className="text-xs text-[#9e8e7a] uppercase tracking-wide mb-1">
-              Type
+              Typ
             </p>
             <p className="text-lg font-semibold text-[#e5e2e1]">
               {brewery.type}
@@ -87,7 +87,7 @@ export default async function BreweryDetailPage(
               className="text-2xl font-bold text-[#e5e2e1] mb-5"
               style={{ fontFamily: "Epilogue, sans-serif" }}
             >
-              Beers from {brewery.name}
+              Piva z {brewery.name}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {breweryBeers.map((beer) => (

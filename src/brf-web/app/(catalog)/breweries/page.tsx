@@ -6,8 +6,8 @@ export default function BreweriesPage() {
       <main className="flex-1 p-4 md:p-8">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-3xl font-black tracking-tight text-stone-900 mb-2">All Breweries</h1>
-            <p className="text-stone-500">Explore the world&apos;s finest craft beer producers</p>
+            <h1 className="text-3xl font-black tracking-tight text-stone-900 mb-2">Všechny pivovary</h1>
+            <p className="text-stone-500">Prozkoumejte nejlepší světové producenty řemeslného piva</p>
           </div>
           {/* Filters */}
           <div className="bg-white rounded-xl p-4 mb-8 shadow-sm border border-stone-100">
@@ -15,8 +15,8 @@ export default function BreweriesPage() {
               <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="space-y-1.5">
                   <label className="text-xs font-bold uppercase tracking-wider text-stone-400 px-1">Region</label>
-                  <select className="w-full bg-stone-50 border-stone-200 rounded-lg text-sm focus:ring-orange-500 focus:border-orange-500" defaultValue="All Regions">
-                    <option>All Regions</option>
+                  <select className="w-full bg-stone-50 border-stone-200 rounded-lg text-sm focus:ring-orange-500 focus:border-orange-500" defaultValue="Všechny regiony">
+                    <option>Všechny regiony</option>
                     <option>Pacific NW</option>
                     <option>Midwest</option>
                     <option>Northeast</option>
@@ -25,19 +25,19 @@ export default function BreweriesPage() {
                   </select>
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-stone-400 px-1">Style Focus</label>
-                  <select className="w-full bg-stone-50 border-stone-200 rounded-lg text-sm focus:ring-orange-500 focus:border-orange-500" defaultValue="All Styles">
-                    <option>All Styles</option>
-                    <option>IPA Specialists</option>
-                    <option>Stout-focused</option>
-                    <option>Sour Specialists</option>
-                    <option>Traditional Lagers</option>
+                  <label className="text-xs font-bold uppercase tracking-wider text-stone-400 px-1">Zaměření stylu</label>
+                  <select className="w-full bg-stone-50 border-stone-200 rounded-lg text-sm focus:ring-orange-500 focus:border-orange-500" defaultValue="Všechny styly">
+                    <option>Všechny styly</option>
+                    <option>IPA specialisté</option>
+                    <option>Stout zaměření</option>
+                    <option>Kyseláči</option>
+                    <option>Tradiční ležáky</option>
                   </select>
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-stone-400 px-1">Min. Rating</label>
-                  <select className="w-full bg-stone-50 border-stone-200 rounded-lg text-sm focus:ring-orange-500 focus:border-orange-500" defaultValue="Any Rating">
-                    <option>Any Rating</option>
+                  <label className="text-xs font-bold uppercase tracking-wider text-stone-400 px-1">Min. hodnocení</label>
+                  <select className="w-full bg-stone-50 border-stone-200 rounded-lg text-sm focus:ring-orange-500 focus:border-orange-500" defaultValue="Jakékoliv">
+                    <option>Jakékoliv</option>
                     <option>4.5+ ★</option>
                     <option>4.0+ ★</option>
                     <option>3.5+ ★</option>
@@ -46,7 +46,7 @@ export default function BreweriesPage() {
                 <div className="hidden lg:flex items-end">
                   <button className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
                     <span className="material-symbols-outlined text-lg">filter_alt</span>
-                    Apply Filters
+                    Použít filtry
                   </button>
                 </div>
               </div>
@@ -60,7 +60,7 @@ export default function BreweriesPage() {
                 IPA Specialists
                 <button className="material-symbols-outlined text-xs">close</button>
               </span>
-              <button className="text-stone-400 hover:text-orange-600 text-xs font-medium px-2 py-1">Clear all</button>
+              <button className="text-stone-400 hover:text-orange-600 text-xs font-medium px-2 py-1">Vymazat vše</button>
             </div>
           </div>
 
@@ -91,7 +91,7 @@ export default function BreweriesPage() {
                   <span className="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">IPA Specialist</span>
                   <span className="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Organic</span>
                 </div>
-                <button className="w-full py-2 bg-stone-50 hover:bg-orange-600 hover:text-white text-stone-900 font-bold text-xs rounded-lg border border-stone-200 hover:border-orange-600 transition-all active:scale-95">Follow Brewery</button>
+                <button className="w-full py-2 bg-stone-50 hover:bg-orange-600 hover:text-white text-stone-900 font-bold text-xs rounded-lg border border-stone-200 hover:border-orange-600 transition-all active:scale-95">Sledovat pivovar</button>
               </div>
             </Link>
 
@@ -120,7 +120,7 @@ export default function BreweriesPage() {
                   <span className="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Stout Focus</span>
                   <span className="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Barrel Aged</span>
                 </div>
-                <button className="w-full py-2 bg-stone-50 hover:bg-orange-600 hover:text-white text-stone-900 font-bold text-xs rounded-lg border border-stone-200 hover:border-orange-600 transition-all active:scale-95">Follow Brewery</button>
+                <button className="w-full py-2 bg-stone-50 hover:bg-orange-600 hover:text-white text-stone-900 font-bold text-xs rounded-lg border border-stone-200 hover:border-orange-600 transition-all active:scale-95">Sledovat pivovar</button>
               </div>
             </Link>
 
@@ -149,7 +149,7 @@ export default function BreweriesPage() {
                   <span className="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Sours</span>
                   <span className="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Wild Ferment</span>
                 </div>
-                <button className="w-full py-2 bg-stone-50 hover:bg-orange-600 hover:text-white text-stone-900 font-bold text-xs rounded-lg border border-stone-200 hover:border-orange-600 transition-all active:scale-95">Follow Brewery</button>
+                <button className="w-full py-2 bg-stone-50 hover:bg-orange-600 hover:text-white text-stone-900 font-bold text-xs rounded-lg border border-stone-200 hover:border-orange-600 transition-all active:scale-95">Sledovat pivovar</button>
               </div>
             </Link>
 
@@ -187,7 +187,7 @@ export default function BreweriesPage() {
 
             <div className="bg-stone-100/50 rounded-xl border border-dashed border-stone-200 h-[320px] flex flex-col items-center justify-center p-8 text-center">
               <span className="material-symbols-outlined text-stone-300 text-4xl mb-2">add_location_alt</span>
-              <p className="text-stone-400 text-sm font-medium">New Brewery opening soon in your area</p>
+              <p className="text-stone-400 text-sm font-medium">Nový pivovar brzy otevírá ve vašem okolí</p>
             </div>
 
             <Link href="/breweries/sun-drenched" className="bg-white rounded-xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden group">
@@ -215,7 +215,7 @@ export default function BreweriesPage() {
                   <span className="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">West Coast</span>
                   <span className="bg-stone-100 text-stone-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Citrus IPA</span>
                 </div>
-                <button className="w-full py-2 bg-stone-50 hover:bg-orange-600 hover:text-white text-stone-900 font-bold text-xs rounded-lg border border-stone-200 hover:border-orange-600 transition-all active:scale-95">Follow Brewery</button>
+                <button className="w-full py-2 bg-stone-50 hover:bg-orange-600 hover:text-white text-stone-900 font-bold text-xs rounded-lg border border-stone-200 hover:border-orange-600 transition-all active:scale-95">Sledovat pivovar</button>
               </div>
             </Link>
           </div>
@@ -223,7 +223,7 @@ export default function BreweriesPage() {
           {/* Pagination */}
           <div className="mt-12 mb-12 flex flex-col items-center gap-6">
             <button className="px-8 py-3 bg-white border border-stone-200 rounded-full text-stone-900 font-bold hover:bg-stone-50 hover:border-orange-500 transition-all active:scale-95 shadow-sm">
-              Load More Breweries
+              Načíst další pivovary
             </button>
             <div className="flex items-center gap-2">
               <button className="w-8 h-8 flex items-center justify-center rounded-lg border border-stone-200 text-stone-400 hover:text-orange-600 hover:border-orange-600 transition-colors">
