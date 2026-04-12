@@ -65,6 +65,29 @@ public class GetBreweryEndpoint : Endpoint<GetBreweryRequest, GetBreweryResponse
 - Icons: **Material Symbols Outlined** (`<span className="material-symbols-outlined">icon_name</span>`)
 - No dark mode classes in new code
 - No inline hex colors (`#ffbe5b`, `#1c1b1b`, etc.)
+- **Only `stone-*` palette** — never use `gray-*`, `slate-*`, `zinc-*`, or `neutral-*`
+
+### Typography standards (must follow)
+- **List page h1 (hero/centered):** `text-4xl md:text-5xl font-black tracking-tight text-stone-900`
+- **List page h1 (compact/sidebar):** `text-3xl font-black tracking-tight text-stone-900`
+- **Detail page h1:** `text-4xl md:text-5xl font-black tracking-tight text-stone-900` (or `text-white` on dark overlays)
+- **Section h2:** `text-2xl font-black tracking-tight text-stone-900`
+- **Subtitle under h1:** `text-stone-500 text-lg`
+- **Small label text:** `text-xs text-stone-400 uppercase tracking-widest font-bold`
+- Always use `font-black` for headings — never `font-bold` or `font-extrabold` on h1/h2
+
+### Component standards (must follow)
+- **PageHeader:** Use `<PageHeader>` component from `components/PageHeader.tsx` for every list page h1 — ensures consistent centered hero with title + subtitle. Use `compact` prop only for sidebar/narrow contexts (e.g. venues sidebar). Never inline a raw `<h1>` on list pages.
+- **Badge:** Use `<Badge>` component from `components/Badge.tsx` for style/type/tag labels
+- **StarRating:** Use `<StarRating>` component from `components/StarRating.tsx` for ratings
+- **ErrorState:** Use `<ErrorState>` component from `components/ErrorState.tsx` in error boundaries
+- **TopNav, BottomNav, Footer:** Always wrapped by `layout.tsx` — never add manually per page
+- Every detail page must include a back-link: `text-sm text-stone-500 hover:text-orange-600`
+- Cards: `bg-white rounded-xl border border-stone-100 shadow-sm hover:border-orange-200 hover:shadow-md transition-all`
+- Buttons primary: `bg-orange-600 text-white hover:bg-orange-700 rounded-xl font-bold`
+- Buttons secondary: `bg-white border border-stone-200 text-stone-900 hover:border-orange-600 hover:text-orange-600 rounded-xl font-bold`
+- Filter pills active: `bg-orange-600 text-white rounded-full`
+- Filter pills inactive: `bg-white text-stone-600 border border-stone-200 hover:border-orange-300 rounded-full`
 
 ---
 

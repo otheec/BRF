@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listArticles, formatDate } from "@/lib/api";
+import PageHeader from "@/components/PageHeader";
 
 const DEFAULT_CARD_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAjipW3aybNi9uK_TAIYPJ5QaRthgjHht38BmxHarenK6-jCwzhgNe-C6Te6ckkGNLl2I31Rkfv8c-VZ0neCy5rapQNpTiAW8Stlqw1FXwN27SMUzzLeLoArqOGTOD69ubXaybYBViLS4jNahYsnLY2GGUfSHZYno2Sbz-0tJEpUFLFkW2TTBYcoOWwsciD4zK01nDxVdZ4zFXFomWQd1Ltnrff7vkYI_0wmzkJZKRlqfK9yygsk7hAykyZpSWmYLcPIJ4ZioYiLCI";
@@ -9,19 +10,10 @@ export default async function NewsPage() {
 
   return (
     <div className="bg-stone-50 min-h-screen">
-      {/* Dark hero header */}
-      <header className="bg-stone-900 text-white py-20 px-6 text-center">
-        <span
-          className="material-symbols-outlined text-orange-500 text-5xl mb-4 block"
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
-          sports_bar
-        </span>
-        <h1 className="text-4xl font-black tracking-tight mb-3">Novinky a články</h1>
-        <p className="text-stone-400 text-lg max-w-xl mx-auto">
-          Příběhy, průvodci a hloubkové ponory ze světa řemeslného piva
-        </p>
-      </header>
+      <PageHeader
+        title="Novinky a články"
+        subtitle="Příběhy, průvodci a hloubkové ponory ze světa řemeslného piva"
+      />
 
       {/* Articles grid */}
       <section className="max-w-7xl mx-auto px-6 py-16">
@@ -50,7 +42,7 @@ export default async function NewsPage() {
                 <h2 className="text-lg font-bold text-stone-900 group-hover:text-orange-600 transition-colors leading-snug mb-3">
                   {article.title}
                 </h2>
-                <p className="text-gray-500 text-sm line-clamp-2 leading-relaxed mb-4 flex-1">
+                <p className="text-stone-500 text-sm line-clamp-2 leading-relaxed mb-4 flex-1">
                   {article.excerpt}
                 </p>
                 <div className="flex items-center justify-between text-xs text-stone-400 mt-auto pt-4 border-t border-stone-50">

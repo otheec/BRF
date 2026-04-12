@@ -36,7 +36,7 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
   const authorAvatar = AUTHOR_AVATARS[authorDisplayName];
 
   return (
-    <div className="bg-white text-gray-900 antialiased">
+    <div className="bg-white text-stone-900 antialiased">
       <main className="pt-16">
         {/* Hero Section */}
         <header className="relative w-full h-[614px] min-h-[400px] flex items-end">
@@ -83,13 +83,13 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
           <div className="flex flex-col lg:flex-row gap-12">
             {/* Sidebar Social (Desktop) */}
             <aside className="hidden lg:flex flex-col gap-6 sticky top-24 h-fit">
-              <button className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-orange-600 hover:border-orange-600 transition-all">
+              <button className="w-10 h-10 flex items-center justify-center rounded-full border border-stone-200 text-stone-500 hover:text-orange-600 hover:border-orange-600 transition-all">
                 <span className="material-symbols-outlined text-lg">share</span>
               </button>
-              <button className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-orange-600 hover:border-orange-600 transition-all">
+              <button className="w-10 h-10 flex items-center justify-center rounded-full border border-stone-200 text-stone-500 hover:text-orange-600 hover:border-orange-600 transition-all">
                 <span className="material-symbols-outlined text-lg">bookmark</span>
               </button>
-              <button className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-orange-600 hover:border-orange-600 transition-all">
+              <button className="w-10 h-10 flex items-center justify-center rounded-full border border-stone-200 text-stone-500 hover:text-orange-600 hover:border-orange-600 transition-all">
                 <span className="material-symbols-outlined text-lg">thumb_up</span>
               </button>
             </aside>
@@ -102,7 +102,7 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
                     return (
                       <h2
                         key={index}
-                        className="text-2xl font-black text-gray-900 mb-4 mt-8"
+                        className="text-2xl font-black text-stone-900 mb-4 mt-8"
                       >
                         {section.text}
                       </h2>
@@ -135,7 +135,7 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
                               src={img.src}
                             />
                             {img.caption && (
-                              <figcaption className="text-xs text-gray-400 mt-2 text-center">
+                              <figcaption className="text-xs text-stone-400 mt-2 text-center">
                                 {img.caption}
                               </figcaption>
                             )}
@@ -149,14 +149,14 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
                     return (
                       <p
                         key={index}
-                        className="text-xl text-gray-600 leading-relaxed font-light mb-8 italic border-l-4 border-orange-500 pl-6"
+                        className="text-xl text-stone-600 leading-relaxed font-light mb-8 italic border-l-4 border-orange-500 pl-6"
                       >
                         {section.text}
                       </p>
                     );
                   }
                   return (
-                    <p key={index} className="mb-6 leading-relaxed text-gray-700">
+                    <p key={index} className="mb-6 leading-relaxed text-stone-700">
                       {section.text}
                     </p>
                   );
@@ -164,21 +164,21 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
               </div>
 
               {/* Tags & Mobile Share */}
-              <div className="mt-12 pt-8 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4">
+              <div className="mt-12 pt-8 border-t border-stone-100 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex gap-2">
-                  <span className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600">
+                  <span className="px-3 py-1 bg-stone-100 rounded-full text-xs font-medium text-stone-600">
                     {article.tag}
                   </span>
-                  <span className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600">
+                  <span className="px-3 py-1 bg-stone-100 rounded-full text-xs font-medium text-stone-600">
                     Vaření piva
                   </span>
-                  <span className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600">
+                  <span className="px-3 py-1 bg-stone-100 rounded-full text-xs font-medium text-stone-600">
                     Řemeslné pivo
                   </span>
                 </div>
                 <div className="flex lg:hidden items-center gap-3">
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Sdílet</span>
-                  <button className="text-gray-400 hover:text-orange-600 transition-colors">
+                  <span className="text-xs font-bold text-stone-400 uppercase tracking-wider">Sdílet</span>
+                  <button className="text-stone-400 hover:text-orange-600 transition-colors">
                     <span className="material-symbols-outlined">share</span>
                   </button>
                 </div>
@@ -189,10 +189,10 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
 
         {/* Related Articles */}
         {relatedArticles.length > 0 && (
-          <section className="bg-gray-50 py-20">
+          <section className="bg-stone-50 py-20">
             <div className="max-w-7xl mx-auto px-6">
               <div className="flex items-center justify-between mb-12">
-                <h2 className="text-3xl font-black tracking-tight text-gray-900">Další čtení</h2>
+                <h2 className="text-3xl font-black tracking-tight text-stone-900">Další čtení</h2>
                 <Link
                   className="text-orange-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
                   href="/news"
@@ -223,8 +223,8 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
                       <h3 className="text-lg font-bold mb-3 group-hover:text-orange-600 transition-colors line-clamp-2">
                         {related.title}
                       </h3>
-                      <p className="text-gray-500 text-sm line-clamp-2 mb-4">{related.excerpt}</p>
-                      <div className="flex items-center justify-between text-[11px] text-gray-400 font-bold uppercase tracking-tighter">
+                      <p className="text-stone-500 text-sm line-clamp-2 mb-4">{related.excerpt}</p>
+                      <div className="flex items-center justify-between text-[11px] text-stone-400 font-bold uppercase tracking-tighter">
                         <span>{related.readTime}</span>
                         <span>{formatDate(related.publishedAt)}</span>
                       </div>

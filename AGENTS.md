@@ -33,6 +33,15 @@ Craft beer discovery and personal logging platform. Three pillars: Catalog (publ
 - Font: **Public Sans**
 - Icons: **Material Symbols Outlined** — `<span className="material-symbols-outlined">icon_name</span>`
 - No dark mode, no inline hex colors, no Epilogue font
+- **Only `stone-*` palette** — never `gray-*`, `slate-*`, `zinc-*`, `neutral-*`
+- **h1 (hero/list):** `text-4xl md:text-5xl font-black tracking-tight text-stone-900`
+- **h1 (compact/sidebar):** `text-3xl font-black tracking-tight text-stone-900`
+- **h2 (section):** `text-2xl font-black tracking-tight text-stone-900`
+- **Subtitle:** `text-stone-500 text-lg`
+- **Labels:** `text-xs text-stone-400 uppercase tracking-widest font-bold`
+- Always `font-black` on headings — never `font-bold` / `font-extrabold`
+- Use `<PageHeader>` for every list page header — centered hero (default) or `compact` for sidebar contexts
+- Use `<Badge>`, `<StarRating>`, `<ErrorState>` shared components — don't inline alternatives
 
 ## Deferred — Do Not Build
 Auth, image uploads, Beer↔Venue join table, rich text, social features, map/geo.

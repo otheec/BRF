@@ -54,7 +54,7 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
   }
 
   return (
-    <div className="bg-white text-gray-900 min-h-screen flex flex-col">
+    <div className="bg-white text-stone-900 min-h-screen flex flex-col">
       <main className="flex-grow pt-16">
         {/* Hero Section */}
         <section className="relative h-[400px] w-full overflow-hidden">
@@ -72,7 +72,7 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
               <h1 className="text-4xl md:text-6xl font-black text-white mb-2 leading-tight">
                 {venue.name}
               </h1>
-              <div className="flex flex-col md:flex-row md:items-center text-gray-200 space-y-2 md:space-y-0 md:space-x-6">
+              <div className="flex flex-col md:flex-row md:items-center text-stone-200 space-y-2 md:space-y-0 md:space-x-6">
                 <div className="flex items-center">
                   <span className="material-symbols-outlined mr-2">location_on</span>
                   <span className="text-sm font-medium">{venue.city}, {venue.country}</span>
@@ -93,7 +93,7 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
               <span className="material-symbols-outlined mr-2">directions</span>
               Navigovat
             </button>
-            <button className="flex items-center justify-center bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 font-bold py-4 px-8 rounded-xl shadow-lg transition-all active:scale-95">
+            <button className="flex items-center justify-center bg-white hover:bg-stone-50 text-stone-900 border border-stone-200 font-bold py-4 px-8 rounded-xl shadow-lg transition-all active:scale-95">
               <span className="material-symbols-outlined mr-2">language</span>
               Navštívit web
             </button>
@@ -107,7 +107,7 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
             {/* What's on Tap */}
             <div className="mb-10">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-black text-gray-900 flex items-center">
+                <h2 className="text-2xl font-black text-stone-900 flex items-center">
                   <span className="material-symbols-outlined mr-3 text-orange-600">ink_highlighter</span>
                   Co je na čepu
                 </h2>
@@ -120,21 +120,21 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
                 {MOCK_TAP_ITEMS.map((item) => (
                   <div
                     key={item.tap}
-                    className="group flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl hover:border-orange-200 hover:shadow-md transition-all"
+                    className="group flex items-center justify-between p-4 bg-white border border-stone-100 rounded-xl hover:border-orange-200 hover:shadow-md transition-all"
                   >
                     <div className="flex items-center">
                       <div className="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 font-bold text-xl mr-4">
                         {item.tap}
                       </div>
                       <div>
-                        <h3 className="font-bold text-lg text-gray-900">{item.name}</h3>
-                        <p className="text-sm text-gray-500">
+                        <h3 className="font-bold text-lg text-stone-900">{item.name}</h3>
+                        <p className="text-sm text-stone-500">
                           {item.style} • {item.abv}% ABV • {item.ibu} IBU
                         </p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="font-black text-xl text-gray-900">{item.price}</div>
+                      <div className="font-black text-xl text-stone-900">{item.price}</div>
                       <div className="text-[10px] font-bold text-orange-600 uppercase tracking-tighter">
                         {item.size}
                       </div>
@@ -146,7 +146,7 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
 
             {/* Gallery */}
             <div>
-              <h2 className="text-2xl font-black text-gray-900 mb-6 flex items-center">
+              <h2 className="text-2xl font-black text-stone-900 mb-6 flex items-center">
                 <span className="material-symbols-outlined mr-3 text-orange-600">imagesmode</span>
                 Galerie místa
               </h2>
@@ -170,20 +170,20 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
           {/* Right Column: Sidebar */}
           <div className="lg:col-span-4 space-y-8">
             {/* Amenities */}
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-              <h3 className="text-lg font-black text-gray-900 mb-6">Vybavení</h3>
+            <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
+              <h3 className="text-lg font-black text-stone-900 mb-6">Vybavení</h3>
               <div className="grid grid-cols-2 gap-4">
                 {venue.amenities.map((amenity) => {
                   const config = amenityConfig[amenity] ?? { icon: "check_circle", label: amenity };
                   return (
                     <div
                       key={amenity}
-                      className="flex flex-col items-center p-4 bg-white rounded-xl border border-gray-100"
+                      className="flex flex-col items-center p-4 bg-white rounded-xl border border-stone-100"
                     >
                       <span className="material-symbols-outlined text-orange-600 mb-2">
                         {config.icon}
                       </span>
-                      <span className="text-xs font-bold text-gray-700 text-center">{config.label}</span>
+                      <span className="text-xs font-bold text-stone-700 text-center">{config.label}</span>
                     </div>
                   );
                 })}
@@ -191,12 +191,12 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
             </div>
 
             {/* Location Map */}
-            <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+            <div className="bg-white rounded-2xl overflow-hidden border border-stone-100 shadow-sm">
               <div className="p-6">
-                <h3 className="text-lg font-black text-gray-900 mb-2">Poloha</h3>
-                <p className="text-sm text-gray-500">{venue.city}, {venue.country}</p>
+                <h3 className="text-lg font-black text-stone-900 mb-2">Poloha</h3>
+                <p className="text-sm text-stone-500">{venue.city}, {venue.country}</p>
               </div>
-              <div className="h-64 bg-gray-200">
+              <div className="h-64 bg-stone-200">
                 <img
                   alt="Poloha na mapě"
                   className="w-full h-full object-cover"
@@ -206,7 +206,7 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
             </div>
 
             {/* Opening Hours */}
-            <div className="bg-gray-900 text-white rounded-2xl p-6">
+            <div className="bg-stone-900 text-white rounded-2xl p-6">
               <h3 className="text-lg font-black mb-4">Otevírací hodiny</h3>
               <div className="space-y-3">
                 {OPENING_HOURS.map((row) => (
@@ -214,7 +214,7 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
                     key={row.days}
                     className={`flex justify-between text-sm ${row.highlight ? "font-bold text-orange-500" : ""}`}
                   >
-                    <span className={row.highlight ? "" : "text-gray-400"}>{row.days}</span>
+                    <span className={row.highlight ? "" : "text-stone-400"}>{row.days}</span>
                     <span className={row.highlight ? "" : "font-medium"}>{row.hours}</span>
                   </div>
                 ))}

@@ -4,9 +4,9 @@ interface BadgeProps {
 }
 
 const variantClasses: Record<string, string> = {
-  style: "bg-[#ffbe5b]/15 text-[#ffbe5b] border border-[#ffbe5b]/25",
-  type: "bg-[#94d0ff]/10 text-[#94d0ff] border border-[#94d0ff]/20",
-  tag: "bg-[#e9c087]/10 text-[#e9c087] border border-[#e9c087]/20",
+  style: "bg-orange-100 text-orange-700 border border-orange-200",
+  type: "bg-sky-100 text-sky-700 border border-sky-200",
+  tag: "bg-amber-100 text-amber-700 border border-amber-200",
 };
 
 export default function Badge({ label, variant = "style" }: BadgeProps) {

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listVenues } from "@/lib/api";
+import PageHeader from "@/components/PageHeader";
 
 const venueImages: Record<string, string> = {
   "b2c3d4e5-2222-4000-8000-000000000001":
@@ -45,7 +46,7 @@ export default async function VenuesPage() {
         <div className="w-full md:w-[450px] lg:w-[500px] flex flex-col bg-white border-r border-stone-200 overflow-y-auto z-10">
           {/* Sticky filter header */}
           <div className="p-6 sticky top-0 bg-white/80 backdrop-blur-md z-20 border-b border-stone-100">
-            <h1 className="text-2xl font-black text-stone-900 mb-4">Najděte místo</h1>
+            <PageHeader title="Najděte místo" compact />
 
             {/* Search */}
             <div className="relative mb-4">
