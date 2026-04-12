@@ -24,7 +24,7 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
 
   const relatedArticles = allArticles.filter((a) => a.id !== article.id).slice(0, 3);
   const heroImage = article.coverImageUrl ?? DEFAULT_HERO;
-  const authorAvatar = AUTHOR_AVATARS[article.author];
+  const authorAvatar = AUTHOR_AVATARS[article.authorId];
 
   return (
     <div className="bg-white text-gray-900 antialiased">
@@ -52,17 +52,17 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
               {authorAvatar ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  alt={article.author}
+                  alt={article.authorId}
                   className="w-12 h-12 rounded-full border-2 border-white/20 object-cover"
                   src={authorAvatar}
                 />
               ) : (
                 <div className="w-12 h-12 rounded-full border-2 border-white/20 bg-orange-600 flex items-center justify-center text-white font-bold text-lg">
-                  {article.author[0]}
+                  {article.authorId[0]}
                 </div>
               )}
               <div className="text-white">
-                <p className="font-bold text-sm">{article.author}</p>
+                <p className="font-bold text-sm">{article.authorId}</p>
                 <p className="text-xs text-white/70">{formatDate(article.publishedAt)}</p>
               </div>
             </div>

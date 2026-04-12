@@ -33,7 +33,7 @@ export interface ArticleDetail {
   id: string;
   title: string;
   content: ArticleSection[];
-  author: string;
+  authorId: string;
   tag: string;
   readTime: string;
   excerpt: string;
@@ -45,9 +45,9 @@ export interface ArticleDetail {
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 export function formatDate(iso: string): string {
-  return new Date(iso).toLocaleDateString("en-US", {
-    month: "short",
+  return new Date(iso).toLocaleDateString("cs-CZ", {
     day: "numeric",
+    month: "short",
     year: "numeric",
   });
 }

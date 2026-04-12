@@ -7,7 +7,7 @@ public class GetArticleResponse
     public Guid Id { get; set; }
     public string Title { get; set; } = string.Empty;
     public List<ArticleSection> Content { get; set; } = [];
-    public string Author { get; set; } = string.Empty;
+    public string AuthorId { get; set; } = string.Empty;
     public string Tag { get; set; } = string.Empty;
     public string? CoverImageUrl { get; set; }
     public string ReadTime { get; set; } = string.Empty;
