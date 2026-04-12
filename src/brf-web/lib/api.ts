@@ -46,8 +46,8 @@ export interface ArticleDetail {
 
 export function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString("cs-CZ", {
-    day: "numeric",
     month: "short",
+    day: "numeric",
     year: "numeric",
   });
 }

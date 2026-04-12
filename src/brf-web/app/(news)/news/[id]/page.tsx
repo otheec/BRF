@@ -67,7 +67,7 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
                 />
               ) : (
                 <div className="w-12 h-12 rounded-full border-2 border-white/20 bg-orange-600 flex items-center justify-center text-white font-bold text-lg">
-                  {authorDisplayName[0] ?? "A"}
+                  {authorDisplayName[0] ?? "?"}
                 </div>
               )}
               <div className="text-white">
