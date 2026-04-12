@@ -13,8 +13,8 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends curl && \
     rm -rf /var/lib/apt/lists/*
 
-RUN addgroup --system --gid 1001 appgroup && \
-    adduser  --system --uid 1001 appuser --ingroup appgroup
+RUN groupadd --system --gid 1001 appgroup && \
+    useradd  --system --uid 1001 --gid appgroup appuser
 
 COPY --from=build --chown=appuser:appgroup /app/publish .
 
