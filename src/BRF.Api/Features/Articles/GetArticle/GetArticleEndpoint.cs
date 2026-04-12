@@ -1,6 +1,6 @@
 using BRF.Api.Data;
+using BRF.Api.Domain;
 using FastEndpoints;
-using Microsoft.EntityFrameworkCore;
 
 namespace BRF.Api.Features.Articles.GetArticle;
 
@@ -22,17 +22,29 @@ public class GetArticleEndpoint : Endpoint<GetArticleRequest, GetArticleResponse
 
         if (article is null)
         {
-            await SendNotFoundAsync(ct);
+            await Send.NotFoundAsync(ct);
             return;
         }
 
-        await SendOkAsync(new GetArticleResponse
+        var firstParagraph = article.Content
+            .FirstOrDefault(s => s.Type == ArticleSectionType.Paragraph && s.Text != null)
+            ?.Text ?? string.Empty;
+
+        var allText = string.Join(" ", article.Content
+            .Where(s => s.Text != null)
+            .Select(s => s.Text!));
+        var words = allText.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
+        var minutes = Math.Max(1, (int)Math.Round(words / 200.0));
+
+        await Send.OkAsync(new GetArticleResponse
         {
             Id = article.Id,
             Title = article.Title,
             Content = article.Content,
             Author = article.AuthorId,
             Tag = article.Tag,
+            ReadTime = $"{minutes} min read",
+            Excerpt = firstParagraph.Length > 160 ? firstParagraph[..160] : firstParagraph,
             PublishedAt = article.PublishedAt,
             CreatedAt = article.CreatedAt,
         }, ct);

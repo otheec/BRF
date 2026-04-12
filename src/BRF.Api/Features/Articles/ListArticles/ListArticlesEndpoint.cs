@@ -1,4 +1,5 @@
 using BRF.Api.Data;
+using BRF.Api.Domain;
 using FastEndpoints;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,28 +24,36 @@ public class ListArticlesEndpoint : Endpoint<ListArticlesRequest, ListArticlesRe
 
         var total = await _db.Articles.CountAsync(ct);
 
-        var raw = await _db.Articles
+        var articles = await _db.Articles
             .OrderByDescending(a => a.PublishedAt)
             .Skip(skip)
             .Take(take)
-            .Select(a => new { a.Id, a.Title, a.Tag, a.Content, a.PublishedAt })
             .ToListAsync(ct);
 
-        var items = raw.Select(a =>
+        var items = articles.Select(a =>
         {
-            var words = a.Content.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
+            var firstParagraph = a.Content
+                .FirstOrDefault(s => s.Type == ArticleSectionType.Paragraph && s.Text != null)
+                ?.Text ?? string.Empty;
+
+            var allText = string.Join(" ", a.Content
+                .Where(s => s.Text != null)
+                .Select(s => s.Text!));
+
+            var words = allText.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
             var minutes = Math.Max(1, (int)Math.Round(words / 200.0));
+
             return new ArticleListItem
             {
                 Id = a.Id,
                 Title = a.Title,
                 Tag = a.Tag,
-                Excerpt = a.Content.Length > 160 ? a.Content[..160] : a.Content,
+                Excerpt = firstParagraph.Length > 160 ? firstParagraph[..160] : firstParagraph,
                 ReadTime = $"{minutes} min read",
                 PublishedAt = a.PublishedAt,
             };
         }).ToList();
 
-        await SendOkAsync(new ListArticlesResponse { Items = items, Total = total }, ct);
+        await Send.OkAsync(new ListArticlesResponse { Items = items, Total = total }, ct);
     }
 }
