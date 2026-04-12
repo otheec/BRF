@@ -1,18 +1,18 @@
 import Link from "next/link";
-import { beers, breweries } from "@/lib/mock-data";
+import { listBeers } from "@/lib/api";
 
 const styleFilters = ["Vše", "IPA", "Stout", "Lager", "Sour", "Wheat", "Pilsner"];
 
 const beerImages: Record<string, string> = {
-  "sun-drenched-haze":
+  "c3d4e5f6-3333-4000-8000-000000000003":
     "https://lh3.googleusercontent.com/aida-public/AB6AXuDr8Ix8X6OWPSBemE9gu_dthZlYO3gB6WNn8bhHHVYx-ejjCeuxq7eteuqT9otMNuT5dt-fgQlpSa9FQ-n_lJqOnAinS9P6FyIuJHAd_p2fubP2-mI-nQlCs_MBN3Fz8SADQbrfB_EFTG-sMe7ZCul1VMw_yieElBhnUPnU6C8TTHfuz-FOiSMIgeoectTW8pwVpuVCgdZQtp5ycJIAqVhdIe2xGuD8ez3_0-HoUNQx-lHx0zhHuEqG7c3El2ADb4uWvGx-tT9_Iwo",
-  "coastal-haze":
+  "c3d4e5f6-3333-4000-8000-000000000004":
     "https://lh3.googleusercontent.com/aida-public/AB6AXuDS6XarVM3C1d536IXKyIe_hU_C90GHAd1VT8ghBL7RGhLU82Y-xeByQ2z6Nb41qeetYDA0cFr7fm3tEzyQf7FSsaipIYhggbvejQ4GkhGYZ5jI_eyUjYfzK4FVHYyD5Hf3gr6YSL6GrrEXBj-o3WMm5Nj8AWUONjQHqgIjwvB55tgtOPIaow15HF3HXM5IIQiTwkrnNZSGcWU7xDfbJIioEvwcZEQH7vD3DAPNTgW2FJyMAr6hvHVcI3I6WZiTze-Oxui-7CzmWQk",
-  "obsidian-stout":
+  "c3d4e5f6-3333-4000-8000-000000000005":
     "https://lh3.googleusercontent.com/aida-public/AB6AXuDbwGVIaMSHyLvwszWxgsrzIyuiUCr8ls4-XQ3ghjWdSs1L9WAUip0YCmytun6SHJI_wx9rxGdsAGrIKwdwSjQhtTEE8wLXwDqg9CvERs0hHuURyYCgNsR7tYTjeOnhxBKe_YDHGxioRtGSoooaPkyBL4KubwrTD1qs-Da7F-PEObt94U2GL4SdWKmLOhDXMqXfl0Vz1RdvLe4mg2hDy9gt8xzl7uexd6TGRVffDCPV-oLdeMdYqWihSsa41LG4je8EH8-QDesVEGE",
-  "alpine-lager":
+  "c3d4e5f6-3333-4000-8000-000000000006":
     "https://lh3.googleusercontent.com/aida-public/AB6AXuDhC8F4yYlDpfgo5Ar6cqRmVcA8TW_GvXKbWvsykOCa6hwEGtgHEKXmxQSk9drBTv-UzGjIMVJW429z5mlGjC5VZrLhWg4Yr1na1Icp6J80jD1PZsfXpi0YRU1HagTDFAptJqf8mbyI5eG9ZXOBfognR9dT9KaeNXqXkxighZ6E7lggHW6qkq9lmZxc0fMUhu3qzZGmbghuoKJek56qisLv4Y_10FT21UEq2bJHNqxF114Oa78vKq5FRBYCq0M5xv2rxhRNHG2-9DE",
-  "velvet-sour":
+  "c3d4e5f6-3333-4000-8000-000000000007":
     "https://lh3.googleusercontent.com/aida-public/AB6AXuB3nmEcgssd4-GnJUYrNGmDeQbih521GrIjoFApYspQdUKASGuFisD-dDPLJJA2CcR4ffvYqZ19nVEu3let6JshqjIbzZi8i39o25-js4AGntq7QlRL7KwycIRoAb0r2Mc-M1-K9P0BorUU61Yk9SHOyuhfhyhc4e0vlvEQkdxDufg2dt7RVfnWix2IFk40nYSrg7q0n2lI8IgSni-GXSxhRPNrE7AORFhZl0OV7N5zWNSHxl-RlB00uK1dke7b92tnUCVD2L4JdsQ",
 };
 
@@ -21,17 +21,18 @@ const defaultBeerImage =
 
 // Static ratings for display
 const beerRatings: Record<string, string> = {
-  "sun-drenched-haze": "4.8",
-  "coastal-haze": "4.6",
-  "obsidian-stout": "4.9",
-  "alpine-lager": "4.5",
-  "velvet-sour": "4.7",
-  "cloud-runner": "4.8",
-  "midnight-roast": "4.6",
-  "lawnmower-gold": "4.3",
+  "c3d4e5f6-3333-4000-8000-000000000003": "4.8",
+  "c3d4e5f6-3333-4000-8000-000000000004": "4.6",
+  "c3d4e5f6-3333-4000-8000-000000000005": "4.9",
+  "c3d4e5f6-3333-4000-8000-000000000006": "4.5",
+  "c3d4e5f6-3333-4000-8000-000000000007": "4.7",
+  "c3d4e5f6-3333-4000-8000-000000000001": "4.8",
+  "c3d4e5f6-3333-4000-8000-000000000002": "4.6",
+  "c3d4e5f6-3333-4000-8000-000000000008": "4.3",
 };
 
-export default function BeersPage() {
+export default async function BeersPage() {
+  const { items: allBeers } = await listBeers(0, 50);
   return (
     <div className="bg-stone-50 min-h-screen">
       {/* Hero */}
@@ -63,11 +64,10 @@ export default function BeersPage() {
       <section className="bg-white py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {beers.map((beer) => {
-              const brewery = breweries.find((b) => b.id === beer.breweryId);
+            {allBeers.map((beer) => {
               const imgSrc = beerImages[beer.id] ?? defaultBeerImage;
               const rating = beerRatings[beer.id] ?? "4.5";
-              const initial = brewery?.name?.[0]?.toUpperCase() ?? "B";
+              const initial = beer.breweryName?.[0]?.toUpperCase() ?? "B";
 
               return (
                 <Link
@@ -107,7 +107,7 @@ export default function BeersPage() {
                     <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-stone-800 flex items-center justify-center">
                       <span className="text-[10px] text-white font-black">{initial}</span>
                     </div>
-                    <span className="text-stone-500 text-sm truncate">{brewery?.name}</span>
+                    <span className="text-stone-500 text-sm truncate">{beer.breweryName}</span>
                   </div>
                 </Link>
               );

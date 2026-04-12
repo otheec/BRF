@@ -1,9 +1,5 @@
 import { notFound } from "next/navigation";
-import { getVenueById, venues } from "@/lib/mock-data";
-
-export function generateStaticParams() {
-  return venues.map((v) => ({ id: v.id }));
-}
+import { getVenue } from "@/lib/api";
 
 const amenityConfig: Record<string, { icon: string; label: string }> = {
   "Dog Friendly": { icon: "pets", label: "Přátelské psům" },
@@ -51,7 +47,7 @@ const MAP_IMAGE =
 
 export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) {
   const { id } = await props.params;
-  const venue = getVenueById(id);
+  const venue = await getVenue(id);
 
   if (!venue) {
     notFound();
