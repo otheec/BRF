@@ -7,6 +7,7 @@ const bottomLinks = [
   { href: "/catalog", label: "Katalog", icon: "sports_bar" },
   { href: "/breweries", label: "Pivovary", icon: "factory" },
   { href: "/venues", label: "Místa", icon: "location_on" },
+  { href: "/news", label: "Novinky", icon: "newspaper" },
   { href: "/log", label: "Deník", icon: "book" },
 ];
 
