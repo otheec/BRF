@@ -57,6 +57,10 @@ app.UseFastEndpoints(c =>
 if (app.Environment.IsDevelopment())
 {
     await ArticleSeeder.SeedAsync(app.Services);
+    await BrewerySeeder.SeedAsync(app.Services);
+    await VenueSeeder.SeedAsync(app.Services);
+    await BeerSeeder.SeedAsync(app.Services);
+    await BeerLogSeeder.SeedAsync(app.Services);
 }
 
 app.Run();

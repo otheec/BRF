@@ -1,27 +1,19 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  getBreweryById,
-  getBeersByBrewery,
-  breweries,
-} from "@/lib/mock-data";
+import { getBrewery, listBeersByBrewery } from "@/lib/api";
 import Badge from "@/components/Badge";
-
-export function generateStaticParams() {
-  return breweries.map((b) => ({ id: b.id }));
-}
 
 export default async function BreweryDetailPage(
   props: PageProps<"/breweries/[id]">
 ) {
   const { id } = await props.params;
-  const brewery = getBreweryById(id);
+  const brewery = await getBrewery(id);
 
   if (!brewery) {
     notFound();
   }
 
-  const breweryBeers = getBeersByBrewery(brewery.id);
+  const { items: breweryBeers } = await listBeersByBrewery(brewery.id);
 
   return (
     <div className="min-h-screen">

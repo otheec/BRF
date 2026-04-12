@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { venues } from "@/lib/mock-data";
+import { listVenues } from "@/lib/api";
 
 const venueImages: Record<string, string> = {
-  "rusty-anchor":
+  "b2c3d4e5-2222-4000-8000-000000000001":
     "https://lh3.googleusercontent.com/aida-public/AB6AXuB50s_oifOuYdoNfLTdP1bdFhC-bdnrKSgOxk4cV_ykwSdjkxw8Wr8rhIxpHJ_tv_6dnInzMAxzoMyVs7QZWd5yr9xhD3v9KzpPySmR15ERvsSqe1Mok_j6oNI0ttScVOnv1zs5UjCcG7u22Fv4m5C6VoSUvrIl0pt9e4hMU_5cQ5sQmr94JzDiYGqJqDEEY4Gil0MH-r0lGsRmwfy4ZHtq-Ilc1WEkVN2EZTOtm5drNIeUF6nrmyt2Y4-aDTU7aYVGdhnxj5JX7_o",
-  "iron-forge":
+  "b2c3d4e5-2222-4000-8000-000000000002":
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCButaa4XOJkUVxrwiclokgXk_LBeczQjootEyyvnOI1DJT-WVfIDHqykhEB2_jEMj13XH6vVuSuAJOc_R2SK9MUnQZpPhMYTfBPCSB5hGDDLr8aj0xBK8lQvDp47NM92JkBOkltj9Uiuqy8VGNaPydNwoO1aZOjTXhu9eOH0fQceHvEhDAl_GaqiKxI11pDdCMORp_PvMHlI2Juuz1wNLjD6iAFmJx_a8ycdHRmNYr-yPVnI-7zDgKwlQRhtKD6kI25pHZKE_JOqs",
-  "hops-cellar":
+  "b2c3d4e5-2222-4000-8000-000000000003":
     "https://lh3.googleusercontent.com/aida-public/AB6AXuBZ0gc4MyRnza3J40Fvz52_6HeaY-K8BOdGuQ_tLadPG3IhPbowP_80UIPB6hHioKBFFaRYaB6UAkoqDjB6RZpSLglDG-CFSOLcUY_YYm8RtjPpI4p15RuvftFObMVgyT_KYQaV471GpvA4iK2iWIboTuTXQ24OgtPBnZzvHcEj2ozOnFm7qtD2BJPB5rIEWTSGTTqaB_kEl5ABZd0Hu-iGg-oD2YNxOkBL3EEWLGxDciBgG8lfhpY9Q0iVbcUGJi1AoAuU7C62uuo",
-  "copper-tap":
+  "b2c3d4e5-2222-4000-8000-000000000004":
     "https://lh3.googleusercontent.com/aida-public/AB6AXuDXpUf3aE0299VSiPYCRRezSYL6KiVVaSFMST0imYKTndHG14ONOOj2hc02NTCGbviaXyWi9lZXZ0esFss-dxyk5Mc30ckhxcdUYyxRju9URAXYUcPhUsVR0Q_dEvJdkDP7cBHwxRu925e7fl6Gu1bbTjA5F1aznl-xAWPFvi6dC1XeaFppbcub5MP9vH09rr6p2avOIgmnUyVCtwM8fEuNO5UeyJJrH1wYlEjz-klrcJpeXiIyFPMV7-rklno8keATZJx-eTg6m9o",
 };
 
@@ -36,7 +36,8 @@ const typeLabel: Record<string, string> = {
 // Open/closed by index: 0,1,3 open; 2 closed
 const isOpenByIndex = (index: number) => index !== 2;
 
-export default function VenuesPage() {
+export default async function VenuesPage() {
+  const { items: allVenues } = await listVenues(0, 50);
   return (
     <main className="flex h-[calc(100vh-65px)] overflow-hidden">
       <section className="flex flex-1 flex-col md:flex-row overflow-hidden">
@@ -94,7 +95,7 @@ export default function VenuesPage() {
 
           {/* Venue Cards */}
           <div className="px-6 pb-20 pt-4 space-y-4">
-            {venues.map((venue, index) => {
+            {allVenues.map((venue, index) => {
               const imgSrc = venueImages[venue.id] ?? defaultVenueImage;
               const open = isOpenByIndex(index);
 
