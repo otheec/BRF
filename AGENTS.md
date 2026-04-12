@@ -14,8 +14,9 @@ Craft beer discovery and personal logging platform. Three pillars: Catalog (publ
 
 ## Backend — Key Rules
 - **FastEndpoints only** — no MVC, no `app.MapGet()`
-- Feature folders: `src/BRF.Api/Features/<Entity>/`
-- Per endpoint: `<Action><Entity>Endpoint.cs` + `Request.cs` + `Response.cs`
+- Feature folders: `src/BRF.Api/Features/<Entity>/<FeatureName>/` (e.g. `Features/Articles/GetArticle/`)
+- Per endpoint: `<Action><Entity>Endpoint.cs` + `Request.cs` + `Response.cs` — all inside the feature subfolder
+- Namespace follows folder depth: `BRF.Api.Features.<Entity>.<FeatureName>`
 - No service layer — call `AppDbContext` directly from endpoints
 - PKs are app-generated `Guid`; every entity has `CreatedAt` (UTC)
 - Return `Results<Ok<T>, NotFound>`

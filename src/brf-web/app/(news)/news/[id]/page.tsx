@@ -1,39 +1,29 @@
 import { notFound } from "next/navigation";
-import { getArticleById, articles } from "@/lib/mock-data";
+import Link from "next/link";
+import { getArticle, listArticles, formatDate } from "@/lib/api";
 
-export function generateStaticParams() {
-  return articles.map((a) => ({ id: a.id }));
-}
-
-const ARTICLE_HERO_IMAGES: Record<string, string> = {
-  "hop-harvest":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuAjipW3aybNi9uK_TAIYPJ5QaRthgjHht38BmxHarenK6-jCwzhgNe-C6Te6ckkGNLl2I31Rkfv8c-VZ0neCy5rapQNpTiAW8Stlqw1FXwN27SMUzzLeLoArqOGTOD69ubXaybYBViLS4jNahYsnLY2GGUfSHZYno2Sbz-0tJEpUFLFkW2TTBYcoOWwsciD4zK01nDxVdZ4zFXFomWQd1Ltnrff7vkYI_0wmzkJZKRlqfK9yygsk7hAykyZpSWmYLcPIJ4ZioYiLCI",
-  "carbonation-science":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuBkr2nm0Zh8AgtVUlKSjTEbsqi_XUOia9ZZkUGInrT_E0hB9tiI0V9FlT6yOsUHi4PAxe8GY3HqtFeTBYLg1o4MYjpJD_5UAxbCo2j77Tymwkz3AXKhw6kZ3vmp1td3rWWyfHC_yYUzKuiMkEKheYPtRJz0SLxXvsQ_aqlF_7jWwVaVcprYRZ6SboMArBeuIYL3JCbbUWrS_xUqXpUDLKOS-AsHweNyYy6t6A_07IS_eczHMWF-AiJW57UrYVkoodxvzHHjYSHriEc",
-  "barrel-aging":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuARTxp-5PKvex6ZHQT-bzEyKXGJoC-0jLIq7kmW96FmuCyEAkkwwKg_5hNt7YyBAbKJyGjRxWPHrUgjY3iC21_7g_lDGbmp-bO0nP7itg1pBtWtKOI8-JVIFNRXSamUHuX1m3DNnDmVDbSMhyVPmKhjGh1vPe7B0Cx8lxdvVMAnJQZbq71-3hbYJpcUcaRvQxTNVBXHvlodZUJrnt_nBUiHssL5cwhdWMbN9N0z0OJNS1BT-CZYx9sb9w-jDATkpf91T7KsaO1kz18",
-  "glassware-guide":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDr6_xezN2BVGeDqDzveoCVPZXQFxol8nCrUxd67xXooqkNFQGAQs4cyY08bk-2EXSe5mFNmkthfm-qHJoIrMrQMbOp_46G7UReek7JL6bCbEaIBCUw8Nfz3vVxWB0qdRrVpP-mrUYys0ymu28V2DyhlSxJA656xWINCWGt4vOLmsZ_arzlQkU7JBbs-WFj_bnwiHqkPmvDRjVJ5BH0DTHLfEEMJGp30LTQ0ndsewuyIJKUTtsGHg2J0qE3FWEy4k536L08snHn8TM",
-};
+const DEFAULT_HERO =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuAjipW3aybNi9uK_TAIYPJ5QaRthgjHht38BmxHarenK6-jCwzhgNe-C6Te6ckkGNLl2I31Rkfv8c-VZ0neCy5rapQNpTiAW8Stlqw1FXwN27SMUzzLeLoArqOGTOD69ubXaybYBViLS4jNahYsnLY2GGUfSHZYno2Sbz-0tJEpUFLFkW2TTBYcoOWwsciD4zK01nDxVdZ4zFXFomWQd1Ltnrff7vkYI_0wmzkJZKRlqfK9yygsk7hAykyZpSWmYLcPIJ4ZioYiLCI";
 
 const AUTHOR_AVATARS: Record<string, string> = {
   "Marcus Thorne":
     "https://lh3.googleusercontent.com/aida-public/AB6AXuDIM28QpM5nu86SlyrhDXcmbPoNTyEUPnWLzlW24jYmUmuNTM2ab3Tlpp1MGxDe5EbNO6D8gcv64DfXZB1qnku6PlgyJY6jjDCYavmgoo1tlNvfUuCFPIFqrSDcjiz9fJzDIsanUhQuozYXlPx1yDKiuzVvrlB1rb62ZZmO4x_Euh3keknOgSoPcj1NkONqRwCYiGMiW-Cl2xy7cz4Awecpq96gdN4Fg8Qw5BSnU9EfuN2m8NSoVeaVVW8qjHdbz3gnPY7UqY50_dM",
 };
 
-const DEFAULT_HERO =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAjipW3aybNi9uK_TAIYPJ5QaRthgjHht38BmxHarenK6-jCwzhgNe-C6Te6ckkGNLl2I31Rkfv8c-VZ0neCy5rapQNpTiAW8Stlqw1FXwN27SMUzzLeLoArqOGTOD69ubXaybYBViLS4jNahYsnLY2GGUfSHZYno2Sbz-0tJEpUFLFkW2TTBYcoOWwsciD4zK01nDxVdZ4zFXFomWQd1Ltnrff7vkYI_0wmzkJZKRlqfK9yygsk7hAykyZpSWmYLcPIJ4ZioYiLCI";
-
 export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) {
   const { id } = await props.params;
-  const article = getArticleById(id);
+
+  const [article, { items: allArticles }] = await Promise.all([
+    getArticle(id),
+    listArticles(0, 50),
+  ]);
 
   if (!article) {
     notFound();
   }
 
-  const relatedArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
-  const heroImage = ARTICLE_HERO_IMAGES[id] ?? DEFAULT_HERO;
+  const relatedArticles = allArticles.filter((a) => a.id !== article.id).slice(0, 3);
+  const heroImage = article.coverImageUrl ?? DEFAULT_HERO;
   const authorAvatar = AUTHOR_AVATARS[article.author];
 
   return (
@@ -41,6 +31,7 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
       <main className="pt-16">
         {/* Hero Section */}
         <header className="relative w-full h-[614px] min-h-[400px] flex items-end">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt={article.title}
             className="absolute inset-0 w-full h-full object-cover"
@@ -59,6 +50,7 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
             </h1>
             <div className="flex items-center gap-4">
               {authorAvatar ? (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   alt={article.author}
                   className="w-12 h-12 rounded-full border-2 border-white/20 object-cover"
@@ -71,7 +63,7 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
               )}
               <div className="text-white">
                 <p className="font-bold text-sm">{article.author}</p>
-                <p className="text-xs text-white/70">{article.publishedAt}</p>
+                <p className="text-xs text-white/70">{formatDate(article.publishedAt)}</p>
               </div>
             </div>
           </div>
@@ -127,6 +119,7 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
                       >
                         {section.images.map((img) => (
                           <figure key={img.src}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                               alt={img.alt}
                               className="rounded-xl w-full h-64 object-cover"
@@ -186,52 +179,54 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
         </article>
 
         {/* Related Articles */}
-        <section className="bg-gray-50 py-20">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="flex items-center justify-between mb-12">
-              <h2 className="text-3xl font-black tracking-tight text-gray-900">Keep Reading</h2>
-              <a
-                className="text-orange-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
-                href="/news"
-              >
-                View All News{" "}
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </a>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {relatedArticles.map((related) => (
-                <a
-                  key={related.id}
-                  href={`/news/${related.id}`}
-                  className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+        {relatedArticles.length > 0 && (
+          <section className="bg-gray-50 py-20">
+            <div className="max-w-7xl mx-auto px-6">
+              <div className="flex items-center justify-between mb-12">
+                <h2 className="text-3xl font-black tracking-tight text-gray-900">Keep Reading</h2>
+                <Link
+                  className="text-orange-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                  href="/news"
                 >
-                  <div className="h-48 overflow-hidden">
-                    <img
-                      alt={related.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      src={ARTICLE_HERO_IMAGES[related.id] ?? DEFAULT_HERO}
-                    />
-                  </div>
-                  <div className="p-6">
-                    <span className="text-[10px] font-bold text-orange-600 uppercase tracking-widest mb-2 block">
-                      {related.tag}
-                    </span>
-                    <h3 className="text-lg font-bold mb-3 group-hover:text-orange-600 transition-colors line-clamp-2">
-                      {related.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm line-clamp-2 mb-4">{related.excerpt}</p>
-                    <div className="flex items-center justify-between text-[11px] text-gray-400 font-bold uppercase tracking-tighter">
-                      <span>{related.readTime}</span>
-                      <span>{related.publishedAt}</span>
+                  View All News{" "}
+                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {relatedArticles.map((related) => (
+                  <Link
+                    key={related.id}
+                    href={`/news/${related.id}`}
+                    className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+                  >
+                    <div className="h-48 overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        alt={related.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        src={related.coverImageUrl ?? DEFAULT_HERO}
+                      />
                     </div>
-                  </div>
-                </a>
-              ))}
+                    <div className="p-6">
+                      <span className="text-[10px] font-bold text-orange-600 uppercase tracking-widest mb-2 block">
+                        {related.tag}
+                      </span>
+                      <h3 className="text-lg font-bold mb-3 group-hover:text-orange-600 transition-colors line-clamp-2">
+                        {related.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm line-clamp-2 mb-4">{related.excerpt}</p>
+                      <div className="flex items-center justify-between text-[11px] text-gray-400 font-bold uppercase tracking-tighter">
+                        <span>{related.readTime}</span>
+                        <span>{formatDate(related.publishedAt)}</span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
       </main>
-
     </div>
   );
 }

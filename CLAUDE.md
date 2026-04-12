@@ -44,11 +44,16 @@ Brewfolio/
 └── src/
     ├── BRF.Api/                     ← .NET 10 backend
     │   ├── Features/
-    │   │   ├── Breweries/           ← endpoint + request/response per feature
+    │   │   ├── Breweries/
+    │   │   │   ├── GetBrewery/      ← Endpoint.cs + Request.cs + Response.cs
+    │   │   │   ├── ListBreweries/
+    │   │   │   └── CreateBrewery/
     │   │   ├── Beers/
     │   │   ├── Venues/
     │   │   ├── BeerLogs/
     │   │   └── Articles/
+    │   │       ├── GetArticle/
+    │   │       └── ListArticles/
     │   ├── Domain/                  ← EF Core entities
     │   ├── Data/                    ← DbContext, migrations
     │   ├── Program.cs
@@ -109,6 +114,7 @@ Article
   Title       string
   Content     string          -- plain text MVP; rich text later
   AuthorId    string          -- plain string placeholder; no auth in MVP
+  Tag         string          -- category label (e.g. "Brewing", "Guide")
   PublishedAt DateTime
   CreatedAt   DateTime
 ```
@@ -147,8 +153,9 @@ Article
 ## Architecture Conventions
 
 ### Backend (FastEndpoints)
-- One file per endpoint: `GetBreweryEndpoint.cs`, `CreateBeerEndpoint.cs`, etc.
-- Each feature folder has: `[Action][Entity]Endpoint.cs`, `[Action][Entity]Request.cs`, `[Action][Entity]Response.cs`
+- One file per concern per feature: `[Action][Entity]Endpoint.cs`, `[Action][Entity]Request.cs`, `[Action][Entity]Response.cs`
+- Each feature lives in its own subfolder: `Features/<Entity>/<FeatureName>/` (e.g. `Features/Articles/GetArticle/`)
+- Namespace matches folder path: `BRF.Api.Features.<Entity>.<FeatureName>`
 - No service layer for MVP — endpoints call DbContext directly (keep it simple, refactor later)
 - Use `async`/`await` throughout
 - Return `Results<Ok<T>, NotFound>` style typed results

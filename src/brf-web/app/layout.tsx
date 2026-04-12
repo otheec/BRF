@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import TopNav from "@/components/TopNav";
+import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -25,8 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-stone-50 text-stone-900 min-h-screen flex flex-col">
         <TopNav />
-        <div className="flex-1">{children}</div>
+        <div className="flex-1 pb-16 md:pb-0">{children}</div>
         <Footer />
+        <BottomNav />
       </body>
     </html>
   );

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import BottomNav from "@/components/BottomNav";
 
 export default function CatalogPage() {
   return (
@@ -276,7 +275,6 @@ export default function CatalogPage() {
           </div>
         </section>
       </main>
-      <BottomNav />
     </div>
   );
 }
