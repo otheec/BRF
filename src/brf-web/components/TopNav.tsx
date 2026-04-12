@@ -4,12 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "/catalog", label: "Catalog" },
-  { href: "/breweries", label: "Breweries" },
-  { href: "/venues", label: "Venues" },
-  { href: "/beers", label: "Beers" },
-  { href: "/log", label: "My Log" },
-  { href: "/news", label: "News" },
+  { href: "/catalog", label: "Katalog" },
+  { href: "/breweries", label: "Pivovary" },
+  { href: "/venues", label: "Místa" },
+  { href: "/beers", label: "Piva" },
+  { href: "/log", label: "Můj deník" },
+  { href: "/news", label: "Novinky" },
 ];
 
 export default function TopNav() {
@@ -46,7 +46,7 @@ export default function TopNav() {
             <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-lg">search</span>
             <input
               className="pl-10 pr-4 py-2 bg-stone-100 border-none rounded-full text-sm focus:ring-2 focus:ring-orange-500 w-64"
-              placeholder="Search brews..."
+              placeholder="Hledat pivo..."
               type="text"
             />
           </div>

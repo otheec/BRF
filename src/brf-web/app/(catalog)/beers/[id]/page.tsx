@@ -122,7 +122,7 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
                 </h1>
                 {brewery && (
                   <p className="text-xl text-gray-600">
-                    by{" "}
+                    od{" "}
                     <Link
                       href={`/breweries/${brewery.id}`}
                       className="text-orange-600 font-semibold hover:underline decoration-2"
@@ -146,7 +146,7 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
                   </div>
                 )}
                 <div className={beer.ibu ? "border-l border-gray-200 pl-8" : ""}>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 font-bold">Rating</p>
+                  <p className="text-xs uppercase tracking-widest text-gray-400 font-bold">Hodnocení</p>
                   <div className="flex items-center gap-1">
                     <span className="text-2xl font-black text-gray-900">4.8</span>
                     <span
@@ -163,11 +163,11 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
               <div className="flex flex-wrap gap-4 pt-4">
                 <button className="bg-orange-600 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-orange-700 transition-all shadow-lg shadow-orange-200 active:scale-95">
                   <span className="material-symbols-outlined">edit_note</span>
-                  Log this Beer
+                  Přidat do deníku
                 </button>
                 <button className="bg-white border-2 border-gray-200 text-gray-900 px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:border-orange-600 hover:text-orange-600 transition-all active:scale-95">
                   <span className="material-symbols-outlined">favorite</span>
-                  Add to Favorites
+                  Přidat do oblíbených
                 </button>
               </div>
             </div>
@@ -180,7 +180,7 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
             {/* Left Column: Flavor Profile & Tasting Notes */}
             <div className="lg:col-span-8 space-y-12">
               <div className="space-y-4">
-                <h2 className="text-2xl font-black tracking-tight">Flavor Profile</h2>
+                <h2 className="text-2xl font-black tracking-tight">Chuťový profil</h2>
                 <p className="text-lg text-gray-600 leading-relaxed">{beer.description}</p>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {flavorTags.map((tag) => (
@@ -195,26 +195,26 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
               </div>
 
               <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                <h2 className="text-2xl font-black tracking-tight mb-8">Tasting Notes</h2>
+                <h2 className="text-2xl font-black tracking-tight mb-8">Degustační poznámky</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 text-orange-600">
                       <span className="material-symbols-outlined">air</span>
-                      <h3 className="font-bold uppercase tracking-widest text-xs">Aroma</h3>
+                      <h3 className="font-bold uppercase tracking-widest text-xs">Vůně</h3>
                     </div>
                     <p className="text-sm text-gray-600 leading-relaxed">{tasting.aroma}</p>
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 text-orange-600">
                       <span className="material-symbols-outlined">visibility</span>
-                      <h3 className="font-bold uppercase tracking-widest text-xs">Appearance</h3>
+                      <h3 className="font-bold uppercase tracking-widest text-xs">Vzhled</h3>
                     </div>
                     <p className="text-sm text-gray-600 leading-relaxed">{tasting.appearance}</p>
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 text-orange-600">
                       <span className="material-symbols-outlined">texture</span>
-                      <h3 className="font-bold uppercase tracking-widest text-xs">Mouthfeel</h3>
+                      <h3 className="font-bold uppercase tracking-widest text-xs">Pocit v ústech</h3>
                     </div>
                     <p className="text-sm text-gray-600 leading-relaxed">{tasting.mouthfeel}</p>
                   </div>
@@ -228,7 +228,7 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
                 <div className="p-6 border-b border-gray-100">
                   <h2 className="text-xl font-black tracking-tight flex items-center gap-2">
                     <span className="material-symbols-outlined text-orange-600">location_on</span>
-                    On Tap Nearby
+                    Na čepu v okolí
                   </h2>
                 </div>
                 <div className="divide-y divide-gray-100">
@@ -260,7 +260,7 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <button className="bg-white px-4 py-2 rounded-lg shadow-md font-bold text-sm hover:bg-orange-600 hover:text-white transition-all">
-                      View Full Map
+                      Zobrazit celou mapu
                     </button>
                   </div>
                 </div>

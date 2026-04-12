@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { beers, breweries } from "@/lib/mock-data";
 
-const styleFilters = ["All", "IPA", "Stout", "Lager", "Sour", "Wheat", "Pilsner"];
+const styleFilters = ["Vše", "IPA", "Stout", "Lager", "Sour", "Wheat", "Pilsner"];
 
 const beerImages: Record<string, string> = {
   "sun-drenched-haze":
@@ -37,10 +37,10 @@ export default function BeersPage() {
       {/* Hero */}
       <section className="py-16 px-6 text-center">
         <h1 className="text-5xl font-black text-stone-900 mb-4 tracking-tight">
-          Discover Every Pour
+          Objevte každý doušek
         </h1>
         <p className="text-stone-500 text-lg max-w-xl mx-auto mb-10">
-          Explore our curated catalog of craft beers — from hoppy IPAs to rich stouts and everything in between.
+          Prozkoumejte náš katalog řemeslných piv — od chmelových IPA přes bohaté stouty až po vše mezi tím.
         </p>
         {/* Style filter pills */}
         <div className="flex flex-wrap justify-center gap-3">
@@ -48,7 +48,7 @@ export default function BeersPage() {
             <button
               key={filter}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
-                filter === "All"
+                filter === "Vše"
                   ? "bg-orange-600 text-white shadow-sm"
                   : "bg-white text-stone-600 border border-stone-200 hover:border-orange-300 hover:text-orange-600"
               }`}

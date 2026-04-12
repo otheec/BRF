@@ -46,7 +46,7 @@ export const breweries: Brewery[] = [
     country: "USA",
     type: "Micro/Taproom",
     description:
-      "Blending old-world techniques with forest-foraged adjuncts and wild fermentation.",
+      "Spojení tradičních postupů s lesními ingrediencemi a spontánním kvašením.",
     established: 2014,
   },
   {
@@ -56,7 +56,7 @@ export const breweries: Brewery[] = [
     country: "Canada",
     type: "Micro",
     description:
-      "Organic ale pioneers pushing the boundaries of West Coast brewing.",
+      "Průkopníci organických ale, kteří posouvají hranice západopobřežního pivovarnictví.",
     established: 2011,
   },
   {
@@ -65,7 +65,7 @@ export const breweries: Brewery[] = [
     city: "Berlin",
     country: "Germany",
     type: "Brewpub",
-    description: "Experimental dark malts in the heart of Berlin.",
+    description: "Experimentální tmavé slady v srdci Berlína.",
     established: 2016,
   },
   {
@@ -74,7 +74,7 @@ export const breweries: Brewery[] = [
     city: "Denver",
     country: "USA",
     type: "Taproom",
-    description: "Hazy, juicy NEIPAs and clean lagers from the Rockies.",
+    description: "Zakalená, šťavnatá NEIPA a čistý ležák z Rocky Mountains.",
     established: 2018,
   },
   {
@@ -83,7 +83,7 @@ export const breweries: Brewery[] = [
     city: "Minneapolis",
     country: "USA",
     type: "Micro",
-    description: "Rugged Midwest ales with a modern twist.",
+    description: "Robustní ale ze středozápadu s moderním nádechem.",
     established: 2015,
   },
   {
@@ -93,7 +93,7 @@ export const breweries: Brewery[] = [
     country: "USA",
     type: "Nano",
     description:
-      "100% spontaneous and mixed fermentation wild ales.",
+      "100% spontánně a smíšeně kvašená divoká ale.",
     established: 2019,
   },
 ];
@@ -105,7 +105,7 @@ export const beers: Beer[] = [
     style: "Hazy IPA",
     abv: 6.8,
     description:
-      "Tropical mango, citrus zest, and a smooth, creamy finish.",
+      "Tropické mango, citrusová kůra a hladký, krémový dozvuk.",
     breweryId: "wildwood",
   },
   {
@@ -113,7 +113,7 @@ export const beers: Beer[] = [
     name: "Midnight Roast",
     style: "Coffee Stout",
     abv: 8.2,
-    description: "Ethiopian beans and cacao with a velvety finish.",
+    description: "Etiopská zrna a kakao se sametovým dozvukem.",
     breweryId: "wildwood",
   },
   {
@@ -122,7 +122,7 @@ export const beers: Beer[] = [
     style: "NEIPA",
     abv: 6.5,
     description:
-      "Vibrant citrus and tropical fruit with a pillowy texture.",
+      "Šťavnaté citrusy a tropické ovoce s hedvábnou texturou.",
     breweryId: "crestline",
     ibu: 42,
   },
@@ -131,7 +131,7 @@ export const beers: Beer[] = [
     name: "Coastal Haze IPA",
     style: "West Coast IPA",
     abv: 6.8,
-    description: "Pine-forward, resinous, and brilliantly clear.",
+    description: "S důrazem na borový chmel, pryskyřičná a zářivě čistá.",
     breweryId: "northbound",
   },
   {
@@ -139,7 +139,7 @@ export const beers: Beer[] = [
     name: "Obsidian Stout",
     style: "Imperial Stout",
     abv: 10.2,
-    description: "Dark chocolate, espresso, and a warming finish.",
+    description: "Hořká čokoláda, espresso a hřejivý dozvuk.",
     breweryId: "midnight-hops",
   },
   {
@@ -147,7 +147,7 @@ export const beers: Beer[] = [
     name: "Alpine Lager",
     style: "Czech Pilsner",
     abv: 4.5,
-    description: "Crisp, clean, and endlessly crushable.",
+    description: "Svěží, čistý a nekonečně osvěžující.",
     breweryId: "crestline",
   },
   {
@@ -155,7 +155,7 @@ export const beers: Beer[] = [
     name: "Velvet Sour",
     style: "Flanders Red",
     abv: 5.4,
-    description: "Tart cherry, oak, and a hint of vanilla.",
+    description: "Kyselá třešeň, dub a náznak vanilky.",
     breweryId: "flora-wild",
   },
   {
@@ -163,7 +163,7 @@ export const beers: Beer[] = [
     name: "Lawnmower Gold",
     style: "Pilsner",
     abv: 4.5,
-    description: "Crisp and clean, the perfect session beer.",
+    description: "Svěží a čistý, ideální celodenní pivo.",
     breweryId: "wildwood",
   },
 ];
@@ -175,7 +175,7 @@ export const venues: Venue[] = [
     type: "Taproom",
     city: "Portland",
     country: "OR",
-    description: "Open until 11PM. 24 rotating taps, all local.",
+    description: "Otevřeno do 23:00. 24 rotujících čepů, jen lokální piva.",
     amenities: ["Dog Friendly", "Outdoor Seating", "Food"],
   },
   {
@@ -184,7 +184,7 @@ export const venues: Venue[] = [
     type: "Brewpub",
     city: "Portland",
     country: "OR",
-    description: "Full kitchen and 16 house taps.",
+    description: "Plná kuchyně a 16 domácích čepů.",
     amenities: ["Outdoor Seating", "Food"],
   },
   {
@@ -193,7 +193,7 @@ export const venues: Venue[] = [
     type: "BottleShop",
     city: "Portland",
     country: "OR",
-    description: "500+ rare cans and bottles. Closed Mondays.",
+    description: "500+ vzácných plechovek a lahví. V pondělí zavřeno.",
     amenities: ["Dog Friendly"],
   },
   {
@@ -202,7 +202,7 @@ export const venues: Venue[] = [
     type: "Taproom",
     city: "Vancouver",
     country: "BC",
-    description: "42 rotating taps with a focus on local craft.",
+    description: "42 rotujících čepů se zaměřením na lokální řemeslná piva.",
     amenities: ["Food", "WiFi"],
   },
   {
@@ -211,7 +211,7 @@ export const venues: Venue[] = [
     type: "Other",
     city: "Melbourne",
     country: "Australia",
-    description: "Craft cocktails, craft beer, and live jazz.",
+    description: "Koktejly, řemeslné pivo a živý jazz.",
     amenities: ["Outdoor Seating", "Food"],
   },
   {
@@ -220,7 +220,7 @@ export const venues: Venue[] = [
     type: "Taproom",
     city: "Denver",
     country: "CO",
-    description: "Cozy taproom with a focus on barrel-aged beers.",
+    description: "Útulný taproom zaměřený na piva zrající v sudech.",
     amenities: ["Dog Friendly", "Food"],
   },
 ];
@@ -231,47 +231,47 @@ export const beerLogs: BeerLog[] = [
     beerName: "Cloud Runner",
     breweryName: "Wildwood Brewing Co.",
     venueName: "The Rusty Anchor",
-    loggedAt: "Oct 28, 2024",
+    loggedAt: "28. 10. 2024",
     rating: 5,
     notes:
-      "Super juicy with heavy notes of mango and pineapple. One of the best NEIPAs I've had.",
+      "Neskutečně šťavnaté s výraznými tóny manga a ananasu. Jedna z nejlepších NEIPA, co jsem měl.",
   },
   {
     id: "log-2",
     beerName: "Midnight Roast",
     breweryName: "Wildwood Brewing Co.",
     venueName: "Iron Forge Brewery",
-    loggedAt: "Oct 24, 2024",
+    loggedAt: "24. 10. 2024",
     rating: 4,
     notes:
-      "Exceptional oatmeal stout character. Coffee notes are prominent but not overpowering.",
+      "Výjimečný charakter ovesného stoutu. Kávové tóny jsou výrazné, ale nepřevládají.",
   },
   {
     id: "log-3",
     beerName: "Alpine Lager",
     breweryName: "Crestline Brewing Co.",
     venueName: "The Copper Tap",
-    loggedAt: "Oct 21, 2024",
+    loggedAt: "21. 10. 2024",
     rating: 4,
-    notes: "Clean and balanced. Exactly what a German pilsner should be.",
+    notes: "Čistý a vyvážený. Přesně takový by měl být dobrý pilsner.",
   },
   {
     id: "log-4",
     beerName: "Velvet Sour",
     breweryName: "Flora Wild Ales",
     venueName: "Hops & Cellar",
-    loggedAt: "Oct 19, 2024",
+    loggedAt: "19. 10. 2024",
     rating: 5,
-    notes: "Complex tart cherry and oak. Mind-blowing wild ale.",
+    notes: "Komplexní kyselá třešeň a dub. Úžasné divoké ale.",
   },
   {
     id: "log-5",
     beerName: "Coastal Haze IPA",
     breweryName: "Northbound Craft",
     venueName: "Barrel & Cask",
-    loggedAt: "Oct 15, 2024",
+    loggedAt: "15. 10. 2024",
     rating: 3,
-    notes: "Solid West Coast IPA but a bit too bitter for my taste today.",
+    notes: "Solidní West Coast IPA, ale dneska mi přišla trochu moc hořká.",
   },
 ];
 

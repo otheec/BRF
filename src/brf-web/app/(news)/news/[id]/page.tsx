@@ -161,14 +161,14 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
                     {article.tag}
                   </span>
                   <span className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600">
-                    Brewing
+                    Vaření piva
                   </span>
                   <span className="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600">
-                    Craft Beer
+                    Řemeslné pivo
                   </span>
                 </div>
                 <div className="flex lg:hidden items-center gap-3">
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Share</span>
+                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Sdílet</span>
                   <button className="text-gray-400 hover:text-orange-600 transition-colors">
                     <span className="material-symbols-outlined">share</span>
                   </button>
@@ -183,12 +183,12 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
           <section className="bg-gray-50 py-20">
             <div className="max-w-7xl mx-auto px-6">
               <div className="flex items-center justify-between mb-12">
-                <h2 className="text-3xl font-black tracking-tight text-gray-900">Keep Reading</h2>
+                <h2 className="text-3xl font-black tracking-tight text-gray-900">Další čtení</h2>
                 <Link
                   className="text-orange-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
                   href="/news"
                 >
-                  View All News{" "}
+                  Všechny novinky{" "}
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
                 </Link>
               </div>

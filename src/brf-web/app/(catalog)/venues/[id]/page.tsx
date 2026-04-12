@@ -6,23 +6,23 @@ export function generateStaticParams() {
 }
 
 const amenityConfig: Record<string, { icon: string; label: string }> = {
-  "Dog Friendly": { icon: "pets", label: "Dog Friendly" },
-  "Outdoor Seating": { icon: "potted_plant", label: "Outdoor Seating" },
-  Food: { icon: "restaurant", label: "Food Menu" },
-  WiFi: { icon: "wifi", label: "Free WiFi" },
+  "Dog Friendly": { icon: "pets", label: "Přátelské psům" },
+  "Outdoor Seating": { icon: "potted_plant", label: "Venkovní sezení" },
+  Food: { icon: "restaurant", label: "Jídelní lístek" },
+  WiFi: { icon: "wifi", label: "Bezplatné WiFi" },
 };
 
 const MOCK_TAP_ITEMS = [
-  { tap: "01", name: "Obsidian Stout", style: "Dry Stout", abv: 6.2, ibu: 45, price: "$7.00", size: "16oz Pour" },
-  { tap: "02", name: "Pacific Haze IPA", style: "Hazy IPA", abv: 7.5, ibu: 60, price: "$8.50", size: "16oz Pour" },
-  { tap: "03", name: "Golden Harvest Lager", style: "Pilsner", abv: 4.8, ibu: 20, price: "$6.50", size: "16oz Pour" },
-  { tap: "04", name: "Ruby Slipper Sour", style: "Raspberry Gose", abv: 4.2, ibu: 10, price: "$9.00", size: "12oz Pour" },
+  { tap: "01", name: "Obsidian Stout", style: "Dry Stout", abv: 6.2, ibu: 45, price: "150 Kč", size: "0,5l" },
+  { tap: "02", name: "Pacific Haze IPA", style: "Hazy IPA", abv: 7.5, ibu: 60, price: "180 Kč", size: "0,5l" },
+  { tap: "03", name: "Golden Harvest Lager", style: "Pilsner", abv: 4.8, ibu: 20, price: "130 Kč", size: "0,5l" },
+  { tap: "04", name: "Ruby Slipper Sour", style: "Raspberry Gose", abv: 4.2, ibu: 10, price: "190 Kč", size: "0,4l" },
 ];
 
 const OPENING_HOURS = [
-  { days: "Mon – Thu", hours: "12:00 PM – 10:00 PM", highlight: false },
-  { days: "Fri – Sat", hours: "12:00 PM – 12:00 AM", highlight: true },
-  { days: "Sunday", hours: "11:00 AM – 09:00 PM", highlight: false },
+  { days: "Po – Čt", hours: "12:00 – 22:00", highlight: false },
+  { days: "Pá – So", hours: "12:00 – 00:00", highlight: true },
+  { days: "Neděle", hours: "11:00 – 21:00", highlight: false },
 ];
 
 const VENUE_HERO_IMAGE =
@@ -83,7 +83,7 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
                 </div>
                 <div className="flex items-center">
                   <span className="material-symbols-outlined mr-2">schedule</span>
-                  <span className="text-sm font-medium">Open until 11:00 PM</span>
+                  <span className="text-sm font-medium">Otevřeno do 23:00</span>
                 </div>
               </div>
             </div>
@@ -95,11 +95,11 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
           <div className="flex flex-wrap gap-4">
             <button className="flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-all active:scale-95">
               <span className="material-symbols-outlined mr-2">directions</span>
-              Get Directions
+              Navigovat
             </button>
             <button className="flex items-center justify-center bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 font-bold py-4 px-8 rounded-xl shadow-lg transition-all active:scale-95">
               <span className="material-symbols-outlined mr-2">language</span>
-              Visit Website
+              Navštívit web
             </button>
           </div>
         </div>
@@ -113,11 +113,11 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-black text-gray-900 flex items-center">
                   <span className="material-symbols-outlined mr-3 text-orange-600">ink_highlighter</span>
-                  What&apos;s on Tap
+                  Co je na čepu
                 </h2>
                 <span className="flex items-center text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">
                   <span className="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse" />
-                  LIVE UPDATED
+                  ŽIVĚ AKTUALIZOVÁNO
                 </span>
               </div>
               <div className="space-y-4">
@@ -152,7 +152,7 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
             <div>
               <h2 className="text-2xl font-black text-gray-900 mb-6 flex items-center">
                 <span className="material-symbols-outlined mr-3 text-orange-600">imagesmode</span>
-                Venue Gallery
+                Galerie místa
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {GALLERY_IMAGES.map((img) => (
@@ -175,7 +175,7 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
           <div className="lg:col-span-4 space-y-8">
             {/* Amenities */}
             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-              <h3 className="text-lg font-black text-gray-900 mb-6">Amenities</h3>
+              <h3 className="text-lg font-black text-gray-900 mb-6">Vybavení</h3>
               <div className="grid grid-cols-2 gap-4">
                 {venue.amenities.map((amenity) => {
                   const config = amenityConfig[amenity] ?? { icon: "check_circle", label: amenity };
@@ -197,12 +197,12 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
             {/* Location Map */}
             <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
               <div className="p-6">
-                <h3 className="text-lg font-black text-gray-900 mb-2">Location</h3>
+                <h3 className="text-lg font-black text-gray-900 mb-2">Poloha</h3>
                 <p className="text-sm text-gray-500">{venue.city}, {venue.country}</p>
               </div>
               <div className="h-64 bg-gray-200">
                 <img
-                  alt="Map Location"
+                  alt="Poloha na mapě"
                   className="w-full h-full object-cover"
                   src={MAP_IMAGE}
                 />
@@ -211,7 +211,7 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
 
             {/* Opening Hours */}
             <div className="bg-gray-900 text-white rounded-2xl p-6">
-              <h3 className="text-lg font-black mb-4">Opening Hours</h3>
+              <h3 className="text-lg font-black mb-4">Otevírací hodiny</h3>
               <div className="space-y-3">
                 {OPENING_HOURS.map((row) => (
                   <div

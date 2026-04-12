@@ -6,12 +6,12 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Brewfolio",
-  description: "Craft beer discovery and personal logging platform",
+  description: "Platforma pro objevování a zaznamenávání řemeslného piva",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="light">
+    <html lang="cs" className="light">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
