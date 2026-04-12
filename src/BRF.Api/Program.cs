@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 
+builder.Services.AddHealthChecks();
 builder.Services.AddFastEndpoints();
 builder.Services.SwaggerDocument(o =>
 {
@@ -48,6 +49,7 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseHttpsRedirection();
 }
+app.MapHealthChecks("/healthz");
 app.UseFastEndpoints(c =>
 {
     c.Serializer.Options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
