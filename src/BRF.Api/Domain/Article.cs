@@ -9,6 +9,7 @@ public class Article
     public List<ArticleSection> Content { get; set; } = [];
     public string AuthorId { get; set; } = string.Empty;
     public string Tag { get; set; } = string.Empty;
+    public string? CoverImageUrl { get; set; }
     public DateTime PublishedAt { get; set; }
     public DateTime CreatedAt { get; set; }
 }

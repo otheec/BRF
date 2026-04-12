@@ -13,5 +13,6 @@ public class ArticleListItem
     public string Tag { get; set; } = string.Empty;
     public string Excerpt { get; set; } = string.Empty;
     public string ReadTime { get; set; } = string.Empty;
+    public string? CoverImageUrl { get; set; }
     public DateTime PublishedAt { get; set; }
 }

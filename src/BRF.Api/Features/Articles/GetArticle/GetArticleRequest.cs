@@ -2,5 +2,5 @@ namespace BRF.Api.Features.Articles.GetArticle;
 
 public class GetArticleRequest
 {
-    public Guid Id { get; set; }
+    public string Id { get; set; } = string.Empty;
 }

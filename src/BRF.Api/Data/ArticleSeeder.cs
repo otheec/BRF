@@ -21,6 +21,7 @@ public static class ArticleSeeder
             Title = "The Art of the Hop Harvest: From Vine to Vessel",
             AuthorId = "Marcus Thorne",
             Tag = "Feature Article",
+            CoverImageUrl = "https://lh3.googleusercontent.com/aida-public/AB6AXuAjipW3aybNi9uK_TAIYPJ5QaRthgjHht38BmxHarenK6-jCwzhgNe-C6Te6ckkGNLl2I31Rkfv8c-VZ0neCy5rapQNpTiAW8Stlqw1FXwN27SMUzzLeLoArqOGTOD69ubXaybYBViLS4jNahYsnLY2GGUfSHZYno2Sbz-0tJEpUFLFkW2TTBYcoOWwsciD4zK01nDxVdZ4zFXFomWQd1Ltnrff7vkYI_0wmzkJZKRlqfK9yygsk7hAykyZpSWmYLcPIJ4ZioYiLCI",
             PublishedAt = new DateTime(2024, 10, 24, 0, 0, 0, DateTimeKind.Utc),
             CreatedAt = DateTime.UtcNow,
             Content =
@@ -49,6 +50,7 @@ public static class ArticleSeeder
             Title = "The Science of Carbonation",
             AuthorId = "Elena Vasquez",
             Tag = "Science",
+            CoverImageUrl = "https://lh3.googleusercontent.com/aida-public/AB6AXuBkr2nm0Zh8AgtVUlKSjTEbsqi_XUOia9ZZkUGInrT_E0hB9tiI0V9FlT6yOsUHi4PAxe8GY3HqtFeTBYLg1o4MYjpJD_5UAxbCo2j77Tymwkz3AXKhw6kZ3vmp1td3rWWyfHC_yYUzKuiMkEKheYPtRJz0SLxXvsQ_aqlF_7jWwVaVcprYRZ6SboMArBeuIYL3JCbbUWrS_xUqXpUDLKOS-AsHweNyYy6t6A_07IS_eczHMWF-AiJW57UrYVkoodxvzHHjYSHriEc",
             PublishedAt = new DateTime(2024, 10, 20, 0, 0, 0, DateTimeKind.Utc),
             CreatedAt = DateTime.UtcNow,
             Content =
@@ -67,6 +69,7 @@ public static class ArticleSeeder
             Title = "Barrel Aging: A Test of Ultimate Patience",
             AuthorId = "David Chen",
             Tag = "Deep Dive",
+            CoverImageUrl = "https://lh3.googleusercontent.com/aida-public/AB6AXuARTxp-5PKvex6ZHQT-bzEyKXGJoC-0jLIq7kmW96FmuCyEAkkwwKg_5hNt7YyBAbKJyGjRxWPHrUgjY3iC21_7g_lDGbmp-bO0nP7itg1pBtWtKOI8-JVIFNRXSamUHuX1m3DNnDmVDbSMhyVPmKhjGh1vPe7B0Cx8lxdvVMAnJQZbq71-3hbYJpcUcaRvQxTNVBXHvlodZUJrnt_nBUiHssL5cwhdWMbN9N0z0OJNS1BT-CZYx9sb9w-jDATkpf91T7KsaO1kz18",
             PublishedAt = new DateTime(2024, 10, 18, 0, 0, 0, DateTimeKind.Utc),
             CreatedAt = DateTime.UtcNow,
             Content =
@@ -86,6 +89,7 @@ public static class ArticleSeeder
             Title = "Choosing the Right Glass for Every Style",
             AuthorId = "Anna Kowalski",
             Tag = "Guide",
+            CoverImageUrl = "https://lh3.googleusercontent.com/aida-public/AB6AXuDr6_xezN2BVGeDqDzveoCVPZXQFxol8nCrUxd67xXooqkNFQGAQs4cyY08bk-2EXSe5mFNmkthfm-qHJoIrMrQMbOp_46G7UReek7JL6bCbEaIBCUw8Nfz3vVxWB0qdRrVpP-mrUYys0ymu28V2DyhlSxJA656xWINCWGt4vOLmsZ_arzlQkU7JBbs-WFj_bnwiHqkPmvDRjVJ5BH0DTHLfEEMJGp30LTQ0ndsewuyIJKUTtsGHg2J0qE3FWEy4k536L08snHn8TM",
             PublishedAt = new DateTime(2024, 10, 15, 0, 0, 0, DateTimeKind.Utc),
             CreatedAt = DateTime.UtcNow,
             Content =

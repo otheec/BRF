@@ -18,7 +18,13 @@ public class GetArticleEndpoint : Endpoint<GetArticleRequest, GetArticleResponse
 
     public override async Task HandleAsync(GetArticleRequest req, CancellationToken ct)
     {
-        var article = await _db.Articles.FindAsync([req.Id], ct);
+        if (!Guid.TryParse(req.Id, out var guid))
+        {
+            await Send.NotFoundAsync(ct);
+            return;
+        }
+
+        var article = await _db.Articles.FindAsync([guid], ct);
 
         if (article is null)
         {
@@ -43,6 +49,7 @@ public class GetArticleEndpoint : Endpoint<GetArticleRequest, GetArticleResponse
             Content = article.Content,
             Author = article.AuthorId,
             Tag = article.Tag,
+            CoverImageUrl = article.CoverImageUrl,
             ReadTime = $"{minutes} min read",
             Excerpt = firstParagraph.Length > 160 ? firstParagraph[..160] : firstParagraph,
             PublishedAt = article.PublishedAt,

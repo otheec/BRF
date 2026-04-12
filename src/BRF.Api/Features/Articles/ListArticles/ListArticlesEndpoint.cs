@@ -50,6 +50,7 @@ public class ListArticlesEndpoint : Endpoint<ListArticlesRequest, ListArticlesRe
                 Tag = a.Tag,
                 Excerpt = firstParagraph.Length > 160 ? firstParagraph[..160] : firstParagraph,
                 ReadTime = $"{minutes} min read",
+                CoverImageUrl = a.CoverImageUrl,
                 PublishedAt = a.PublishedAt,
             };
         }).ToList();
