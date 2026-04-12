@@ -49,7 +49,7 @@ public class ListArticlesEndpoint : Endpoint<ListArticlesRequest, ListArticlesRe
                 Title = a.Title,
                 Tag = a.Tag,
                 Excerpt = firstParagraph.Length > 160 ? firstParagraph[..160] : firstParagraph,
-                ReadTime = $"{minutes} min read",
+                ReadTime = $"{minutes} min čtení",
                 CoverImageUrl = a.CoverImageUrl,
                 PublishedAt = a.PublishedAt,
             };
