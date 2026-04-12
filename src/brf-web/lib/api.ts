@@ -1,5 +1,25 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000";
 
+// ── Internal fetch wrapper ───────────────────────────────────────────────────
+
+async function apiFetch<T>(
+  path: string,
+  opts?: { allow404?: boolean }
+): Promise<T | null> {
+  const res = await fetch(`${API_URL}${path}`, { cache: "no-store" });
+  if (opts?.allow404 && res.status === 404) return null;
+  if (!res.ok) throw new Error(`API error ${res.status}: ${path}`);
+  return res.json();
+}
+
+async function apiGet<T>(path: string): Promise<T> {
+  return apiFetch<T>(path) as Promise<T>;
+}
+
+async function apiGetOrNull<T>(path: string): Promise<T | null> {
+  return apiFetch<T>(path, { allow404: true });
+}
+
 // ── Types ────────────────────────────────────────────────────────────────────
 
 export interface ArticleImage {
@@ -52,24 +72,14 @@ export function formatDate(iso: string): string {
   });
 }
 
-// ── Fetch functions ───────────────────────────────────────────────────────────
+// ── Article fetch functions ───────────────────────────────────────────────────
 
-export async function listArticles(
-  skip = 0,
-  take = 10
-): Promise<ListArticlesResponse> {
-  const res = await fetch(`${API_URL}/articles?skip=${skip}&take=${take}`, {
-    cache: "no-store",
-  });
-  if (!res.ok) throw new Error(`Failed to fetch articles: ${res.status}`);
-  return res.json();
+export function listArticles(skip = 0, take = 10): Promise<ListArticlesResponse> {
+  return apiGet(`/articles?skip=${skip}&take=${take}`);
 }
 
-export async function getArticle(id: string): Promise<ArticleDetail | null> {
-  const res = await fetch(`${API_URL}/articles/${id}`, { cache: "no-store" });
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`Failed to fetch article: ${res.status}`);
-  return res.json();
+export function getArticle(id: string): Promise<ArticleDetail | null> {
+  return apiGetOrNull(`/articles/${id}`);
 }
 
 // ── Brewery types ─────────────────────────────────────────────────────────────
@@ -190,89 +200,40 @@ export interface ListBeerLogsResponse {
 
 // ── Brewery fetch functions ───────────────────────────────────────────────────
 
-export async function listBreweries(
-  skip = 0,
-  take = 20
-): Promise<ListBreweriesResponse> {
-  const res = await fetch(
-    `${API_URL}/breweries?skip=${skip}&take=${take}`,
-    { cache: "no-store" }
-  );
-  if (!res.ok) throw new Error(`Failed to fetch breweries: ${res.status}`);
-  return res.json();
+export function listBreweries(skip = 0, take = 20): Promise<ListBreweriesResponse> {
+  return apiGet(`/breweries?skip=${skip}&take=${take}`);
 }
 
-export async function getBrewery(id: string): Promise<BreweryDetail | null> {
-  const res = await fetch(`${API_URL}/breweries/${id}`, { cache: "no-store" });
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`Failed to fetch brewery: ${res.status}`);
-  return res.json();
+export function getBrewery(id: string): Promise<BreweryDetail | null> {
+  return apiGetOrNull(`/breweries/${id}`);
 }
 
 // ── Beer fetch functions ──────────────────────────────────────────────────────
 
-export async function listBeers(
-  skip = 0,
-  take = 20
-): Promise<ListBeersResponse> {
-  const res = await fetch(
-    `${API_URL}/beers?skip=${skip}&take=${take}`,
-    { cache: "no-store" }
-  );
-  if (!res.ok) throw new Error(`Failed to fetch beers: ${res.status}`);
-  return res.json();
+export function listBeers(skip = 0, take = 20): Promise<ListBeersResponse> {
+  return apiGet(`/beers?skip=${skip}&take=${take}`);
 }
 
-export async function getBeer(id: string): Promise<BeerDetail | null> {
-  const res = await fetch(`${API_URL}/beers/${id}`, { cache: "no-store" });
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`Failed to fetch beer: ${res.status}`);
-  return res.json();
+export function getBeer(id: string): Promise<BeerDetail | null> {
+  return apiGetOrNull(`/beers/${id}`);
 }
 
-export async function listBeersByBrewery(
-  breweryId: string
-): Promise<ListBeersByBreweryResponse> {
-  const res = await fetch(`${API_URL}/breweries/${breweryId}/beers`, {
-    cache: "no-store",
-  });
-  if (!res.ok)
-    throw new Error(`Failed to fetch beers by brewery: ${res.status}`);
-  return res.json();
+export function listBeersByBrewery(breweryId: string): Promise<ListBeersByBreweryResponse> {
+  return apiGet(`/breweries/${breweryId}/beers`);
 }
 
 // ── Venue fetch functions ─────────────────────────────────────────────────────
 
-export async function listVenues(
-  skip = 0,
-  take = 20
-): Promise<ListVenuesResponse> {
-  const res = await fetch(
-    `${API_URL}/venues?skip=${skip}&take=${take}`,
-    { cache: "no-store" }
-  );
-  if (!res.ok) throw new Error(`Failed to fetch venues: ${res.status}`);
-  return res.json();
+export function listVenues(skip = 0, take = 20): Promise<ListVenuesResponse> {
+  return apiGet(`/venues?skip=${skip}&take=${take}`);
 }
 
-export async function getVenue(id: string): Promise<VenueDetail | null> {
-  const res = await fetch(`${API_URL}/venues/${id}`, { cache: "no-store" });
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`Failed to fetch venue: ${res.status}`);
-  return res.json();
+export function getVenue(id: string): Promise<VenueDetail | null> {
+  return apiGetOrNull(`/venues/${id}`);
 }
 
 // ── BeerLog fetch functions ───────────────────────────────────────────────────
 
-export async function listBeerLogs(
-  userId = "demo-user",
-  skip = 0,
-  take = 20
-): Promise<ListBeerLogsResponse> {
-  const res = await fetch(
-    `${API_URL}/beer-logs?userId=${userId}&skip=${skip}&take=${take}`,
-    { cache: "no-store" }
-  );
-  if (!res.ok) throw new Error(`Failed to fetch beer logs: ${res.status}`);
-  return res.json();
+export function listBeerLogs(userId = "demo-user", skip = 0, take = 20): Promise<ListBeerLogsResponse> {
+  return apiGet(`/beer-logs?userId=${userId}&skip=${skip}&take=${take}`);
 }
