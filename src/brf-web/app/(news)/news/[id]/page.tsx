@@ -10,6 +10,14 @@ const AUTHOR_AVATARS: Record<string, string> = {
     "https://lh3.googleusercontent.com/aida-public/AB6AXuDIM28QpM5nu86SlyrhDXcmbPoNTyEUPnWLzlW24jYmUmuNTM2ab3Tlpp1MGxDe5EbNO6D8gcv64DfXZB1qnku6PlgyJY6jjDCYavmgoo1tlNvfUuCFPIFqrSDcjiz9fJzDIsanUhQuozYXlPx1yDKiuzVvrlB1rb62ZZmO4x_Euh3keknOgSoPcj1NkONqRwCYiGMiW-Cl2xy7cz4Awecpq96gdN4Fg8Qw5BSnU9EfuN2m8NSoVeaVVW8qjHdbz3gnPY7UqY50_dM",
 };
 
+function getAuthorDisplayName(authorId: string): string {
+  const isGuidLike =
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+      authorId
+    );
+  return isGuidLike ? "Autor Brewfolio" : authorId;
+}
+
 export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) {
   const { id } = await props.params;
 
@@ -24,7 +32,8 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
 
   const relatedArticles = allArticles.filter((a) => a.id !== article.id).slice(0, 3);
   const heroImage = article.coverImageUrl ?? DEFAULT_HERO;
-  const authorAvatar = AUTHOR_AVATARS[article.authorId];
+  const authorDisplayName = getAuthorDisplayName(article.authorId);
+  const authorAvatar = AUTHOR_AVATARS[authorDisplayName] ?? AUTHOR_AVATARS[article.authorId];
 
   return (
     <div className="bg-white text-gray-900 antialiased">
@@ -52,17 +61,17 @@ export default async function ArticleDetailPage(props: PageProps<"/news/[id]">) 
               {authorAvatar ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  alt={article.authorId}
+                  alt={authorDisplayName}
                   className="w-12 h-12 rounded-full border-2 border-white/20 object-cover"
                   src={authorAvatar}
                 />
               ) : (
                 <div className="w-12 h-12 rounded-full border-2 border-white/20 bg-orange-600 flex items-center justify-center text-white font-bold text-lg">
-                  {article.authorId[0]}
+                  {authorDisplayName[0] ?? "A"}
                 </div>
               )}
               <div className="text-white">
-                <p className="font-bold text-sm">{article.authorId}</p>
+                <p className="font-bold text-sm">{authorDisplayName}</p>
                 <p className="text-xs text-white/70">{formatDate(article.publishedAt)}</p>
               </div>
             </div>
