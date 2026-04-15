@@ -35,6 +35,7 @@ public class ListBeersByBreweryEndpoint : Endpoint<ListBeersByBreweryRequest, Li
                 Abv = b.Abv,
                 Ibu = b.Ibu,
                 Description = b.Description,
+                ImageUrl = b.ImageUrl,
             })
             .ToListAsync(ct);
 

@@ -1,25 +1,7 @@
 import Link from "next/link";
 import { listBreweries, listBeers, listVenues } from "@/lib/api";
 
-const breweryImages = [
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBpYzT7k3SLdciwFQTJfYRKsyeRqTm5rwV1KSl6XhKK3bqwQXEghzPykxDUqlHIgNBksqhRfxsXSatdv02XC85G9vVveHsohIYjXrBzBovPbF1tNn2ZFQXYVuKB3FxgZV_LpDxAz_L6Uc6JtxuLrFeZulrARCN2I4DXhxFb2KhMY40kLxsSd4O57yAyZdwCCrHrw8otnOHbJN1TRFtxxkzGGTqAXMj9AqCQAHIJXOUdf3P2B-bCOMcdttCDqMjROaW1IfIMq74HhL8",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuC88OJvb4OLwhxXc4u29g5plNCRw03GKqkSLCQTkOR9cqxC7JpJr3jGvape9K-6nzsa6IgnbJE6gpKCoabkJhsgfaD6Rk7ycooJcBRMqbwtXKab8Ely3_QZgijP1yQ3isDYEYAsk25obbpRtgIM0KFF-FCyXfdSQDKf91ajh6_QCfjphEejX-FWqKSRAXAreL-9OwclwSonP2OLWwbhq33BsnPtKVfwwublNnMZPmib-e91ugLOEijCUwvZvuiwCxcePPF2fYhVu0Q",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBdKEb839yRyR9CCZvbOhuPV_bDn_NE6DNQiocUmbEWkxG87mTq-r4uOY_dpU-8BjubT2vl9CDiwKnrawy1zQjcX1l44sDR57ALkJo5RP28JdX8ByBVwcCD3RLzaULkZoWK5g1GVwc9hDa0cxiGbP6uWp8CnKHWVaCId4IwynaO2J-Xq_xaoTqBBVWXx_MbpoxlZAa_p9n1IyKcJ37y7QhTc5ptyf1FhF9q7Vzw4hV4udaaHbZ-LX5AP1ZYpN3Aea7VL5aoMRXUwWY",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDawLTyqAQ-yRIrGLRHc-d8QT-b1xpcpAz1wrmBZoAJVAikNCG_bCXEztWxF85_1ONc6KALqk5-lP1b49tjlX-3QYQnczhV1JwGr05B5FW7aNmLEhockXilOSPp-nchahEOOJZtQqk8mK-YyyXeplMVvWjsGlmLTUVavYFUIUGVPTHdJXtW3uhVnT8AhD8fcayv3wobRG3DLLV65nwWvUJzCkUDcUNpRV_Fchksef1QQvKZsQnoqhg2ltY-KF2cfw_jAF-2jeA45_A",
-];
-
-const beerImages = [
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDS6XarVM3C1d536IXKyIe_hU_C90GHAd1VT8ghBL7RGhLU82Y-xeByQ2z6Nb41qeetYDA0cFr7fm3tEzyQf7FSsaipIYhggbvejQ4GkhGYZ5jI_eyUjYfzK4FVHYyD5Hf3gr6YSL6GrrEXBj-o3WMm5Nj8AWUONjQHqgIjwvB55tgtOPIaow15HF3HXM5IIQiTwkrnNZSGcWU7xDfbJIioEvwcZEQH7vD3DAPNTgW2FJyMAr6hvHVcI3I6WZiTze-Oxui-7CzmWQk",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDbwGVIaMSHyLvwszWxgsrzIyuiUCr8ls4-XQ3ghjWdSs1L9WAUip0YCmytun6SHJI_wx9rxGdsAGrIKwdwSjQhtTEE8wLXwDqg9CvERs0hHuURyYCgNsR7tYTjeOnhxBKe_YDHGxioRtGSoooaPkyBL4KubwrTD1qs-Da7F-PEObt94U2GL4SdWKmLOhDXMqXfl0Vz1RdvLe4mg2hDy9gt8xzl7uexd6TGRVffDCPV-oLdeMdYqWihSsa41LG4je8EH8-QDesVEGE",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDhC8F4yYlDpfgo5Ar6cqRmVcA8TW_GvXKbWvsykOCa6hwEGtgHEKXmxQSk9drBTv-UzGjIMVJW429z5mlGjC5VZrLhWg4Yr1na1Icp6J80jD1PZsfXpi0YRU1HagTDFAptJqf8mbyI5eG9ZXOBfognR9dT9KaeNXqXkxighZ6E7lggHW6qkq9lmZxc0fMUhu3qzZGmbghuoKJek56qisLv4Y_10FT21UEq2bJHNqxF114Oa78vKq5FRBYCq0M5xv2rxhRNHG2-9DE",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuB3nmEcgssd4-GnJUYrNGmDeQbih521GrIjoFApYspQdUKASGuFisD-dDPLJJA2CcR4ffvYqZ19nVEu3let6JshqjIbzZi8i39o25-js4AGntq7QlRL7KwycIRoAb0r2Mc-M1-K9P0BorUU61Yk9SHOyuhfhyhc4e0vlvEQkdxDufg2dt7RVfnWix2IFk40nYSrg7q0n2lI8IgSni-GXSxhRPNrE7AORFhZl0OV7N5zWNSHxl-RlB00uK1dke7b92tnUCVD2L4JdsQ",
-];
-
-const venueImages = [
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBAiiBORZYiKswM5vBbtwGebxpn4Gkk4f0I5KV7fck6ZrTcpxKrQK3tRC3aw3heE7JJShkygTiwivYdL4CxCi91y2w4XNPy1OoUMOqmRd3hf4j9pohAL1E__msNXuRIcMtU27CXhER8RfgnM7uPRDwpaIuL9AO4QzlYE9FgZMeKGEVeXSF3F4nVZ-QnhogKuztB7llREET7hWHXLsu8qqdocRYRWjpK4dJaQ09Hcs7CvfcqVRzoXi4lZax1AoBHaCKdduYd0myANdM",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuD37rGNNp338vDMzEbuvgCWnLEUhP0ZEtJwQZbTLctc1-AczifLrvRwUdh805IqL_j6ierz7pmSQnAGhLhPmFcfBHBSV-9hdD7JUwIPy9AAAxhCFbmSE9r1WmIaWGOskkcAJYj1SW-RUvIB7zybjaBNxjeXUjso1U8LvAoC0JEiirKLzIpLbJRjvm_yG-sfLGLbuaz4hwkchkHnjLdcFNIntCNSSavRakwwr-TkqFCrt85J0wR86q7AzC7sPf_qDv_PHCzCIcpRXyk",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCAGrhagwYfheWu_b50B2z11r_2WD-93-AHvaVq-DbR58d6Oz8emQGyiQpN_TtJKwgCTbeowUtZg4ELAhy8rO1bzTFYJRcZks9nc-HEbnDE9Ix6-ibjwlKuYGgyTT17lrQVmmqDcV6BqHuN0YZxZKaU-rI2xxVTzoiK9KCydtrfokMntiJDPaGPZ0aVMv_YjILkJMtyBi3LfFZfZf5dX1CR_IqqU93Yok1bIGp5bhIPNBJh3k2vFZf5HEwnsB2rkTbB4U-Vfgnu0Uc",
-];
+const DEFAULT_IMAGE = "/placeholder.svg";
 
 export default async function CatalogPage() {
   const [breweriesRes, beersRes, venuesRes] = await Promise.all([
@@ -71,7 +53,7 @@ export default async function CatalogPage() {
                 href={`/breweries/${breweries[0].id}`}
                 className="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-xl aspect-square md:aspect-auto min-h-[320px]"
               >
-                <img src={breweryImages[0]} alt={breweries[0].name} className="absolute inset-0 w-full h-full object-cover" />
+                <img src={breweries[0].imageUrl ?? DEFAULT_IMAGE} alt={breweries[0].name} className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
                   <span className="inline-block px-3 py-1 bg-orange-600 text-white text-xs font-bold rounded-full w-fit mb-3">{breweries[0].type}</span>
                   <h3 className="text-3xl font-bold text-white mb-2">{breweries[0].name}</h3>
@@ -85,7 +67,7 @@ export default async function CatalogPage() {
                 href={`/breweries/${breweries[1].id}`}
                 className="md:col-span-2 group relative overflow-hidden rounded-xl h-64"
               >
-                <img src={breweryImages[1]} alt={breweries[1].name} className="absolute inset-0 w-full h-full object-cover" />
+                <img src={breweries[1].imageUrl ?? DEFAULT_IMAGE} alt={breweries[1].name} className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
                   <h3 className="text-xl font-bold text-white">{breweries[1].name}</h3>
                   <p className="text-stone-300 text-xs">{breweries[1].city}, {breweries[1].country} • {breweries[1].description}</p>
@@ -98,7 +80,7 @@ export default async function CatalogPage() {
                 href={`/breweries/${brewery.id}`}
                 className="group relative overflow-hidden rounded-xl h-64"
               >
-                <img src={breweryImages[2 + index]} alt={brewery.name} className="absolute inset-0 w-full h-full object-cover" />
+                <img src={brewery.imageUrl ?? DEFAULT_IMAGE} alt={brewery.name} className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/40 p-6 flex flex-col justify-end">
                   <h3 className="text-lg font-bold text-white">{brewery.name}</h3>
                   <p className="text-stone-300 text-xs">{brewery.city}, {brewery.country}</p>
@@ -121,7 +103,7 @@ export default async function CatalogPage() {
               {beers.map((beer, index) => (
                 <Link key={beer.id} href={`/beers/${beer.id}`} className="flex flex-col group">
                   <div className="aspect-[4/5] rounded-2xl mb-4 overflow-hidden relative">
-                    <img src={beerImages[index % beerImages.length]} alt={beer.name} className="w-full h-full object-cover" />
+                    <img src={beer.imageUrl ?? DEFAULT_IMAGE} alt={beer.name} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="font-bold text-lg leading-tight group-hover:text-orange-600 transition-colors">{beer.name}</h3>
                   <p className="text-stone-500 text-sm mb-2">{beer.style}{beer.abv ? ` • ${beer.abv}% ABV` : ""}</p>
@@ -149,7 +131,7 @@ export default async function CatalogPage() {
             {venues.map((venue, index) => (
               <div key={venue.id} className="bg-white p-2 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="h-48 rounded-xl mb-4 relative overflow-hidden">
-                  <img src={venueImages[index % venueImages.length]} alt={venue.name} className="w-full h-full object-cover" />
+                  <img src={venue.imageUrl ?? DEFAULT_IMAGE} alt={venue.name} className="w-full h-full object-cover" />
                   <div className="absolute top-3 left-3">
                     <span className="px-3 py-1 bg-orange-600 text-white text-[10px] font-bold rounded-full uppercase tracking-wider">{venue.type}</span>
                   </div>

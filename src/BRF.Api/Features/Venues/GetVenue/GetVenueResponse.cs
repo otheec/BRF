@@ -10,6 +10,7 @@ public class GetVenueResponse
     public string City { get; set; } = string.Empty;
     public string Country { get; set; } = string.Empty;
     public string? Description { get; set; }
+    public string? ImageUrl { get; set; }
     public List<string> Amenities { get; set; } = [];
     public DateTime CreatedAt { get; set; }
 }

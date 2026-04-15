@@ -92,6 +92,7 @@ export interface BreweryListItem {
   type: string;
   description?: string;
   established: number;
+  imageUrl?: string;
 }
 
 export interface ListBreweriesResponse {
@@ -107,6 +108,7 @@ export interface BreweryDetail {
   type: string;
   description?: string;
   established: number;
+  imageUrl?: string;
   createdAt: string;
 }
 
@@ -121,6 +123,7 @@ export interface BeerListItem {
   description?: string;
   breweryId: string;
   breweryName: string;
+  imageUrl?: string;
 }
 
 export interface ListBeersResponse {
@@ -137,6 +140,7 @@ export interface BeerDetail {
   description?: string;
   breweryId: string;
   breweryName: string;
+  imageUrl?: string;
   createdAt: string;
 }
 
@@ -147,6 +151,7 @@ export interface BeerByBreweryItem {
   abv?: number;
   ibu?: number;
   description?: string;
+  imageUrl?: string;
 }
 
 export interface ListBeersByBreweryResponse {
@@ -163,6 +168,7 @@ export interface VenueListItem {
   country: string;
   description?: string;
   amenities: string[];
+  imageUrl?: string;
 }
 
 export interface ListVenuesResponse {
@@ -178,6 +184,7 @@ export interface VenueDetail {
   country: string;
   description?: string;
   amenities: string[];
+  imageUrl?: string;
   createdAt: string;
 }
 
@@ -191,6 +198,7 @@ export interface BeerLogItem {
   loggedAt: string;
   rating?: number;
   notes?: string;
+  beerImageUrl?: string;
 }
 
 export interface ListBeerLogsResponse {

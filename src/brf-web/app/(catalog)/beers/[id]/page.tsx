@@ -65,24 +65,7 @@ const flavorTagsByStyle: Record<string, string[]> = {
   Pilsner: ["Biscuit", "Herbal", "Light", "Refreshing"],
 };
 
-const BEER_IMAGES: Record<string, string> = {
-  "c3d4e5f6-3333-4000-8000-000000000003":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDr8Ix8X6OWPSBemE9gu_dthZlYO3gB6WNn8bhHHVYx-ejjCeuxq7eteuqT9otMNuT5dt-fgQlpSa9FQ-n_lJqOnAinS9P6FyIuJHAd_p2fubP2-mI-nQlCs_MBN3Fz8SADQbrfB_EFTG-sMe7ZCul1VMw_yieElBhnUPnU6C8TTHfuz-FOiSMIgeoectTW8pwVpuVCgdZQtp5ycJIAqVhdIe2xGuD8ez3_0-HoUNQx-lHx0zhHuEqG7c3El2ADb4uWvGx-tT9_Iwo",
-  "c3d4e5f6-3333-4000-8000-000000000004":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDS6XarVM3C1d536IXKyIe_hU_C90GHAd1VT8ghBL7RGhLU82Y-xeByQ2z6Nb41qeetYDA0cFr7fm3tEzyQf7FSsaipIYhggbvejQ4GkhGYZ5jI_eyUjYfzK4FVHYyD5Hf3gr6YSL6GrrEXBj-o3WMm5Nj8AWUONjQHqgIjwvB55tgtOPIaow15HF3HXM5IIQiTwkrnNZSGcWU7xDfbJIioEvwcZEQH7vD3DAPNTgW2FJyMAr6hvHVcI3I6WZiTze-Oxui-7CzmWQk",
-  "c3d4e5f6-3333-4000-8000-000000000005":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDbwGVIaMSHyLvwszWxgsrzIyuiUCr8ls4-XQ3ghjWdSs1L9WAUip0YCmytun6SHJI_wx9rxGdsAGrIKwdwSjQhtTEE8wLXwDqg9CvERs0hHuURyYCgNsR7tYTjeOnhxBKe_YDHGxioRtGSoooaPkyBL4KubwrTD1qs-Da7F-PEObt94U2GL4SdWKmLOhDXMqXfl0Vz1RdvLe4mg2hDy9gt8xzl7uexd6TGRVffDCPV-oLdeMdYqWihSsa41LG4je8EH8-QDesVEGE",
-  "c3d4e5f6-3333-4000-8000-000000000006":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDhC8F4yYlDpfgo5Ar6cqRmVcA8TW_GvXKbWvsykOCa6hwEGtgHEKXmxQSk9drBTv-UzGjIMVJW429z5mlGjC5VZrLhWg4Yr1na1Icp6J80jD1PZsfXpi0YRU1HagTDFAptJqf8mbyI5eG9ZXOBfognR9dT9KaeNXqXkxighZ6E7lggHW6qkq9lmZxc0fMUhu3qzZGmbghuoKJek56qisLv4Y_10FT21UEq2bJHNqxF114Oa78vKq5FRBYCq0M5xv2rxhRNHG2-9DE",
-  "c3d4e5f6-3333-4000-8000-000000000007":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuB3nmEcgssd4-GnJUYrNGmDeQbih521GrIjoFApYspQdUKASGuFisD-dDPLJJA2CcR4ffvYqZ19nVEu3let6JshqjIbzZi8i39o25-js4AGntq7QlRL7KwycIRoAb0r2Mc-M1-K9P0BorUU61Yk9SHOyuhfhyhc4e0vlvEQkdxDufg2dt7RVfnWix2IFk40nYSrg7q0n2lI8IgSni-GXSxhRPNrE7AORFhZl0OV7N5zWNSHxl-RlB00uK1dke7b92tnUCVD2L4JdsQ",
-};
-
-const DEFAULT_BEER_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDr8Ix8X6OWPSBemE9gu_dthZlYO3gB6WNn8bhHHVYx-ejjCeuxq7eteuqT9otMNuT5dt-fgQlpSa9FQ-n_lJqOnAinS9P6FyIuJHAd_p2fubP2-mI-nQlCs_MBN3Fz8SADQbrfB_EFTG-sMe7ZCul1VMw_yieElBhnUPnU6C8TTHfuz-FOiSMIgeoectTW8pwVpuVCgdZQtp5ycJIAqVhdIe2xGuD8ez3_0-HoUNQx-lHx0zhHuEqG7c3El2ADb4uWvGx-tT9_Iwo";
-
-const MAP_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDzrcXAEVB4njVeRSwJuSIK5ry2GyFzuo01bogblqp9FOsh7AxV4d1UruCni61SmfjqTlKcax2sPvjFkUf1DDKZIUrvT6C4tXh4oGJXXIt4jP8iQtR5uGnWSj_zuvaTlHzl4oT7_4EuI9To4zpxFZK6BG9sWIJYDHO4YUnRNeZbOR-Br3udM4TFJaR33Ize2L9e-8sgLp-afwoMp-YjA0XiqKQB8PgP9PJza5tla4SBvESxyBLp9Roq0AIaOWTuvN6yvSyxrEIS3Zc";
+const DEFAULT_IMAGE = "/placeholder.svg";
 
 export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
   const { id } = await props.params;
@@ -94,7 +77,6 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
 
   const tasting = tastingNotesByStyle[beer.style] ?? defaultTasting;
   const flavorTags = flavorTagsByStyle[beer.style] ?? ["Balanced", "Complex", "Smooth"];
-  const beerImage = BEER_IMAGES[id] ?? DEFAULT_BEER_IMAGE;
   const { items: nearbyVenues } = await listVenues(0, 3);
 
   return (
@@ -109,7 +91,7 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
                 <img
                   alt={beer.name}
                   className="w-full h-full object-cover"
-                  src={beerImage}
+                  src={beer.imageUrl ?? DEFAULT_IMAGE}
                 />
               </div>
             </div>
@@ -255,12 +237,8 @@ export default async function BeerDetailPage(props: PageProps<"/beers/[id]">) {
                     </Link>
                   ))}
                 </div>
-                <div className="h-48 bg-stone-200 relative">
-                  <img
-                    alt="Location Map"
-                    className="w-full h-full object-cover grayscale opacity-50"
-                    src={MAP_IMAGE}
-                  />
+                <div className="h-48 bg-stone-200 relative flex items-center justify-center">
+                  <span className="material-symbols-outlined text-stone-400 text-4xl">map</span>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <button className="bg-white px-4 py-2 rounded-lg shadow-md font-bold text-sm hover:bg-orange-600 hover:text-white transition-all">
                       Zobrazit celou mapu

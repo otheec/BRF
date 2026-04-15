@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-stone-100 border-t border-stone-200 py-8 mt-auto">
@@ -7,9 +9,9 @@ export default function Footer() {
           <p className="text-xs text-stone-500 mt-1">© 2024 Brewfolio komunita</p>
         </div>
         <div className="flex gap-8">
-          <a className="text-xs text-stone-500 hover:text-orange-500 hover:underline transition-all" href="#">Soukromí</a>
-          <a className="text-xs text-stone-500 hover:text-orange-500 hover:underline transition-all" href="#">Podmínky</a>
-          <a className="text-xs text-stone-500 hover:text-orange-500 hover:underline transition-all" href="#">Kontakt</a>
+          <Link className="text-xs text-stone-500 hover:text-orange-500 hover:underline transition-all" href="/privacy">Soukromí</Link>
+          <Link className="text-xs text-stone-500 hover:text-orange-500 hover:underline transition-all" href="/terms">Podmínky</Link>
+          <Link className="text-xs text-stone-500 hover:text-orange-500 hover:underline transition-all" href="/contact">Kontakt</Link>
         </div>
         <div className="flex gap-4">
           <span className="material-symbols-outlined text-stone-400 hover:text-orange-600 cursor-pointer transition-colors">public</span>

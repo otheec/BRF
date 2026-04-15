@@ -35,6 +35,7 @@ public class ListBreweriesEndpoint : Endpoint<ListBreweriesRequest, ListBrewerie
                 Country = b.Country,
                 Type = b.Type,
                 Description = b.Description,
+                ImageUrl = b.ImageUrl,
                 Established = b.Established,
             })
             .ToListAsync(ct);

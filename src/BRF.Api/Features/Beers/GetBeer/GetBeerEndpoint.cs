@@ -42,6 +42,7 @@ public class GetBeerEndpoint : Endpoint<GetBeerRequest, GetBeerResponse>
             Abv = beer.Abv,
             Ibu = beer.Ibu,
             Description = beer.Description,
+            ImageUrl = beer.ImageUrl,
             BreweryId = beer.BreweryId,
             BreweryName = beer.Brewery.Name,
             CreatedAt = beer.CreatedAt,

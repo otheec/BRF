@@ -36,6 +36,7 @@ public class ListBeersEndpoint : Endpoint<ListBeersRequest, ListBeersResponse>
                 Abv = b.Abv,
                 Ibu = b.Ibu,
                 Description = b.Description,
+                ImageUrl = b.ImageUrl,
                 BreweryId = b.BreweryId,
                 BreweryName = b.Brewery.Name,
             })

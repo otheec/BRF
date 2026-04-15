@@ -39,6 +39,7 @@ public class GetBreweryEndpoint : Endpoint<GetBreweryRequest, GetBreweryResponse
             Country = brewery.Country,
             Type = brewery.Type,
             Description = brewery.Description,
+            ImageUrl = brewery.ImageUrl,
             Established = brewery.Established,
             CreatedAt = brewery.CreatedAt,
         }, ct);
