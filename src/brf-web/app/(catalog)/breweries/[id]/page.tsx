@@ -3,39 +3,7 @@ import { notFound } from "next/navigation";
 import { getBrewery, listBeersByBrewery } from "@/lib/api";
 import Badge from "@/components/Badge";
 
-const BREWERY_HERO_IMAGES: Record<string, string> = {
-  "a1b2c3d4-1111-4000-8000-000000000001":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuBpYzT7k3SLdciwFQTJfYRKsyeRqTm5rwV1KSl6XhKK3bqwQXEghzPykxDUqlHIgNBksqhRfxsXSatdv02XC85G9vVveHsohIYjXrBzBovPbF1tNn2ZFQXYVuKB3FxgZV_LpDxAz_L6Uc6JtxuLrFeZulrARCN2I4DXhxFb2KhMY40kLxsSd4O57yAyZdwCCrHrw8otnOHbJN1TRFtxxkzGGTqAXMj9AqCQAHIJXOUdf3P2B-bCOMcdttCDqMjROaW1IfIMq74HhL8",
-  "a1b2c3d4-1111-4000-8000-000000000002":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuC88OJvb4OLwhxXc4u29g5plNCRw03GKqkSLCQTkOR9cqxC7JpJr3jGvape9K-6nzsa6IgnbJE6gpKCoabkJhsgfaD6Rk7ycooJcBRMqbwtXKab8Ely3_QZgijP1yQ3isDYEYAsk25obbpRtgIM0KFF-FCyXfdSQDKf91ajh6_QCfjphEejX-FWqKSRAXAreL-9OwclwSonP2OLWwbhq33BsnPtKVfwwublNnMZPmib-e91ugLOEijCUwvZvuiwCxcePPF2fYhVu0Q",
-  "a1b2c3d4-1111-4000-8000-000000000003":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuBdKEb839yRyR9CCZvbOhuPV_bDn_NE6DNQiocUmbEWkxG87mTq-r4uOY_dpU-8BjubT2vl9CDiwKnrawy1zQjcX1l44sDR57ALkJo5RP28JdX8ByBVwcCD3RLzaULkZoWK5g1GVwc9hDa0cxiGbP6uWp8CnKHWVaCId4IwynaO2J-Xq_xaoTqBBVWXx_MbpoxlZAa_p9n1IyKcJ37y7QhTc5ptyf1FhF9q7Vzw4hV4udaaHbZ-LX5AP1ZYpN3Aea7VL5aoMRXUwWY",
-  "a1b2c3d4-1111-4000-8000-000000000004":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDawLTyqAQ-yRIrGLRHc-d8QT-b1xpcpAz1wrmBZoAJVAikNCG_bCXEztWxF85_1ONc6KALqk5-lP1b49tjlX-3QYQnczhV1JwGr05B5FW7aNmLEhockXilOSPp-nchahEOOJZtQqk8mK-YyyXeplMVvWjsGlmLTUVavYFUIUGVPTHdJXtW3uhVnT8AhD8fcayv3wobRG3DLLV65nwWvUJzCkUDcUNpRV_Fchksef1QQvKZsQnoqhg2ltY-KF2cfw_jAF-2jeA45_A",
-  "a1b2c3d4-1111-4000-8000-000000000005":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDS6XarVM3C1d536IXKyIe_hU_C90GHAd1VT8ghBL7RGhLU82Y-xeByQ2z6Nb41qeetYDA0cFr7fm3tEzyQf7FSsaipIYhggbvejQ4GkhGYZ5jI_eyUjYfzK4FVHYyD5Hf3gr6YSL6GrrEXBj-o3WMm5Nj8AWUONjQHqgIjwvB55tgtOPIaow15HF3HXM5IIQiTwkrnNZSGcWU7xDfbJIioEvwcZEQH7vD3DAPNTgW2FJyMAr6hvHVcI3I6WZiTze-Oxui-7CzmWQk",
-  "a1b2c3d4-1111-4000-8000-000000000006":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDbwGVIaMSHyLvwszWxgsrzIyuiUCr8ls4-XQ3ghjWdSs1L9WAUip0YCmytun6SHJI_wx9rxGdsAGrIKwdwSjQhtTEE8wLXwDqg9CvERs0hHuURyYCgNsR7tYTjeOnhxBKe_YDHGxioRtGSoooaPkyBL4KubwrTD1qs-Da7F-PEObt94U2GL4SdWKmLOhDXMqXfl0Vz1RdvLe4mg2hDy9gt8xzl7uexd6TGRVffDCPV-oLdeMdYqWihSsa41LG4je8EH8-QDesVEGE",
-};
-
-const DEFAULT_HERO_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDvE3RPWI5RqrmleF-D-9OHbOXYQ0sdzVq3NxSuvs4pQbaQwvh10Y8FSJyC0AGhK7PNI27wdDgegaP8Xv5CpkvkdebCQS5CrIkDAlHFlFuH7WIhXYdRdesFn9BrGu6bsMe3ERzpvFeqb8tU9cJ3Ygq_-Trn1ET6bKtQqcCVad_3-C1c6cQdayQKWY_T_OLpXYJeDuGSAJF65xEWj11aqlSgPfPEdu88ghYZ3_pxH2UbuvJtIYl1k8O4p00EqBt56a1VIdO9PZBeM5Y";
-
-const BEER_IMAGES: Record<string, string> = {
-  "c3d4e5f6-3333-4000-8000-000000000003":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuBNqmY42My6UBKkBtKYI2_hXGnKXWNLPT2CBHqAG3XuW8SmioRD6yTI2aPkCP-VPzuPtuBkB3ezOXYg1frhXY8YgwePpMo9hmpdiS7MUq9sDTW9Vz6khbpvEQ6f1fqm2TLDPLq2kFzlEz22CWShnKDCusxULA85I-kIJEb1w8TtA8g6qLS5HgHpvUedgrH2p9mpSR0tw-LiWZxuVPvwrPOIaurfHKsRCerRt-e-Gncxf_LeuiGgWl-v1mKaSJfzpV-0IxMHtbz4mj8",
-  "c3d4e5f6-3333-4000-8000-000000000004":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuAWFvWaROYCwhfT0Dlp3OZyQuKfLHqq5RdNRkiNKHUw4pUDN9BR6XWh0EWA9im1cRpmDE0Qlb5gQe0NllTPQqBceN_glb0RJspFmX9Py3v4eLWymlc22tj_jmMpYetVtM_bttjpYLuP3Eci-gd-IJ6xXfqFfjajr7Z_NzXlSkc7h7hu6iK2K8avze_5wCjrneicSSB91C_PYihIxhKBS7AcY_xCinQQqCW4H-5mDC_jrMCchOrXjWBkt2V5GHiqZnufNn3HiOtdYjI",
-  "c3d4e5f6-3333-4000-8000-000000000005":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuB26DD15X5fE1sHI6R7VUD2V4kRBUO0b2PfZiQfB-NmRWk33YWyCmATtvz0YAsatPiWmRFUjvMZGP05MvHoPJsylQkdcyKY7FaJhhBUKorRFoL286i6DDYyZCjkcnowh03NxZPjw4uAC57H_7Gzm9vlZZTXSUmX2rSV9JPukS3YQv3HMIpoLrJNU1xLIbYbYyZ6SpQVHFb8dmL_43am4MIakTlV8xSrSkPZenYzHiSsBHQYCqq-2sOL1UruxyjIeIW8B5SSGQSybvA",
-  "c3d4e5f6-3333-4000-8000-000000000006":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDw2Zk-c2QWStCZCOi72AcJkbBxD3YyQOK7SYi2sxhRDo3ikEIq4IJnhILPwIQCfRUwVJ-N59KGeXgWN7NiQ-WlpB-lkHCicLCYDiA6LLBSJLNWTASAOiY4s8yD802mEFgA9NJDt6Ptz-Td17TxjCl_qpACbOXihf6kUP_CaLarDYBS9CeeU31eQrDacaMDURAQJpICSP24C0ME92QUR90lGzWKHMN8JB63zkm3jrVXfLtPazxIyMPKI07s-TO_FsB5xEjfzCqNS24",
-  "c3d4e5f6-3333-4000-8000-000000000007":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDAA6DPR_ZVbBiJkYTA2WZ2NUgv_NiHUvCogzjw1Ms4qhIuhNQyfPxai_YdxmGSyrz68GuOnbhiUvYEigfF94j5HfPonCl2o-SjUxPi3w4HYeKeGEElNoK3nqy-kwKfJygLMWxo0m0TJQsdzoBiRcLoIJ5a-7zEvJ7H4DyunrWiTR9MvPutX-fyR-bo9B4MG-ufY7ZJojiRFYTXhbXmtZ4_25CylFnZWmUv-Ka3MNU1taHNhJriY3nZtM7hHlaPr5Aywz_890D-Jgg",
-};
-
-const DEFAULT_BEER_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCpEuUEitOUeX5pH_pOdwceHDy4m3H2DZ1NmJ9D0o6G9vjy-fQYUYZgIAiJqlkMvnS-l23hKO0WhvhvX71LX2Y6II294XtOuBR5JREeE9-5k2_ooAOw9j64osHC-tgizgjWXvK_zP5h8Ta7kdzlDAJDbNQ9BjiIfLfGFc0PuYp2b8I-WU8tfuOw8MMcH2nZUUuqu2hDkIWpGoZbJ3P_hH76X96mN8QHpbzTi_K4GeQY03uVpFQHHn-gEoufO7zb4eXxnC6LDRzwNe4";
+const DEFAULT_IMAGE = "/placeholder.svg";
 
 export default async function BreweryDetailPage(
   props: PageProps<"/breweries/[id]">
@@ -48,7 +16,6 @@ export default async function BreweryDetailPage(
   }
 
   const { items: breweryBeers } = await listBeersByBrewery(brewery.id);
-  const heroImage = BREWERY_HERO_IMAGES[brewery.id] ?? DEFAULT_HERO_IMAGE;
   const initial = brewery.name[0]?.toUpperCase() ?? "B";
   const yearsActive = new Date().getFullYear() - brewery.established;
 
@@ -61,7 +28,7 @@ export default async function BreweryDetailPage(
           <img
             className="w-full h-full object-cover"
             alt={brewery.name}
-            src={heroImage}
+            src={brewery.imageUrl ?? DEFAULT_IMAGE}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
           <div className="absolute bottom-0 left-0 w-full px-6 pb-8">
@@ -195,7 +162,6 @@ export default async function BreweryDetailPage(
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {breweryBeers.map((beer) => {
-                  const beerImage = BEER_IMAGES[beer.id] ?? DEFAULT_BEER_IMAGE;
                   return (
                     <Link
                       key={beer.id}
@@ -207,7 +173,7 @@ export default async function BreweryDetailPage(
                         <img
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           alt={beer.name}
-                          src={beerImage}
+                          src={beer.imageUrl ?? DEFAULT_IMAGE}
                         />
                       </div>
                       <div className="p-6">

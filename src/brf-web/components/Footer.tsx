@@ -9,9 +9,9 @@ export default function Footer() {
           <p className="text-xs text-stone-500 mt-1">© 2024 Brewfolio komunita</p>
         </div>
         <div className="flex gap-8">
-          <Link className="text-xs text-stone-500 hover:text-orange-500 hover:underline transition-all" href="/soukromi">Soukromí</Link>
-          <Link className="text-xs text-stone-500 hover:text-orange-500 hover:underline transition-all" href="/podminky">Podmínky</Link>
-          <Link className="text-xs text-stone-500 hover:text-orange-500 hover:underline transition-all" href="/kontakt">Kontakt</Link>
+          <Link className="text-xs text-stone-500 hover:text-orange-500 hover:underline transition-all" href="/privacy">Soukromí</Link>
+          <Link className="text-xs text-stone-500 hover:text-orange-500 hover:underline transition-all" href="/terms">Podmínky</Link>
+          <Link className="text-xs text-stone-500 hover:text-orange-500 hover:underline transition-all" href="/contact">Kontakt</Link>
         </div>
         <div className="flex gap-4">
           <span className="material-symbols-outlined text-stone-400 hover:text-orange-600 cursor-pointer transition-colors">public</span>

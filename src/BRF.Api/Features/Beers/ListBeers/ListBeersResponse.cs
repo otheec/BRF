@@ -14,6 +14,7 @@ public class BeerListItem
     public decimal? Abv { get; set; }
     public int? Ibu { get; set; }
     public string? Description { get; set; }
+    public string? ImageUrl { get; set; }
     public Guid BreweryId { get; set; }
     public string BreweryName { get; set; } = string.Empty;
 }

@@ -35,6 +35,7 @@ public class ListVenuesEndpoint : Endpoint<ListVenuesRequest, ListVenuesResponse
                 City = v.City,
                 Country = v.Country,
                 Description = v.Description,
+                ImageUrl = v.ImageUrl,
                 Amenities = v.Amenities,
             })
             .ToListAsync(ct);

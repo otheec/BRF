@@ -8,6 +8,7 @@ public class Beer
     public decimal? Abv { get; set; }
     public int? Ibu { get; set; }
     public string? Description { get; set; }
+    public string? ImageUrl { get; set; }
     public Guid BreweryId { get; set; }
     public Brewery Brewery { get; set; } = null!;
     public DateTime CreatedAt { get; set; }

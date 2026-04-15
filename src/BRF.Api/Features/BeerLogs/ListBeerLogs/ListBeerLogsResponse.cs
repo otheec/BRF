@@ -15,4 +15,5 @@ public class BeerLogItem
     public DateTime LoggedAt { get; set; }
     public int? Rating { get; set; }
     public string? Notes { get; set; }
+    public string? BeerImageUrl { get; set; }
 }

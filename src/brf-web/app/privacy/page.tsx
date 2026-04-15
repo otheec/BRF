@@ -23,7 +23,7 @@ export default function PrivacyPage() {
             <p className="text-stone-600 leading-relaxed">
               Správcem vašich osobních údajů je Brewfolio. V případě dotazů nás
               můžete kontaktovat prostřednictvím{" "}
-              <Link href="/kontakt" className="text-orange-600 hover:text-orange-700 font-semibold">
+              <Link href="/contact" className="text-orange-600 hover:text-orange-700 font-semibold">
                 kontaktního formuláře
               </Link>.
             </p>

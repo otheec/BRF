@@ -21,29 +21,7 @@ const OPENING_HOURS = [
   { days: "Neděle", hours: "11:00 – 21:00", highlight: false },
 ];
 
-const VENUE_HERO_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBVEDQPJbQGdvGQSrCPPM9tRwr6sHddb-cCZ-L0r9XIjqYX8vimVLT1wxq5RueKFA9BUxjvBG14Ezkji0GPRYW9F1wlZFKiK7OtYj0ag3YPeg8P7ZKQeuQybWmbZvpeWMc_GtGCIFSor54KxAwSpa_1NueNUeD-sI2jtMjB2yUJOhv1FBHx2f2SQprb2w1zvrtnLMqo9ifl-S2ac3_4cISrITAnWmQ3CDIhiQ9NXiAQYY-gm-QKoE52JTInJpex2X9H7ZdiWp9Ae28";
-
-const GALLERY_IMAGES = [
-  {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCEGaDGqxRJkkZuquzWHquAcDSoV5Fifnd9FQ5C6JE8LXty5L0OtYW7dUDV24rGpfx8YeKlJxxusjYZ14wv6tbLHFlCWXMA0jDwCLtDyWhGTs76uM5fovaz5JvcJNRWPztk0tVoUSETzVVA3VaRG73Cr2g3PxpEuUN4wyteX69vBV7FAvlJu9wPZS13UQHuTkn8KGtSeIAswnh4LH47zGZhgYR4wASalHyKN-oAgK4_GN5964zCd5pZCuoo1IbxEiCQdMYZbYWIxJQ",
-    alt: "Main Lounge",
-    span: true,
-  },
-  {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBVeDFQeLJuxzfFIVBo_JmJBRMNVFjpzlrWz4rgmBTiyatClheekYdlFWAolPeiD6W4n32V7XbV4Kndh30VDQ4gwipV4Csbu-4znyo49D_lJ7NKce018kZftCi4_gOtaeD2cJlQCvdTkYAZ2sg--FKyMPC9wJ0xLOjfi3EzQoXHg-ftarJplK8rL3bHIKVHr6heRenfvp_WtPqC-CU8v3c2zyvry88hcypREY_7gn6-_BLiWaw_ro4dJyX22482es91oSWlvsQASdY",
-    alt: "Beer Detail",
-    span: false,
-  },
-  {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDLw4UPFZypFSEnHqvI_Ch88m1CPfaZXYjJjIyoObPUeSVzCv68DMjlS3OukTvk0zgryqrD1KW28ascnJyvMy7heXBDfBGhidU0mLwPN3mEBYxgWLYb5hCzlvRm6ZJz-35TbqVXtgpTfJw4sPK881KtEpcdq7aIrrJ62Of7x0BWTM2XVx-LRmXL1V35A82VfCbYejT0t46GZIz0FKng6cDBfFZd6TjXyp4nzH6ORp6GM8rkXxwl4cv7e-ou54KDOU0PrdaiKz4J8wc",
-    alt: "Outdoor Deck",
-    span: false,
-  },
-];
-
-const MAP_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDEqT-Nf8SzL3rMkPbaLpp1hWCSQ43JXPlXP2sioKzfrpOn43Gj20AOM06TxxoCo2pd584fomZ4iVzCyxNvdCr4m0vCbJxJRcvdaaeoqriWQ_xc0JQZlmXdK26-Wwj6_HAbU5iOlIL5VkrLjoJo9zJXSlmYMacqGWTewRVfgg4Y2pc0U0civf6a72pD64BuZqkySzve_svd4wdxSMFHdBHtWduUq0TzC8_tJMLR5xSjhktm3UNJdU3RFjRN3XH3tSNR9qKhXruzooQ";
+const DEFAULT_IMAGE = "/placeholder.svg";
 
 export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) {
   const { id } = await props.params;
@@ -61,7 +39,7 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
           <img
             alt={venue.name}
             className="w-full h-full object-cover"
-            src={VENUE_HERO_IMAGE}
+            src={venue.imageUrl ?? DEFAULT_IMAGE}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
           <div className="absolute bottom-0 left-0 w-full p-8 md:p-12">
@@ -151,18 +129,19 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
                 Galerie místa
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {GALLERY_IMAGES.map((img) => (
-                  <div
-                    key={img.alt}
-                    className={`overflow-hidden rounded-xl ${img.span ? "col-span-2 row-span-2" : "h-48"}`}
-                  >
+                {venue.imageUrl ? (
+                  <div className="overflow-hidden rounded-xl col-span-2 row-span-2">
                     <img
-                      alt={img.alt}
+                      alt={venue.name}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                      src={img.src}
+                      src={venue.imageUrl}
                     />
                   </div>
-                ))}
+                ) : (
+                  <div className="overflow-hidden rounded-xl col-span-2 row-span-2 h-64 bg-stone-100 flex items-center justify-center">
+                    <span className="material-symbols-outlined text-stone-300 text-6xl">image</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -196,12 +175,8 @@ export default async function VenueDetailPage(props: PageProps<"/venues/[id]">) 
                 <h3 className="text-lg font-black text-stone-900 mb-2">Poloha</h3>
                 <p className="text-sm text-stone-500">{venue.city}, {venue.country}</p>
               </div>
-              <div className="h-64 bg-stone-200">
-                <img
-                  alt="Poloha na mapě"
-                  className="w-full h-full object-cover"
-                  src={MAP_IMAGE}
-                />
+              <div className="h-64 bg-stone-200 flex items-center justify-center">
+                <span className="material-symbols-outlined text-stone-400 text-4xl">map</span>
               </div>
             </div>
 

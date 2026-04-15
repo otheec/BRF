@@ -2,13 +2,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getArticle, listArticles, formatDate } from "@/lib/api";
 
-const DEFAULT_HERO =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAjipW3aybNi9uK_TAIYPJ5QaRthgjHht38BmxHarenK6-jCwzhgNe-C6Te6ckkGNLl2I31Rkfv8c-VZ0neCy5rapQNpTiAW8Stlqw1FXwN27SMUzzLeLoArqOGTOD69ubXaybYBViLS4jNahYsnLY2GGUfSHZYno2Sbz-0tJEpUFLFkW2TTBYcoOWwsciD4zK01nDxVdZ4zFXFomWQd1Ltnrff7vkYI_0wmzkJZKRlqfK9yygsk7hAykyZpSWmYLcPIJ4ZioYiLCI";
+const DEFAULT_HERO = "/placeholder.svg";
 
-const AUTHOR_AVATARS: Record<string, string> = {
-  "Marcus Thorne":
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDIM28QpM5nu86SlyrhDXcmbPoNTyEUPnWLzlW24jYmUmuNTM2ab3Tlpp1MGxDe5EbNO6D8gcv64DfXZB1qnku6PlgyJY6jjDCYavmgoo1tlNvfUuCFPIFqrSDcjiz9fJzDIsanUhQuozYXlPx1yDKiuzVvrlB1rb62ZZmO4x_Euh3keknOgSoPcj1NkONqRwCYiGMiW-Cl2xy7cz4Awecpq96gdN4Fg8Qw5BSnU9EfuN2m8NSoVeaVVW8qjHdbz3gnPY7UqY50_dM",
-};
+const AUTHOR_AVATARS: Record<string, string> = {};
 
 function getAuthorDisplayName(authorId: string): string {
   const isGuidLike =

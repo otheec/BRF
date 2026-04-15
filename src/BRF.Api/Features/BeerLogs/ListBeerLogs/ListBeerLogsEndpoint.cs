@@ -41,6 +41,7 @@ public class ListBeerLogsEndpoint : Endpoint<ListBeerLogsRequest, ListBeerLogsRe
                 LoggedAt = l.LoggedAt,
                 Rating = l.Rating,
                 Notes = l.Notes,
+                BeerImageUrl = l.Beer.ImageUrl,
             })
             .ToListAsync(ct);
 

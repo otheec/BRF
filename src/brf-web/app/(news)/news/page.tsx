@@ -2,8 +2,7 @@ import Link from "next/link";
 import { listArticles, formatDate } from "@/lib/api";
 import PageHeader from "@/components/PageHeader";
 
-const DEFAULT_CARD_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAjipW3aybNi9uK_TAIYPJ5QaRthgjHht38BmxHarenK6-jCwzhgNe-C6Te6ckkGNLl2I31Rkfv8c-VZ0neCy5rapQNpTiAW8Stlqw1FXwN27SMUzzLeLoArqOGTOD69ubXaybYBViLS4jNahYsnLY2GGUfSHZYno2Sbz-0tJEpUFLFkW2TTBYcoOWwsciD4zK01nDxVdZ4zFXFomWQd1Ltnrff7vkYI_0wmzkJZKRlqfK9yygsk7hAykyZpSWmYLcPIJ4ZioYiLCI";
+const DEFAULT_CARD_IMAGE = "/placeholder.svg";
 
 export default async function NewsPage() {
   const { items: articles } = await listArticles(0, 50);

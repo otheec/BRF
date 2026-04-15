@@ -112,7 +112,7 @@ export default function TermsPage() {
             <p className="text-stone-600 leading-relaxed">
               V případě dotazů ohledně těchto podmínek nás kontaktujte
               prostřednictvím{" "}
-              <Link href="/kontakt" className="text-orange-600 hover:text-orange-700 font-semibold">
+              <Link href="/contact" className="text-orange-600 hover:text-orange-700 font-semibold">
                 kontaktní stránky
               </Link>.
             </p>

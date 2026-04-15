@@ -13,4 +13,5 @@ public class BeerByBreweryItem
     public decimal? Abv { get; set; }
     public int? Ibu { get; set; }
     public string? Description { get; set; }
+    public string? ImageUrl { get; set; }
 }

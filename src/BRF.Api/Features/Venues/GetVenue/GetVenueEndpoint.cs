@@ -39,6 +39,7 @@ public class GetVenueEndpoint : Endpoint<GetVenueRequest, GetVenueResponse>
             City = venue.City,
             Country = venue.Country,
             Description = venue.Description,
+            ImageUrl = venue.ImageUrl,
             Amenities = venue.Amenities,
             CreatedAt = venue.CreatedAt,
         }, ct);
